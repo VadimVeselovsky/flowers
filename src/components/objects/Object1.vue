@@ -6,8 +6,8 @@
       object_activated: isActivated,
     }"
   >
-    <audio controls preload ref="audio">
-      <source src="@/assets/sounds/1.mp3" type="audio/mp3" />
+    <audio preload ref="audio">
+      <source :src="audioSrc" type="audio/mp3" />
     </audio>
     <div class="object__image-wrapper">
       <img class="object__image" src="@/assets/images/1.jpg" />
@@ -30,6 +30,13 @@
 
 <script>
 export default {
+  props: {
+    audio: {
+      type: String,
+      required: true,
+    },
+  },
+
   emits: ["activate"],
 
   data() {
@@ -40,12 +47,20 @@ export default {
 
   methods: {
     activate() {
-      this.$refs.audio.play();
+      const audio = this.$refs.audio;
+
+      audio.play();
       this.isActivated = true;
     },
 
     deactivate() {
       this.isActivated = false;
+    },
+  },
+
+  computed: {
+    audioSrc() {
+      return new URL(`../../assets/sounds/${this.audio}.mp3`, import.meta.url).href;
     },
   },
 };

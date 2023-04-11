@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <div class="app__content-wrapper">
-      <Object1 style="position: absolute; left: 40%; top: 20%" />
-      <Object1 style="position: absolute; left: 50%; top: 50%" />
-      <Object1 style="position: absolute; right: 40%; bottom: 15%" />
+      <Object1 audio="1" style="position: absolute; left: 40%; top: 20%" />
+      <Object1 audio="1" style="position: absolute; left: 50%; top: 50%" />
+      <Object1 audio="krug" style="position: absolute; right: 40%; bottom: 15%" />
     </div>
   </div>
 </template>
