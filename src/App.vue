@@ -1,12 +1,25 @@
 <template>
   <div class="app">
     <div class="app__content-wrapper">
-      <div class="obj">
-        The action and the movements chronically blocked, through the body retroflection
-        process, determine a distortion of the bodily life, the development of somatic
-        tensions and inhibition, and hence the emergence of psychosomatic symptoms.
+      <div class="content-block">
+        <Section1 />
+
+        <!--<div class="content-block__item" style="left: 30%; top: 15%; width: 55%">
+        we can learn a chronic and unaware way of blocking our body expressions,<br /><br />the
+        movements that could potentially give a full form to the communication of our
+        needs
+        </div>
+        
+        <div class="content-block__item" style="left: 62%; top: 63%; width: 37%">
+        The process through which the movement is inhibited and blocked is called
+        retroflection.
+        </div>
+        <div class="content-block__item" style="left: 2%; top: 66%; width: 41%">
+        The person, fearing risk and humiliation, criticism, environment rejection,
+        stops and reverses the energy
+        </div>-->
       </div>
-      <div class="obj">
+      <!--<div class="obj">
         The first form of retroflection is the literal reversal onto oneself of the action
         one wants to do to the environment
       </div>
@@ -45,25 +58,41 @@
         the blocks he has put<br />
         <br />
         between himself and the environment
-      </div>
-      <!--<Object1 audio="1" style="position: absolute; left: 40%; top: 20%" />
-      <Object1 audio="1" style="position: absolute; left: 50%; top: 50%" />
-      <Object1 audio="krug" style="position: absolute; right: 40%; bottom: 15%" />-->
+      </div>-->
     </div>
   </div>
 </template>
 
 <script>
-import Object1 from "./components/objects/Object1.vue";
+import Section1 from "@/components/objects/Section1.vue";
 
 export default {
-  components: { Object1 },
+  components: { Section1 },
+
+  mounted() {
+    document.addEventListener("scroll", this.onScroll);
+  },
+
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.onScroll);
+  },
+
+  methods: {
+    onScroll() {
+      const scrollTop = window.scrollY,
+        screenHeight = document.body.clientHeight,
+        animationStage = scrollTop / (document.body.scrollHeight - screenHeight);
+      document.querySelector(":root").style.setProperty("--scroll", animationStage);
+      // this.$refs.qwe.style.transform = `translate(-${
+      // animationStage * 100
+      // }px, ${scrollTop}px) scale(${animationStage * 1 + 1})`;
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 
@@ -74,12 +103,23 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 200px 0;
   }
 }
-</style>
 
-<style scoped>
+.content-block {
+  height: 102vh;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+
+  &__item {
+    position: absolute;
+    font-size: 45px;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+  }
+}
+
 header {
   line-height: 1.5;
 }
@@ -105,14 +145,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
-
-.obj {
-  width: 700px;
-  height: 700px;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>
