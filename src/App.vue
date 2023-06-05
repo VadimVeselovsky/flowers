@@ -1,15 +1,9 @@
 <template>
-  <div class="content-block">
-    <Section1 />
-  </div>
-  <div class="content-block" style="background: red"></div>
-  <div class="content-block"></div>
+  <Section1 />
 </template>
 
 <script>
 import Section1 from "@/components/objects/Section1.vue";
-
-const numberOfSections = 3;
 
 export default {
   components: { Section1 },
@@ -37,15 +31,13 @@ export default {
 
 <style lang="scss">
 .content-block {
-  height: 200vh;
   margin: 0 auto;
-  position: relative;
 
   &-item {
+    position: relative;
     font-size: 45px;
     line-height: 1.25;
     letter-spacing: 0.5px;
-    height: 100%;
   }
 }
 </style>
