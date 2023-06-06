@@ -1,8 +1,8 @@
 <template>
   <div class="content-block-item section1">
-    <img class="section1__img1" src="@/assets/images/IMG_1599.png" ref="img1" />
-    <img class="section1__img2" src="@/assets/images/IMG_1598.png" ref="img2" />
-    <img class="section1__img3" src="@/assets/images/IMG_1596.png" ref="img3" />
+    <img class="section1__img1" src="@/assets/images/IMG_1599.webp" ref="img1" />
+    <img class="section1__img2" src="@/assets/images/IMG_1598.webp" ref="img2" />
+    <img class="section1__img3" src="@/assets/images/IMG_1596.webp" ref="img3" />
     <div class="section1__text" ref="text">
       everything would be blocked, frozen:<br /><br />
       contact with pleasant sensations in his body was for him a source of fear
@@ -52,7 +52,8 @@ export default {
 
 <style lang="scss" scoped>
 .section1 {
-  height: 100vh;
+  height: 200vh;
+  overflow: hidden;
 
   &__img1 {
     transform-origin: center;
@@ -85,7 +86,7 @@ export default {
     transform-origin: center;
     position: absolute;
     left: 40%;
-    top: 45%;
+    top: 450px;
     font-size: 25px;
   }
 }
