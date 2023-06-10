@@ -1,6 +1,5 @@
 <template>
   <div class="content-block-item section1">
-    <img src="@/assets/images/section2/4.gif" />
     <div class="wrapper" ref="wrapper">
       <img class="section1__img1" src="@/assets/images/section2/1.webp" ref="img1" />
       <video class="section1__img2" autoplay loop muted ref="img2">
@@ -25,11 +24,10 @@
 </template>
 
 <script>
-// const animf1 = x =>
-
 export default {
   mounted() {
     document.addEventListener("scroll", this.onScroll);
+    this.makeTransformsForStage(0);
   },
 
   beforeDestroy() {
@@ -37,6 +35,19 @@ export default {
   },
 
   methods: {
+    makeTransformsForStage(progress) {
+      if (!this.$refs.img1) return;
+      this.$refs.img1.style.transform = `scale(${1 - 0.4 * (1 - progress)}) translate(-${
+        (1 - progress) * 823
+      }px, -${(1 - progress) * 1431}px) rotate(${50 - 13 * (1 - progress)}deg)`;
+      this.$refs.img2.style.transform = `scale(${1 + 1.12 * (1 - progress)}) translate(-${
+        168 * (1 - progress)
+      }px, ${83 * (1 - progress)}px)`;
+      this.$refs.img3.style.transform = `scale(${1 - 0.4 * (1 - progress)}) translate(${
+        (1 - progress) * 946
+      }px, -${(1 - progress) * 99}px) rotate(${37 - 8 * (1 - progress)}deg)`;
+    },
+
     onScroll() {
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
@@ -45,28 +56,22 @@ export default {
         progress = scrollY / (rect.height - window.innerHeight),
         wrapper = this.$refs.wrapper;
 
+      console.log(progress);
+
       if (0 <= progress && progress <= 1) {
         // progress *= 2;
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
-        /*this.$refs.text.style.transform = `translate(${-progress * 150}px, ${
-          progress * 0
-        }px) scale(${progress * 0.25 + 1})`;
-        this.$refs.img1.style.transform = `translateX(${-progress * 50}px) scale(${
-          progress * 0.3 + 1
-        })`;
-        this.$refs.img2.style.transform = `translate(${progress * 100}px, ${
-          progress * 10
-        }px) scale(${progress * 0.25 + 1})`;
-        this.$refs.img3.style.transform = `translate(${progress * 540}px, ${
-          progress * 70
-        }px) scale(${progress * 0.6 + 1})`;
-        this.$refs.img4.style.transform = `translate(${-progress * 250}px, ${
-          progress * 10
-        }px) scale(${progress * 0.35 + 1})`;
-        this.$refs.img5.style.transform = `translate(${-progress * 390}px, ${
-          progress * 200
-        }px) scale(${progress * 0.6 + 1})`;*/
+        this.makeTransformsForStage(progress);
+        // this.$refs.text.style.transform = `translate(${-progress * 150}px, ${
+        // progress * 0
+        // }px) scale(${progress * 0.25 + 1})`;
+        // this.$refs.img4.style.transform = `translate(${-progress * 250}px, ${
+        // progress * 10
+        // }px) scale(${progress * 0.35 + 1})`;
+        // this.$refs.img5.style.transform = `translate(${-progress * 390}px, ${
+        // progress * 200
+        // }px) scale(${progress * 0.6 + 1})`;
 
         wrapper.style.position = "fixed";
       } else {
@@ -102,22 +107,21 @@ export default {
 }
 
 .section1 {
-  height: 100%;
-
+  height: 600vh;
   &__img1 {
     transform-origin: center;
     width: 2000px;
-    top: -398px;
+    top: 2px;
     position: absolute;
     right: -786px;
     z-index: 5;
-    transform: rotate(50deg);
+    // transform: rotate(50deg);
   }
 
   &__img2 {
     transform-origin: center;
     width: 569px;
-    top: -340px;
+    top: 60px;
     position: absolute;
     right: -28px;
     z-index: 4;
@@ -126,21 +130,21 @@ export default {
   &__img3 {
     transform-origin: center;
     width: 4200px;
-    top: -2047px;
+    top: -375px;
     position: absolute;
-    left: -2530px;
-    z-index: 0;
-    transform: rotate(47deg);
+    left: -1858px;
+    z-index: 5;
+    // transform: rotate(37deg);
   }
 
   &__img4 {
     transform-origin: center;
     width: 1226px;
-    top: 715px;
+    top: 1115px;
     position: absolute;
     right: 123px;
     z-index: 50;
-    transform: rotate(3deg);
+    // transform: rotate(3deg);
   }
 
   &__img5 {
@@ -156,17 +160,17 @@ export default {
     transform-origin: center;
     position: absolute;
     left: calc(42% - 300px);
-    top: 23px;
+    top: 423px;
     font-size: 51px;
     width: 1221px;
-    z-index: 10;
+    z-index: 3;
   }
 
   &__text2 {
     transform-origin: center;
     position: absolute;
-    left: 80px;
-    top: 1007px;
+    left: 153px;
+    top: 1431px;
     font-size: 51px;
     width: 1330px;
   }

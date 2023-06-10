@@ -1,11 +1,8 @@
 <template>
-  <div style="100vh">
-    <Section1 />
-  </div>
-  <div style="height: 230vh"></div>
-  <div style="100vh">
-    <Section2 />
-  </div>
+  <Section1 />
+  <div style="height: 150vh"></div>
+  <Section2 />
+  <div style="height: 250vh"></div>
 </template>
 
 <script>

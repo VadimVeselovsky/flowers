@@ -19,6 +19,7 @@
 
 export default {
   mounted() {
+    this.onScroll();
     document.addEventListener("scroll", this.onScroll);
   },
 
@@ -94,7 +95,7 @@ export default {
 }
 
 .section1 {
-  height: 1000vh;
+  height: 700vh;
 
   &__img1 {
     transform-origin: center;
