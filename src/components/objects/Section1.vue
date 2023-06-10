@@ -1,12 +1,32 @@
 <template>
   <div class="content-block-item section1">
-    <div class="wrapper" ref="wrapper">
-      <img class="section1__img1" src="@/assets/images/IMG_1599.webp" ref="img1" />
-      <img class="section1__img2" src="@/assets/images/IMG_1598.webp" ref="img2" />
-      <img class="section1__img3" src="@/assets/images/IMG_1608.webp" ref="img3" />
-      <img class="section1__img4" src="@/assets/images/IMG_1610.webp" ref="img4" />
-      <img class="section1__img5" src="@/assets/images/IMG_1611.webp" ref="img5" />
-      <div class="section1__text" ref="text">
+    <div :style="wrapperStyle" class="wrapper">
+      <img
+        :style="{ transform: transforms.img1 }"
+        class="section1__img1"
+        src="@/assets/images/IMG_1599.webp"
+      />
+      <img
+        :style="{ transform: transforms.img2 }"
+        class="section1__img2"
+        src="@/assets/images/IMG_1598.webp"
+      />
+      <img
+        :style="{ transform: transforms.img3 }"
+        class="section1__img3"
+        src="@/assets/images/IMG_1608.webp"
+      />
+      <img
+        :style="{ transform: transforms.img4 }"
+        class="section1__img4"
+        src="@/assets/images/IMG_1610.webp"
+      />
+      <img
+        :style="{ transform: transforms.img5 }"
+        class="section1__img5"
+        src="@/assets/images/IMG_1611.webp"
+      />
+      <div :style="{ transform: transforms.text }" class="section1__text">
         everything would be blocked, frozen:<br /><br />
         contact with pleasant sensations in his body was for him a source of fear
       </div>
@@ -18,6 +38,24 @@
 // const animf1 = x =>
 
 export default {
+  data() {
+    return {
+      transforms: {
+        img1: null,
+        img2: null,
+        img3: null,
+        img4: null,
+        img5: null,
+        text: null,
+      },
+      wrapperStyle: {
+        top: null,
+        bottom: null,
+        position: null,
+      },
+    };
+  },
+
   mounted() {
     this.onScroll();
     document.addEventListener("scroll", this.onScroll);
@@ -33,50 +71,49 @@ export default {
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / (rect.height - window.innerHeight),
-        wrapper = this.$refs.wrapper;
+        progress = scrollY / (rect.height - window.innerHeight);
 
       if (0 <= progress && progress <= 1) {
         // progress *= 2;
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
-        this.$refs.text.style.transform = `translate(${-progress * 150}px, ${
+        this.transforms.text = `translate(${-progress * 150}px, ${
           progress * 0
         }px) scale(${progress * 0.25 + 1})`;
-        this.$refs.img1.style.transform = `translateX(${-progress * 50}px) scale(${
+        this.transforms.img1 = `translateX(${-progress * 50}px) scale(${
           progress * 0.3 + 1
         })`;
-        this.$refs.img2.style.transform = `translate(${progress * 100}px, ${
+        this.transforms.img2 = `translate(${progress * 100}px, ${
           progress * 10
         }px) scale(${progress * 0.25 + 1})`;
-        this.$refs.img3.style.transform = `translate(${progress * 540}px, ${
+        this.transforms.img3 = `translate(${progress * 540}px, ${
           progress * 70
         }px) scale(${progress * 0.6 + 1})`;
-        this.$refs.img4.style.transform = `translate(${-progress * 250}px, ${
+        this.transforms.img4 = `translate(${-progress * 250}px, ${
           progress * 10
         }px) scale(${progress * 0.35 + 1})`;
-        this.$refs.img5.style.transform = `translate(${-progress * 390}px, ${
+        this.transforms.img5 = `translate(${-progress * 390}px, ${
           progress * 200
         }px) scale(${progress * 0.6 + 1})`;
 
-        wrapper.style.position = "fixed";
+        this.wrapperStyle.position = "fixed";
       } else {
         if (1 < progress && progress <= 2) {
-          wrapper.style.position = "fixed";
-          wrapper.style.top =
+          this.wrapperStyle.position = "fixed";
+          this.wrapperStyle.top =
             (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
               2 *
               (rect.height - window.innerHeight) +
             "px";
-          wrapper.style.bottom = "unset";
+          this.wrapperStyle.bottom = "unset";
         } else {
-          wrapper.style.position = "absolute";
+          this.wrapperStyle.position = "absolute";
           if (progress > 1) {
-            wrapper.style.bottom = 0;
-            wrapper.style.top = "unset";
+            this.wrapperStyle.bottom = 0;
+            this.wrapperStyle.top = "unset";
           } else {
-            wrapper.style.top = 0;
-            wrapper.style.bottom = "unset";
+            this.wrapperStyle.top = 0;
+            this.wrapperStyle.bottom = "unset";
           }
         }
       }

@@ -1,21 +1,37 @@
 <template>
   <div class="content-block-item section1">
-    <div class="wrapper" ref="wrapper">
-      <img class="section1__img1" src="@/assets/images/section2/1.webp" ref="img1" />
-      <video class="section1__img2" autoplay loop muted ref="img2">
+    <div :style="wrapperStyle" class="wrapper">
+      <img
+        :style="{ transform: transforms.img1 }"
+        class="section1__img1"
+        src="@/assets/images/section2/1.webp"
+      />
+      <video
+        :style="{ transform: transforms.img2 }"
+        class="section1__img2"
+        autoplay
+        loop
+        muted
+      >
         <source src="@/assets/images/section2/2.webm" type="video/webm" />
       </video>
-      <video class="section1__img3" autoplay loop muted ref="img3">
+      <video
+        :style="{ transform: transforms.img3 }"
+        class="section1__img3"
+        autoplay
+        loop
+        muted
+      >
         <source src="@/assets/images/section2/3.webm" type="video/webm" />
       </video>
-      <video class="section1__img4" autoplay loop muted ref="img4">
+      <video class="section1__img4" autoplay loop muted>
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
-      <div class="section1__text1" ref="text1">
+      <div class="section1__text1">
         The movement is not turned on oneself, but countered by equal muscular force in
         the opposing muscle groups
       </div>
-      <div class="section1__text2" ref="text2">
+      <div class="section1__text2">
         In these cases the blocked action manifests itself as tension and immobility in
         the muscular groups involved.
       </div>
@@ -25,6 +41,21 @@
 
 <script>
 export default {
+  data() {
+    return {
+      transforms: {
+        img1: null,
+        img2: null,
+        img3: null,
+      },
+      wrapperStyle: {
+        top: null,
+        bottom: null,
+        position: null,
+      },
+    };
+  },
+
   mounted() {
     document.addEventListener("scroll", this.onScroll);
     this.makeTransformsForStage(0);
@@ -36,14 +67,13 @@ export default {
 
   methods: {
     makeTransformsForStage(progress) {
-      if (!this.$refs.img1) return;
-      this.$refs.img1.style.transform = `scale(${1 - 0.4 * (1 - progress)}) translate(-${
+      this.transforms.img1 = `scale(${1 - 0.4 * (1 - progress)}) translate(-${
         (1 - progress) * 823
       }px, -${(1 - progress) * 1431}px) rotate(${50 - 13 * (1 - progress)}deg)`;
-      this.$refs.img2.style.transform = `scale(${1 + 1.12 * (1 - progress)}) translate(-${
+      this.transforms.img2 = `scale(${1 + 1.12 * (1 - progress)}) translate(-${
         168 * (1 - progress)
       }px, ${83 * (1 - progress)}px)`;
-      this.$refs.img3.style.transform = `scale(${1 - 0.4 * (1 - progress)}) translate(${
+      this.transforms.img3 = `scale(${1 - 0.4 * (1 - progress)}) translate(${
         (1 - progress) * 946
       }px, -${(1 - progress) * 99}px) rotate(${37 - 8 * (1 - progress)}deg)`;
     },
@@ -53,8 +83,7 @@ export default {
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / (rect.height - window.innerHeight),
-        wrapper = this.$refs.wrapper;
+        progress = scrollY / (rect.height - window.innerHeight);
 
       console.log(progress);
 
@@ -63,33 +92,24 @@ export default {
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
         this.makeTransformsForStage(progress);
-        // this.$refs.text.style.transform = `translate(${-progress * 150}px, ${
-        // progress * 0
-        // }px) scale(${progress * 0.25 + 1})`;
-        // this.$refs.img4.style.transform = `translate(${-progress * 250}px, ${
-        // progress * 10
-        // }px) scale(${progress * 0.35 + 1})`;
-        // this.$refs.img5.style.transform = `translate(${-progress * 390}px, ${
-        // progress * 200
-        // }px) scale(${progress * 0.6 + 1})`;
 
-        wrapper.style.position = "fixed";
+        this.wrapperStyle.position = "fixed";
       } else {
         if (1 < progress && progress <= 2) {
-          wrapper.style.position = "fixed";
-          wrapper.style.top =
+          this.wrapperStyle.position = "fixed";
+          this.wrapperStyle.top =
             (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
               (rect.height - window.innerHeight) +
             "px";
-          wrapper.style.bottom = "unset";
+          this.wrapperStyle.bottom = "unset";
         } else {
-          wrapper.style.position = "absolute";
+          this.wrapperStyle.position = "absolute";
           if (progress > 1) {
-            wrapper.style.bottom = 0;
-            wrapper.style.top = "unset";
+            this.wrapperStyle.bottom = 0;
+            this.wrapperStyle.top = "unset";
           } else {
-            wrapper.style.top = 0;
-            wrapper.style.bottom = "unset";
+            this.wrapperStyle.top = 0;
+            this.wrapperStyle.bottom = "unset";
           }
         }
       }

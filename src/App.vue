@@ -1,6 +1,6 @@
 <template>
   <Section1 />
-  <div style="height: 150vh"></div>
+  <div style="height: 120vh"></div>
   <Section2 />
   <div style="height: 250vh"></div>
 </template>
