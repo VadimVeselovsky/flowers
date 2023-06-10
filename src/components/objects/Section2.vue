@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -43,14 +43,15 @@
 export default {
   data() {
     return {
+      show: false,
+      counter: 0,
       transforms: {
         img1: null,
         img2: null,
         img3: null,
       },
       wrapperStyle: {
-        top: null,
-        bottom: null,
+        transform: null,
         position: null,
       },
     };
@@ -58,7 +59,6 @@ export default {
 
   mounted() {
     document.addEventListener("scroll", this.onScroll);
-    this.makeTransformsForStage(0);
   },
 
   beforeDestroy() {
@@ -67,15 +67,17 @@ export default {
 
   methods: {
     makeTransformsForStage(progress) {
-      this.transforms.img1 = `scale(${1 - 0.4 * (1 - progress)}) translate(-${
-        (1 - progress) * 823
-      }px, -${(1 - progress) * 1431}px) rotate(${50 - 13 * (1 - progress)}deg)`;
-      this.transforms.img2 = `scale(${1 + 1.12 * (1 - progress)}) translate(-${
-        168 * (1 - progress)
-      }px, ${83 * (1 - progress)}px)`;
-      this.transforms.img3 = `scale(${1 - 0.4 * (1 - progress)}) translate(${
-        (1 - progress) * 946
-      }px, -${(1 - progress) * 99}px) rotate(${37 - 8 * (1 - progress)}deg)`;
+      const inverse = 1 - progress;
+
+      this.transforms.img1 = `scale(${1 - 0.2 * inverse}) translate(-${
+        90 + inverse * 682
+      }px, -${80 + inverse * 946}px) rotate(${53 - 14 * inverse}deg)`;
+      this.transforms.img2 = `scale(${0.9 + 1.22 * inverse}) translate(-${
+        14 + 156 * inverse
+      }px, ${-116 + 199 * inverse}px) rotate(${5 * progress}deg)`;
+      this.transforms.img3 = `scale(${1 - 0.4 * inverse}) translate(${
+        23 + inverse * 925
+      }px, -${59 + inverse * 40}px) rotate(${47 - 2 * inverse}deg)`;
     },
 
     onScroll() {
@@ -85,33 +87,37 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      console.log(progress);
+      this.show = -1 < progress && progress <= 2.3;
+
+      if (!this.show) return;
 
       if (0 <= progress && progress <= 1) {
         // progress *= 2;
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
-        this.makeTransformsForStage(progress);
+        if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
 
+        this.wrapperStyle.transform = null;
         this.wrapperStyle.position = "fixed";
+        // } else if (-1 / 6 < progress && progress <= 0) {
+        // this.wrapperStyle.transform =
+        // "translateY(" +
+        // ((1 - Math.cos((progress * 6 + 1) * Math.PI)) / 2) *
+        // (rect.height - window.innerHeight) +
+        // "px)";
+      } else if (1 < progress && progress <= 2) {
+        this.wrapperStyle.position = "fixed";
+        this.wrapperStyle.top = 0;
+        this.wrapperStyle.transform =
+          "translateY(" +
+          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
+            (rect.height - window.innerHeight) +
+          "px)";
+        this.wrapperStyle.bottom = "unset";
+        this.makeTransformsForStage(1);
       } else {
-        if (1 < progress && progress <= 2) {
-          this.wrapperStyle.position = "fixed";
-          this.wrapperStyle.top =
-            (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
-              (rect.height - window.innerHeight) +
-            "px";
-          this.wrapperStyle.bottom = "unset";
-        } else {
-          this.wrapperStyle.position = "absolute";
-          if (progress > 1) {
-            this.wrapperStyle.bottom = 0;
-            this.wrapperStyle.top = "unset";
-          } else {
-            this.wrapperStyle.top = 0;
-            this.wrapperStyle.bottom = "unset";
-          }
-        }
+        this.wrapperStyle.position = "absolute";
+        this.wrapperStyle.transform = null;
       }
     },
   },
@@ -125,21 +131,22 @@ export default {
   width: 100%;
   top: 0;
 }
-
 .section1 {
-  height: 600vh;
+  height: 330vh;
   &__img1 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 2000px;
     top: 2px;
     position: absolute;
     right: -786px;
-    z-index: 5;
+    z-index: 50;
     // transform: rotate(50deg);
   }
 
   &__img2 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 569px;
     top: 60px;
     position: absolute;
@@ -149,26 +156,31 @@ export default {
 
   &__img3 {
     transform-origin: center;
-    width: 4200px;
+    transition: transform 0.2s linear;
+    width: 4150px;
     top: -375px;
     position: absolute;
     left: -1858px;
     z-index: 5;
-    // transform: rotate(37deg);
+
+    animation: img3 1s linear infinite;
+    animation-play-state: paused;
   }
 
   &__img4 {
     transform-origin: center;
-    width: 1226px;
-    top: 1115px;
+    transition: transform 0.2s linear;
+    width: 1291px;
+    top: 1011px;
     position: absolute;
-    right: 123px;
+    right: 92px;
     z-index: 50;
-    // transform: rotate(3deg);
+    transform: rotate(3deg);
   }
 
   &__img5 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 500px;
     bottom: -110px;
     left: 0;
@@ -178,19 +190,21 @@ export default {
 
   &__text1 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     position: absolute;
     left: calc(42% - 300px);
-    top: 423px;
+    top: 328px;
     font-size: 51px;
     width: 1221px;
-    z-index: 3;
+    z-index: 4;
   }
 
   &__text2 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     position: absolute;
-    left: 153px;
-    top: 1431px;
+    left: 87px;
+    top: 1315px;
     font-size: 51px;
     width: 1330px;
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -40,6 +40,8 @@
 export default {
   data() {
     return {
+      show: true,
+      counter: 0,
       transforms: {
         img1: null,
         img2: null,
@@ -66,6 +68,27 @@ export default {
   },
 
   methods: {
+    makeTransformsForStage(progress) {
+      this.transforms.text = `translate(${-progress * 150}px, ${progress * 0}px) scale(${
+        progress * 0.25 + 1
+      })`;
+      this.transforms.img1 = `translateX(${-progress * 50}px) scale(${
+        progress * 0.3 + 1
+      })`;
+      this.transforms.img2 = `translate(${progress * 100}px, ${progress * 10}px) scale(${
+        progress * 0.25 + 1
+      })`;
+      this.transforms.img3 = `translate(${progress * 540}px, ${progress * 70}px) scale(${
+        progress * 0.6 + 1
+      })`;
+      this.transforms.img4 = `translate(${-progress * 250}px, ${progress * 10}px) scale(${
+        progress * 0.35 + 1
+      })`;
+      this.transforms.img5 = `translate(${-progress * 390}px, ${
+        progress * 200
+      }px) scale(${progress * 0.6 + 1})`;
+    },
+
     onScroll() {
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
@@ -73,49 +96,29 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
+      this.show = -1 < progress && progress <= 1.4;
+
+      if (!this.show) return;
+
       if (0 <= progress && progress <= 1) {
         // progress *= 2;
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
-        this.transforms.text = `translate(${-progress * 150}px, ${
-          progress * 0
-        }px) scale(${progress * 0.25 + 1})`;
-        this.transforms.img1 = `translateX(${-progress * 50}px) scale(${
-          progress * 0.3 + 1
-        })`;
-        this.transforms.img2 = `translate(${progress * 100}px, ${
-          progress * 10
-        }px) scale(${progress * 0.25 + 1})`;
-        this.transforms.img3 = `translate(${progress * 540}px, ${
-          progress * 70
-        }px) scale(${progress * 0.6 + 1})`;
-        this.transforms.img4 = `translate(${-progress * 250}px, ${
-          progress * 10
-        }px) scale(${progress * 0.35 + 1})`;
-        this.transforms.img5 = `translate(${-progress * 390}px, ${
-          progress * 200
-        }px) scale(${progress * 0.6 + 1})`;
+        if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
 
         this.wrapperStyle.position = "fixed";
+      } else if (1 < progress && progress <= 2) {
+        this.wrapperStyle.position = "fixed";
+        this.wrapperStyle.top = 0;
+        this.wrapperStyle.transform =
+          "translateY(" +
+          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
+            (rect.height - window.innerHeight) +
+          "px)";
+        this.wrapperStyle.bottom = "unset";
       } else {
-        if (1 < progress && progress <= 2) {
-          this.wrapperStyle.position = "fixed";
-          this.wrapperStyle.top =
-            (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
-              2 *
-              (rect.height - window.innerHeight) +
-            "px";
-          this.wrapperStyle.bottom = "unset";
-        } else {
-          this.wrapperStyle.position = "absolute";
-          if (progress > 1) {
-            this.wrapperStyle.bottom = 0;
-            this.wrapperStyle.top = "unset";
-          } else {
-            this.wrapperStyle.top = 0;
-            this.wrapperStyle.bottom = "unset";
-          }
-        }
+        this.wrapperStyle.position = "absolute";
+        this.wrapperStyle.transform = null;
       }
     },
   },
@@ -136,6 +139,7 @@ export default {
 
   &__img1 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 1081px;
     top: -135px;
     position: absolute;
@@ -145,6 +149,7 @@ export default {
 
   &__img2 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 1141px;
     top: -120px;
     position: absolute;
@@ -154,6 +159,7 @@ export default {
 
   &__img3 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 1141px;
     top: -120px;
     position: absolute;
@@ -163,6 +169,7 @@ export default {
 
   &__img4 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 1141px;
     position: absolute;
     left: -219px;
@@ -172,6 +179,7 @@ export default {
 
   &__img5 {
     transform-origin: center;
+    transition: transform 0.2s linear;
     width: 500px;
     bottom: -110px;
     left: 0;
@@ -181,6 +189,7 @@ export default {
 
   &__text {
     transform-origin: center;
+    transition: transform 0.2s linear;
     position: absolute;
     left: calc(66% - 300px);
     top: calc(33% + 3px);
