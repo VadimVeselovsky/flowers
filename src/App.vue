@@ -1,10 +1,7 @@
 <template>
-  <div style="height: 100vh"></div>
   <Section3 />
-  <div style="height: 30vh"></div>
   <Section4 />
-  <div style="height: 30vh"></div>
-  <!-- <Section6 /> -->
+  <Section6 />
   <Section1 />
   <div style="height: 100vh"></div>
   <Section2 />

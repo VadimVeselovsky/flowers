@@ -1,14 +1,14 @@
 <template>
-  <div class="content-block-item section1">
+  <div class="content-block-item section2">
     <div :style="wrapperStyle" class="wrapper" v-if="true || show">
       <img
         :style="{ transform: transforms.img1 }"
-        class="section1__img1"
+        class="section2__img1"
         src="@/assets/images/section2/1.webp"
       />
       <video
         :style="{ transform: transforms.img2 }"
-        class="section1__img2"
+        class="section2__img2"
         autoplay
         loop
         muted
@@ -17,17 +17,17 @@
       </video>
       <img
         :style="{ transform: transforms.img3 }"
-        class="section1__img3"
+        class="section2__img3"
         src="@/assets/images/section2/3.gif"
       />
-      <video class="section1__img4" autoplay loop muted>
+      <video class="section2__img4" autoplay loop muted>
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
-      <div class="section1__text1">
+      <div class="section2__text1">
         The movement is not turned on oneself, but countered by equal muscular force in
         the opposing muscle groups
       </div>
-      <div class="section1__text2">
+      <div class="section2__text2">
         In these cases the blocked action manifests itself as tension and immobility in
         the muscular groups involved.
       </div>
@@ -131,7 +131,7 @@ export default {
   width: 100%;
   top: 0;
 }
-.section1 {
+.section2 {
   height: 330vh;
   &__img1 {
     transform-origin: center; will-change: transform;

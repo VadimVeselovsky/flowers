@@ -1,42 +1,42 @@
 <template>
-  <div class="content-block-item section1">
+  <div class="content-block-item section5">
     <div :style="wrapperStyle" class="wrapper" v-if="true || show">
       <img
         :style="{ transform: transforms.img1 }"
-        class="section1__img1"
+        class="section5__img1"
         src="@/assets/images/section5/IMG_3842.webp"
       />
       <img
         :style="{ transform: transforms.img2 }"
-        class="section1__img2"
+        class="section5__img2"
         src="@/assets/images/section5/IMG_3843.png"
       />
       <img
         :style="{ transform: transforms.img3 }"
-        class="section1__img3"
+        class="section5__img3"
         src="@/assets/images/section5/IMG_3844.webp"
       />
       <img
         :style="{ transform: transforms.img4 }"
-        class="section1__img4"
+        class="section5__img4"
         src="@/assets/images/section5/IMG_3845.webp"
       />
       <img
         :style="{ transform: transforms.img5 }"
-        class="section1__img5"
+        class="section5__img5"
         src="@/assets/images/section5/IMG_3848.webp"
       />
       <img
         :style="{ transform: transforms.img6 }"
-        class="section1__img6"
+        class="section5__img6"
         src="@/assets/images/section5/IMG_3849.webp"
       />
       <img
         :style="{ transform: transforms.img7 }"
-        class="section1__img7"
+        class="section5__img7"
         src="@/assets/images/section5/IMG_3854.webp"
       />
-      <div :style="{ transform: transforms.text }" class="section1__text2">
+      <div :style="{ transform: transforms.text }" class="section5__text2">
         if he can feel accepted<br />and can finally allow himself to entrust,<br /><br /><br />
         he will then be able to unfold the blocked contact deliberateness<br /><br />
         and to gradually overcome the blocks he has put<br /><br />
@@ -100,7 +100,7 @@ export default {
   z-index: 100;
 }
 
-.section1 {
+.section5 {
   height: 100vh;
 
   &__img1 {
@@ -175,15 +175,15 @@ export default {
     z-index: 100;
   }
 
-  &__text2 {
-    transform-origin: center;
-    will-change: transform;
-    position: absolute;
-    left: 562px;
-    top: 97px;
-    font-size: 42.5px;
-    width: 786px;
-    line-height: 1.3;
-  }
+&__text2 {
+  transform-origin: center;
+  will-change: transform;
+  position: absolute;
+  left: 562px;
+  top: 97px;
+  font-size: 42.5px;
+  width: 786px;
+  line-height: 1.3;
+}
 }
 </style>

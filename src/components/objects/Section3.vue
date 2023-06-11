@@ -1,41 +1,34 @@
 <template>
-  <div class="content-block-item section1">
+  <div class="content-block-item section3">
     <div :style="wrapperStyle" class="wrapper" v-if="true || show">
       <img
         :style="{ transform: transforms.img1 }"
-        class="section1__img1"
+        class="section3__img1"
         src="@/assets/images/section3/1.avif"
       />
       <img
         :style="{ transform: transforms.img2 }"
-        class="section1__img2"
+        class="section3__img2"
         src="@/assets/images/section3/2.avif"
       />
       <img
         :style="{ transform: transforms.img3 }"
-        class="section1__img3"
+        class="section3__img3"
         src="@/assets/images/section3/3.avif"
       />
       <img
         :style="{ transform: transforms.img4 }"
-        class="section1__img4"
+        class="section3__img4"
         src="@/assets/images/section3/4.avif"
       />
       <img
         :style="{ transform: transforms.img5 }"
-        class="section1__img5"
+        class="section3__img5"
         src="@/assets/images/section3/5.avif"
       />
-      <video class="section1__img6" autoplay loop muted>
-        <source src="@/assets/images/section3/animation.webm" type="video/webm" />
-      </video>
-      <div :style="{ transform: transforms.text }" class="section1__text1">
+      <div :style="{ transform: transforms.text }" class="section3__text1">
         The first form of retroflection is the literal reversal onto oneself of the action
         one wants to do to the environment.
-      </div>
-      <div :style="{ transform: transforms.text }" class="section1__text2">
-        the act of compressing himself<br />
-        kept on functioning as a physical symptom
       </div>
     </div>
   </div>
@@ -72,7 +65,7 @@ export default {
 
   methods: {
     makeTransformsForStage(progress) {
-      const speed = 1.5;
+      const speed = 0.35;
 
       this.transforms.img1 = `translateY(${-progress * speed * 2500}px)`;
       this.transforms.img2 = `translateY(${-progress * speed * 3000}px)`;
@@ -86,9 +79,11 @@ export default {
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / (rect.height - window.innerHeight);
+        progress = scrollY / rect.height;
 
       this.show = -0.4 < progress && progress <= 2;
+
+      console.log(progress);
 
       if (!this.show) return;
 
@@ -107,8 +102,8 @@ export default {
   z-index: 100;
 }
 
-.section1 {
-  height: 370vh;
+.section3 {
+  height: 600px;
 
   &__img1 {
     transform-origin: center;
@@ -160,13 +155,6 @@ export default {
     z-index: 2;
   }
 
-  &__img6 {
-    position: absolute;
-    top: calc(373px + 2000px);
-    left: -485px;
-    width: 3928px;
-  }
-
   &__text1 {
     transform-origin: center;
     will-change: transform;
@@ -175,17 +163,6 @@ export default {
     top: 93px;
     font-size: 32px;
     width: 810px;
-    line-height: 1.36;
-  }
-
-  &__text2 {
-    transform-origin: center;
-    will-change: transform;
-    position: absolute;
-    left: 917px;
-    top: calc(992px + 2000px);
-    font-size: 32px;
-    width: 898px;
     line-height: 1.36;
   }
 }
