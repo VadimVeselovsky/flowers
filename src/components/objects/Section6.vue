@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section6">
-    <div :style="wrapperStyle" class="wrapper" v-if="true || show">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <video class="section6__img6" autoplay loop muted>
         <source src="@/assets/images/section6/animation.webm" type="video/webm" />
       </video>
@@ -74,15 +74,16 @@ export default {
   &__img6 {
     position: absolute;
     top: -200px;
-    left: -485px;
+    left: calc(50% + 530px);
     width: 3928px;
+    transform: translateX(-50%);
   }
 
   &__text2 {
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: 917px;
+    left: 50%;
     top: 410px;
     font-size: 32px;
     width: 898px;

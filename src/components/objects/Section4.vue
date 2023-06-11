@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section4">
-    <div :style="wrapperStyle" class="wrapper" v-if="true || show">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section4__img1"
@@ -98,14 +98,14 @@ export default {
     position: absolute;
     width: 651px;
     top: 608px;
-    left: 949px;
+    left: calc(50% - 1000px + 949px);
   }
 
   &__img2 {
     transform-origin: center;
     will-change: transform;
     width: 990px;
-    left: 603px;
+    left: calc(50% - 1000px + 603px);
     top: 258px;
     position: absolute;
     z-index: 2;
@@ -118,7 +118,7 @@ export default {
     top: 252px;
     position: absolute;
     z-index: 50;
-    left: 598px;
+    left: calc(50% - 1000px + 598px);
   }
 
   &__img4 {
@@ -127,7 +127,7 @@ export default {
     width: 318px;
     position: absolute;
     top: 589px;
-    left: 1280px;
+    left: calc(50% - 1000px + 1280px);
     z-index: 2;
   }
 

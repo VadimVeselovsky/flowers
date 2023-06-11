@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section3">
-    <div :style="wrapperStyle" class="wrapper" v-if="true || show">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section3__img1"
@@ -83,8 +83,6 @@ export default {
 
       this.show = -0.4 < progress && progress <= 2;
 
-      console.log(progress);
-
       if (!this.show) return;
 
       this.makeTransformsForStage(progress);
@@ -110,7 +108,7 @@ export default {
     will-change: transform;
     position: absolute;
     width: 888px;
-    left: 113px;
+    right: 901px;
     top: 392px;
     z-index: 1;
   }
@@ -119,7 +117,7 @@ export default {
     transform-origin: center;
     will-change: transform;
     width: 331px;
-    left: 709px;
+    right: 861px;
     top: 851px;
     position: absolute;
     z-index: 2;
@@ -132,7 +130,7 @@ export default {
     top: 291px;
     position: absolute;
     z-index: 50;
-    left: 1355px;
+    right: 154px;
   }
 
   &__img4 {
@@ -141,7 +139,7 @@ export default {
     width: 1773px;
     position: absolute;
     top: 73px;
-    left: 137px;
+    right: -8px;
     z-index: 15;
   }
 
@@ -150,7 +148,7 @@ export default {
     will-change: transform;
     top: 243px;
     width: 959px;
-    left: 627px;
+    right: 318px;
     position: absolute;
     z-index: 2;
   }

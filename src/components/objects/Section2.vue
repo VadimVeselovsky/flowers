@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section2">
-    <div :style="wrapperStyle" class="wrapper" v-if="true || show">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section2__img1"
@@ -15,11 +15,15 @@
       >
         <source src="@/assets/images/section2/2.webm" type="video/webm" />
       </video>
-      <img
+      <video
         :style="{ transform: transforms.img3 }"
         class="section2__img3"
-        src="@/assets/images/section2/3.gif"
-      />
+        autoplay
+        loop
+        muted
+      >
+        <source src="@/assets/images/section2/3_.webm" type="video/webm" />
+      </video>
       <video class="section2__img4" autoplay loop muted>
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
@@ -68,12 +72,14 @@ export default {
       this.transforms.img1 = `scale(${1 - 0.2 * inverse}) translate(-${
         90 + inverse * 682
       }px, -${80 + inverse * 946}px) rotate(${53 - 14 * inverse}deg)`;
-      this.transforms.img2 = `scale(${0.9 + 1.22 * inverse}) translate(-${
-        14 + 156 * inverse
-      }px, ${-116 + 199 * inverse}px) rotate(${5 * progress}deg)`;
-      this.transforms.img3 = `scale(${1 - 0.4 * inverse}) translate(${
-        23 + inverse * 925
-      }px, -${59 + inverse * 40}px) rotate(${47 - 2 * inverse}deg)`;
+      this.transforms.img2 = `scale(${1.4 + 0.72 * inverse}) translate(-${
+        24 + 145 * inverse
+      }px, ${-155 + 238 * inverse}px) rotate(${5 * progress}deg)`;
+      this.transforms.img3 = `scale(${0.82 - 0.33 * inverse}) translate(${
+        -23 + inverse * 1139
+      }px, -${379 + inverse * 151}px) rotate(${47 - 2 * inverse}deg)`;
+      // scale(0.49) translate(1116px, -530px) rotate(45deg)
+      // scale(0.82) translate(-23px, -447px) rotate(47deg)
     },
 
     onScroll() {
@@ -132,40 +138,44 @@ export default {
   top: 0;
 }
 .section2 {
-  height: 330vh;
+  height: 3000px;
   &__img1 {
-    transform-origin: center; will-change: transform;
+    transform-origin: center;
+    will-change: transform;
     transition: transform 0.2s linear;
     width: 2000px;
     top: 2px;
     position: absolute;
-    right: -786px;
+    right: calc(50% - 1737px);
     z-index: 50;
     // transform: rotate(50deg);
   }
 
   &__img2 {
-    transform-origin: center; will-change: transform;
+    transform-origin: center;
+    will-change: transform;
     transition: transform 0.2s linear;
     width: 569px;
     top: 60px;
     position: absolute;
-    right: -28px;
+    right: calc(50% + -978px);
     z-index: 4;
   }
 
   &__img3 {
-    transform-origin: center; will-change: transform;
+    transform-origin: center;
+    will-change: transform;
     transition: transform 0.2s linear;
     width: 4150px;
     top: -375px;
     position: absolute;
-    left: -1858px;
+    left: calc(50% - 2816px);
     z-index: 5;
   }
 
   &__img4 {
-    transform-origin: center; will-change: transform;
+    transform-origin: center;
+    will-change: transform;
     transition: transform 0.2s linear;
     width: 1291px;
     top: 1011px;
@@ -176,7 +186,8 @@ export default {
   }
 
   &__img5 {
-    transform-origin: center; will-change: transform;
+    transform-origin: center;
+    will-change: transform;
     transition: transform 0.2s linear;
     width: 500px;
     bottom: -110px;
@@ -186,7 +197,8 @@ export default {
   }
 
   &__text1 {
-    transform-origin: center; will-change: transform;
+    transform-origin: center;
+    will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
     left: calc(42% - 300px);
@@ -197,7 +209,8 @@ export default {
   }
 
   &__text2 {
-    transform-origin: center; will-change: transform;
+    transform-origin: center;
+    will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
     left: 87px;
