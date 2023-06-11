@@ -1,30 +1,30 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper" v-show="show">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
-        src="@/assets/images/section3/IMG_3829.png"
+        src="@/assets/images/section3/1.avif"
       />
       <img
         :style="{ transform: transforms.img2 }"
         class="section1__img2"
-        src="@/assets/images/section3/IMG_3832.png"
+        src="@/assets/images/section3/2.avif"
       />
       <img
         :style="{ transform: transforms.img3 }"
         class="section1__img3"
-        src="@/assets/images/section3/IMG_3833.png"
+        src="@/assets/images/section3/3.avif"
       />
       <img
         :style="{ transform: transforms.img4 }"
         class="section1__img4"
-        src="@/assets/images/section3/IMG_3834.png"
+        src="@/assets/images/section3/4.avif"
       />
       <img
         :style="{ transform: transforms.img5 }"
         class="section1__img5"
-        src="@/assets/images/section3/IMG_3835.png"
+        src="@/assets/images/section3/5.avif"
       />
       <video class="section1__img6" autoplay loop muted>
         <source src="@/assets/images/section3/animation.webm" type="video/webm" />
@@ -46,7 +46,7 @@
 export default {
   data() {
     return {
-      show: false,
+      show: true,
       transforms: {
         img1: null,
         img2: null,
@@ -102,43 +102,44 @@ export default {
   &__img1 {
     transform-origin: center;
     position: absolute;
-    width: 1843px;
-    left: 64px;
-    top: -101px;
+    width: 888px;
+    left: 113px;
+    top: 392px;
+    z-index: 28;
   }
 
   &__img2 {
     transform-origin: center;
-    width: 1855px;
-    left: 56px;
-    top: -107px;
+    width: 331px;
+    left: 709px;
+    top: 851px;
     position: absolute;
     z-index: 2;
   }
 
   &__img3 {
     transform-origin: center;
-    width: 1869px;
-    top: -111px;
+    width: 394px;
+    top: 291px;
     position: absolute;
     z-index: 50;
-    right: -8px;
+    left: 1355px;
   }
 
   &__img4 {
     transform-origin: center;
-    width: 1787px;
+    width: 1773px;
     position: absolute;
-    top: -98px;
-    left: 112px;
-    z-index: 2;
+    top: 73px;
+    left: 137px;
+    z-index: 15;
   }
 
   &__img5 {
     transform-origin: center;
-    top: -102px;
-    width: 1841px;
-    left: 65px;
+    top: 243px;
+    width: 959px;
+    left: 627px;
     position: absolute;
     z-index: 2;
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper">
+    <div :style="wrapperStyle" class="wrapper" v-if="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -34,6 +34,7 @@
 export default {
   data() {
     return {
+      show: false,
       transforms: {
         img1: null,
         img2: null,
@@ -48,6 +49,28 @@ export default {
         position: null,
       },
     };
+  },
+
+  mounted() {
+    document.addEventListener("scroll", this.onScroll);
+  },
+
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.onScroll);
+  },
+
+  methods: {
+    onScroll() {
+      let rect = this.$el.getBoundingClientRect(),
+        scrollY =
+          window.scrollY -
+          (rect.y - document.getElementById("app").getBoundingClientRect().y),
+        progress = scrollY / (rect.height - window.innerHeight);
+
+      this.show = -0.4 < progress && progress <= 2;
+
+      if (!this.show) return;
+    },
   },
 };
 </script>
