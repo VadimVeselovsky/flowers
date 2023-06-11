@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <div :style="wrapperStyle" class="wrapper" v-show="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -96,7 +96,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      this.show = -1 < progress && progress <= 1.4;
+      this.show = -1 < progress && progress <= 3;
 
       if (!this.show) return;
 
@@ -135,7 +135,7 @@ export default {
 }
 
 .section1 {
-  height: 700vh;
+  height: 300vh;
 
   &__img1 {
     transform-origin: center;
@@ -181,7 +181,7 @@ export default {
     transform-origin: center;
     transition: transform 0.2s linear;
     width: 500px;
-    bottom: -110px;
+    top: 451px;
     left: 0;
     position: absolute;
     z-index: 2;
@@ -192,7 +192,7 @@ export default {
     transition: transform 0.2s linear;
     position: absolute;
     left: calc(66% - 300px);
-    top: calc(33% + 3px);
+    top: 317px;
     font-size: 25px;
   }
 }

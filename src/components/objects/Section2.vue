@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <div :style="wrapperStyle" class="wrapper" v-show="show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -15,15 +15,11 @@
       >
         <source src="@/assets/images/section2/2.webm" type="video/webm" />
       </video>
-      <video
+      <img
         :style="{ transform: transforms.img3 }"
         class="section1__img3"
-        autoplay
-        loop
-        muted
-      >
-        <source src="@/assets/images/section2/3.webm" type="video/webm" />
-      </video>
+        src="@/assets/images/section2/3.gif"
+      />
       <video class="section1__img4" autoplay loop muted>
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
@@ -91,20 +87,24 @@ export default {
 
       if (!this.show) return;
 
-      if (0 <= progress && progress <= 1) {
-        // progress *= 2;
+      if (progress < 0) this.makeTransformsForStage(0);
+
+      /*if (progress <= 0) {
+        this.wrapperStyle.transform =
+          "translateY(" +
+          ((1 - Math.cos(((1-progress) * 6 + 1) * Math.PI)) / 2) *
+            (rect.height - window.innerHeight) +
+          "px)";
+      } else*/ if (
+        0 <= progress &&
+        progress <= 1
+      ) {
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
         if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
 
         this.wrapperStyle.transform = null;
         this.wrapperStyle.position = "fixed";
-        // } else if (-1 / 6 < progress && progress <= 0) {
-        // this.wrapperStyle.transform =
-        // "translateY(" +
-        // ((1 - Math.cos((progress * 6 + 1) * Math.PI)) / 2) *
-        // (rect.height - window.innerHeight) +
-        // "px)";
       } else if (1 < progress && progress <= 2) {
         this.wrapperStyle.position = "fixed";
         this.wrapperStyle.top = 0;
@@ -162,9 +162,6 @@ export default {
     position: absolute;
     left: -1858px;
     z-index: 5;
-
-    animation: img3 1s linear infinite;
-    animation-play-state: paused;
   }
 
   &__img4 {
