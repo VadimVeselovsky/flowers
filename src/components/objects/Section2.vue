@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <div :style="wrapperStyle" class="wrapper" v-if="true || show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -134,7 +134,7 @@ export default {
 .section1 {
   height: 330vh;
   &__img1 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     transition: transform 0.2s linear;
     width: 2000px;
     top: 2px;
@@ -145,7 +145,7 @@ export default {
   }
 
   &__img2 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     transition: transform 0.2s linear;
     width: 569px;
     top: 60px;
@@ -155,7 +155,7 @@ export default {
   }
 
   &__img3 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     transition: transform 0.2s linear;
     width: 4150px;
     top: -375px;
@@ -165,7 +165,7 @@ export default {
   }
 
   &__img4 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     transition: transform 0.2s linear;
     width: 1291px;
     top: 1011px;
@@ -176,7 +176,7 @@ export default {
   }
 
   &__img5 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     transition: transform 0.2s linear;
     width: 500px;
     bottom: -110px;
@@ -186,7 +186,7 @@ export default {
   }
 
   &__text1 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
     left: calc(42% - 300px);
@@ -197,7 +197,7 @@ export default {
   }
 
   &__text2 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
     left: 87px;

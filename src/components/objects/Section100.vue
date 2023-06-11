@@ -103,7 +103,7 @@ export default {
   height: 1000vh;
 
   &__img1 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     width: 301px;
     top: 300px;
     position: absolute;
@@ -112,7 +112,7 @@ export default {
   }
 
   &__img2 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     width: 1000px;
     top: 300px;
     position: absolute;
@@ -121,7 +121,7 @@ export default {
   }
 
   &__img3 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     width: 1141px;
     top: -120px;
     position: absolute;
@@ -130,7 +130,7 @@ export default {
   }
 
   &__img4 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     width: 1141px;
     position: absolute;
     left: -219px;
@@ -139,7 +139,7 @@ export default {
   }
 
   &__img5 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     width: 500px;
     bottom: -110px;
     left: 0;
@@ -148,7 +148,7 @@ export default {
   }
 
   &__text1 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     position: absolute;
     left: calc(66% - 300px);
     top: calc(33% + 3px);
@@ -156,7 +156,7 @@ export default {
   }
 
   &__text2 {
-    transform-origin: center;
+    transform-origin: center; will-change: transform;
     position: absolute;
     left: calc(33% - 300px);
     top: calc(69% + 3px);

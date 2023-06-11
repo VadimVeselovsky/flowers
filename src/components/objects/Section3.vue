@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <div :style="wrapperStyle" class="wrapper" v-if="true || show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -34,9 +34,8 @@
         one wants to do to the environment.
       </div>
       <div :style="{ transform: transforms.text }" class="section1__text2">
-        the retroflection of his need to assert himself, and of his anger<br /><br />in
-        the compression of his abdominal and gastric musculature,<br /><br />and in the
-        withdrawal of energy from his shoulders and arms
+        the act of compressing himself<br />
+        kept on functioning as a physical symptom
       </div>
     </div>
   </div>
@@ -72,6 +71,16 @@ export default {
   },
 
   methods: {
+    makeTransformsForStage(progress) {
+      const speed = 1.5;
+
+      this.transforms.img1 = `translateY(${-progress * speed * 2500}px)`;
+      this.transforms.img2 = `translateY(${-progress * speed * 3000}px)`;
+      this.transforms.img3 = `translateY(${-progress * speed * 1300}px)`;
+      this.transforms.img4 = `translateY(${-progress * speed * 1100}px)`;
+      this.transforms.img5 = `translateY(${-progress * speed * 400}px)`;
+    },
+
     onScroll() {
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
@@ -82,6 +91,8 @@ export default {
       this.show = -0.4 < progress && progress <= 2;
 
       if (!this.show) return;
+
+      this.makeTransformsForStage(progress);
     },
   },
 };
@@ -101,15 +112,17 @@ export default {
 
   &__img1 {
     transform-origin: center;
+    will-change: transform;
     position: absolute;
     width: 888px;
     left: 113px;
     top: 392px;
-    z-index: 28;
+    z-index: 1;
   }
 
   &__img2 {
     transform-origin: center;
+    will-change: transform;
     width: 331px;
     left: 709px;
     top: 851px;
@@ -119,6 +132,7 @@ export default {
 
   &__img3 {
     transform-origin: center;
+    will-change: transform;
     width: 394px;
     top: 291px;
     position: absolute;
@@ -128,6 +142,7 @@ export default {
 
   &__img4 {
     transform-origin: center;
+    will-change: transform;
     width: 1773px;
     position: absolute;
     top: 73px;
@@ -137,6 +152,7 @@ export default {
 
   &__img5 {
     transform-origin: center;
+    will-change: transform;
     top: 243px;
     width: 959px;
     left: 627px;
@@ -146,13 +162,14 @@ export default {
 
   &__img6 {
     position: absolute;
-    top: 373px;
+    top: calc(373px + 2000px);
     left: -485px;
     width: 3928px;
   }
 
   &__text1 {
     transform-origin: center;
+    will-change: transform;
     position: absolute;
     left: 100px;
     top: 93px;
@@ -163,11 +180,12 @@ export default {
 
   &__text2 {
     transform-origin: center;
+    will-change: transform;
     position: absolute;
-    left: 1024px;
-    top: 1099px;
+    left: 917px;
+    top: calc(992px + 2000px);
     font-size: 32px;
-    width: 652px;
+    width: 898px;
     line-height: 1.36;
   }
 }

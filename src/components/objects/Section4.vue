@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section1">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <div :style="wrapperStyle" class="wrapper" v-if="true || show">
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -21,10 +21,15 @@
         class="section1__img4"
         src="@/assets/images/section4/IMG_3827.png"
       />
-      <div :style="{ transform: transforms.text }" class="section1__text2">
+      <!--<div :style="{ transform: transforms.text }" class="section1__text2">
         he compressed and literally attacked himself<br />rather than allowing himself to
         actively express his aggressiveness outside<br /><br />he blocked the movements
         that could allow him to “push away” others making himself passive and weak.
+      </div>-->
+      <div :style="{ transform: transforms.text }" class="section1__text3">
+        the retroflection of his need to assert himself, and of his anger<br /><br />in
+        the compression of his abdominal and gastric musculature,<br /><br />and in the
+        withdrawal of energy from his shoulders and arms
       </div>
     </div>
   </div>
@@ -65,9 +70,9 @@ export default {
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / (rect.height - window.innerHeight);
+        progress = scrollY / rect.height;
 
-      this.show = -0.4 < progress && progress <= 2;
+      this.show = -1 < progress && progress <= 2;
 
       if (!this.show) return;
     },
@@ -85,50 +90,64 @@ export default {
 }
 
 .section1 {
-  height: 100vh;
+  height: 200vh;
 
   &__img1 {
     transform-origin: center;
+    will-change: transform;
     position: absolute;
     width: 651px;
-    top: 208px;
-    left: 1149px;
+    top: calc(708px - 3000px);
+    left: 949px;
   }
 
   &__img2 {
     transform-origin: center;
+    will-change: transform;
     width: 990px;
-    left: 803px;
-    top: -142px;
+    left: 603px;
+    top: calc(358px - 3000px);
     position: absolute;
     z-index: 2;
   }
 
   &__img3 {
     transform-origin: center;
+    will-change: transform;
     width: 997px;
-    top: -148px;
+    top: calc(352px - 3000px);
     position: absolute;
     z-index: 50;
-    left: 798px;
+    left: 598px;
   }
 
   &__img4 {
     transform-origin: center;
+    will-change: transform;
     width: 318px;
     position: absolute;
-    top: 189px;
-    left: 1480px;
+    top: calc(689px - 3000px);
+    left: 1280px;
     z-index: 2;
   }
 
   &__text2 {
     transform-origin: center;
     position: absolute;
-    left: 1249px;
-    top: 305px;
+    left: 239px;
+    top: -109px;
     font-size: 26.5px;
-    width: 512px;
+    width: 712px;
+    line-height: 1.3;
+  }
+
+  &__text3 {
+    transform-origin: center;
+    position: absolute;
+    left: 448px;
+    transform: translateX(-50%);
+    top: calc(466px - 3000px);
+    font-size: 26.5px;
     line-height: 1.3;
   }
 }
