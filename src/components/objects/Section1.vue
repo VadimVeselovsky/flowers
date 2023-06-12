@@ -89,14 +89,19 @@ export default {
       }px) scale(${progress * 0.6 + 1})`;
     },
 
+    makeEndingTransformsForStage(progress) {},
+
     onScroll() {
+      const hideOn = 3;
+
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
+      console.log(progress);
 
-      this.show = -1 < progress && progress <= 3;
+      this.show = -1 < progress && progress <= hideOn;
 
       if (!this.show) return;
 
@@ -119,6 +124,13 @@ export default {
       } else {
         this.wrapperStyle.position = "absolute";
         this.wrapperStyle.transform = null;
+      }
+
+      const closeCurtainsOn = 1.41;
+      if (closeCurtainsOn < progress && progress < hideOn) {
+        this.makeEndingTransformsForStage(
+          (progress - closeCurtainsOn) / (smoothScrollEnd - closeCurtainsOn)
+        );
       }
     },
   },

@@ -117,7 +117,8 @@ export default {
         this.wrapperStyle.transform =
           "translateY(" +
           (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
-            (rect.height - window.innerHeight) +
+            (rect.height - window.innerHeight) *
+            1.1 +
           "px)";
         this.wrapperStyle.bottom = "unset";
         this.makeTransformsForStage(1);

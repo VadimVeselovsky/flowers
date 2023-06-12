@@ -9,17 +9,17 @@
       <img
         :style="{ transform: transforms.img2 }"
         class="section4__img2"
-        src="@/assets/images/section4/IMG_3825.png"
+        src="@/assets/images/section4/IMG_3825.avif"
       />
       <img
         :style="{ transform: transforms.img3 }"
         class="section4__img3"
-        src="@/assets/images/section4/IMG_3826.png"
+        src="@/assets/images/section4/IMG_3826.avif"
       />
       <img
         :style="{ transform: transforms.img4 }"
         class="section4__img4"
-        src="@/assets/images/section4/IMG_3827.png"
+        src="@/assets/images/section4/IMG_3827.avif"
       />
       <!--<div :style="{ transform: transforms.text }" class="section4__text2">
         he compressed and literally attacked himself<br />rather than allowing himself to

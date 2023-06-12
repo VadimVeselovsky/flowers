@@ -19,6 +19,10 @@ import Section6 from "@/components/objects/Section6.vue";
 
 export default {
   components: { Section1, Section2, Section3, Section4, Section5, Section6 },
+
+  mounted() {
+    window.scroll({ left: 0 });
+  },
 };
 </script>
 
