@@ -27,13 +27,13 @@
       <video class="section2__img4" autoplay loop muted>
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
-      <div class="section2__text1">
+      <div class="section2__text1 text">
         The movement is not turned on oneself, but countered by equal muscular force in
         the opposing muscle groups
       </div>
-      <div class="section2__text2">
-        In these cases the blocked action manifests itself as tension and immobility in
-        the muscular groups involved.
+      <div class="section2__text2 text">
+        In these cases the blocked action manifests itself as tension and immobility<br />
+        in the muscular groups involved.
       </div>
     </div>
   </div>
@@ -89,7 +89,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      this.show = -0.5 < progress && progress <= 2.3;
+      this.show = -1 < progress && progress <= 2.3;
 
       if (!this.show) return;
 
@@ -125,6 +125,11 @@ export default {
       } else {
         this.wrapperStyle.position = "absolute";
         this.wrapperStyle.transform = null;
+      }
+
+      if (-0.5 <= progress && progress < 0) {
+        this.wrapperStyle.top = `calc(${-progress * 2}*150vh)`;
+        this.wrapperStyle.transform = `scale(${0.7 + 0.3 * (progress + 0.5) * 2})`;
       }
     },
   },
@@ -203,8 +208,7 @@ export default {
     transition: transform 0.2s linear;
     position: absolute;
     left: calc(42% - 300px);
-    top: 328px;
-    font-size: 51px;
+    top: 401px;
     width: 1221px;
     z-index: 4;
   }
@@ -214,9 +218,8 @@ export default {
     will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
-    left: 87px;
-    top: 1315px;
-    font-size: 51px;
+    left: 200px;
+    top: 1266px;
     width: 1330px;
   }
 }

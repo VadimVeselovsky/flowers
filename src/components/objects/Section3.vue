@@ -26,9 +26,9 @@
         class="section3__img5"
         src="@/assets/images/section3/5.avif"
       />
-      <div :style="{ transform: transforms.text }" class="section3__text1">
-        The first form of retroflection is the literal reversal onto oneself of the action
-        one wants to do to the environment.
+      <div :style="{ transform: transforms.text }" class="section3__text1 text">
+        The first form of retroflection is the literal reversal onto oneself<br />
+        of the action one wants to do to the environment.
       </div>
     </div>
   </div>
@@ -81,7 +81,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / rect.height;
 
-      this.show = -0.4 < progress && progress <= 2;
+      this.show = -2 < progress && progress <= 2;
 
       if (!this.show) return;
 
@@ -109,7 +109,7 @@ export default {
     position: absolute;
     width: 888px;
     right: 901px;
-    top: 392px;
+    top: calc(392px + 100px);
     z-index: 1;
   }
 
@@ -118,7 +118,7 @@ export default {
     will-change: transform;
     width: 331px;
     right: 861px;
-    top: 851px;
+    top: calc(851px + 100px);
     position: absolute;
     z-index: 2;
   }
@@ -127,7 +127,7 @@ export default {
     transform-origin: center;
     will-change: transform;
     width: 394px;
-    top: 291px;
+    top: calc(291px + 100px);
     position: absolute;
     z-index: 50;
     right: 154px;
@@ -138,7 +138,7 @@ export default {
     will-change: transform;
     width: 1773px;
     position: absolute;
-    top: 73px;
+    top: calc(73px + 100px);
     right: -8px;
     z-index: 15;
   }
@@ -146,7 +146,7 @@ export default {
   &__img5 {
     transform-origin: center;
     will-change: transform;
-    top: 243px;
+    top: calc(243px + 100px);
     width: 959px;
     right: 318px;
     position: absolute;
@@ -159,9 +159,6 @@ export default {
     position: absolute;
     left: 100px;
     top: 93px;
-    font-size: 32px;
-    width: 810px;
-    line-height: 1.36;
   }
 }
 </style>

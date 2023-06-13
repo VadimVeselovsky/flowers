@@ -1,22 +1,47 @@
 <template>
   <div class="content-block-item section5">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
-      <div class="thin-spikelet section5__spikelet-1">
-        <div class="thin-spikelet__bone-1">
-          <img class="thin-spikelet__img1" src="@/assets/images/section5/IMG_3842.webp" />
-          <img class="thin-spikelet__img2" src="@/assets/images/section5/IMG_3843.png" />
-          <img class="thin-spikelet__img4" src="@/assets/images/section5/IMG_3849.webp" />
-        </div>
-        <img class="thin-spikelet__img3" src="@/assets/images/section5/IMG_3848.webp" />
+      <div class="section5__first-plan" :style="{ transform: transforms.first_plan }">
+        <img
+          :style="{ transform: transforms.first_plan_img8 }"
+          class="section5__img8"
+          src="@/assets/images/section5/IMG_1734.png"
+        />
+        <img
+          :style="{ transform: transforms.first_plan_img9 }"
+          class="section5__img9"
+          src="@/assets/images/section5/IMG_1735.png"
+        />
       </div>
-      <img class="section5__img3" src="@/assets/images/section5/IMG_3844.webp" />
-      <img class="section5__img4" src="@/assets/images/section5/IMG_3845.webp" />
-      <img class="section5__img7" src="@/assets/images/section5/IMG_3854.webp" />
-      <div class="section5__text2">
-        if he can feel accepted<br />and can finally allow himself to entrust,<br /><br /><br />
-        he will then be able to unfold the blocked contact deliberateness<br /><br />
-        and to gradually overcome the blocks he has put<br /><br />
-        between himself and the environment
+      <div class="section5__second-plan" :style="{ transform: transforms.second_plan }">
+        <div class="thin-spikelet section5__spikelet-1">
+          <div class="thin-spikelet__bone-1">
+            <img
+              class="thin-spikelet__img1"
+              src="@/assets/images/section5/IMG_3842.webp"
+            />
+            <img
+              class="thin-spikelet__img2"
+              src="@/assets/images/section5/IMG_3843.png"
+            />
+            <img
+              class="thin-spikelet__img4"
+              src="@/assets/images/section5/IMG_3849.webp"
+            />
+          </div>
+          <img class="thin-spikelet__img3" src="@/assets/images/section5/IMG_3848.webp" />
+        </div>
+        <img class="section5__img3" src="@/assets/images/section5/IMG_3844.webp" />
+        <img class="section5__img4" src="@/assets/images/section5/IMG_3845.webp" />
+        <img class="section5__img7" src="@/assets/images/section5/IMG_3854.webp" />
+        <div class="section5__text2 text">
+          if he can feel accepted<br />and can finally allow himself to entrust,<br /><br />
+          he will then be able to unfold<br />
+          the blocked contact deliberateness<br /><br />
+          and to gradually overcome the blocks<br />
+          he has put<br /><br />
+          between himself and the environment
+        </div>
       </div>
     </div>
   </div>
@@ -27,6 +52,7 @@ export default {
   data() {
     return {
       show: false,
+      transforms: {},
       wrapperStyle: {
         top: null,
         bottom: null,
@@ -45,22 +71,35 @@ export default {
   },
 
   methods: {
+    makeTransformsForStage(progress) {
+      this.transforms.first_plan = `scale(${0.9 + progress * 1.2})`;
+      this.transforms.second_plan = `scale(${0.6 + progress * 0.4})`;
+      this.transforms.first_plan_img8 = `translate(${-progress * 100}px, ${
+        -progress * 100
+      }px)`;
+      this.transforms.first_plan_img9 = `translate(${progress * 100}px, ${
+        -progress * 100
+      }px)`;
+    },
+
     onScroll() {
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / rect.height;
+        progress = scrollY / (rect.height - window.innerHeight);
 
       this.show = -2 < progress;
 
       if (!this.show) return;
 
-      if (0 <= progress && progress <= 1) {
-        // progress *= 2;
+      if (progress < 0) {
+        this.makeTransformsForStage(0);
+      }
+      if (0 <= progress && progress <= 1.1) {
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
-        if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
+        this.makeTransformsForStage(progress);
         this.wrapperStyle.position = "fixed";
       } else {
         this.wrapperStyle.position = "absolute";
@@ -83,71 +122,70 @@ export default {
 $animation-speed: 7s;
 
 @keyframes wind-1 {
-  10% {
-    animation-timing-function: cubic-bezier(.19,.17,.62,.86);
-    transform: skewX(-1.3deg) rotate(1.3deg);
+  20% {
+    transform: scale(1.015) skewX(-3deg) rotate(3deg);
   }
-  35% {
-    animation-timing-function: ease-in;
-    transform: none;
+  40% {
+    transform: scale(1.013) skewX(-3.2deg) rotate(3.2deg);
+    animation-timing-function: ease-in-out;
   }
-  // 80% {
-  // transform: skewX(0.5deg) rotate(-1deg);
-  // }
-  // 90% {
-  // transform: skewX(-0.3deg) rotate(0.5deg);
-  // }
+  66% {
+    transform: scale(0.995) skewX(1deg) rotate(-1deg);
+    animation-timing-function: ease-out;
+  }
 }
 
-// @keyframes wind-2 {
-// 15% {
-// transform: skewX(-0.5deg) rotate(1deg);
-// }
-// 80% {
-// transform: skewX(0.1deg) rotate(-0.2deg);
-// }
-// 92% {
-// transform: skewX(-0.05deg) rotate(0.1deg);
-// }
-// }
+@keyframes wind-2 {
+  40% {
+    transform: none;
+    animation-timing-function: ease-out;
+  }
+  66% {
+    transform: scale(0.995) skewX(0.5deg) rotate(-1deg);
+  }
+}
 
 @keyframes wind-3 {
-  10% {
-    animation-timing-function: cubic-bezier(0.19, 0.17, 0.75, 0.8);
-    transform: skewX(-2deg) rotate(2deg);
+  21% {
+    transform: scale(1.01) skewX(-0.2deg) rotate(0.5deg);
   }
-  35% {
-    animation-timing-function: ease-in;
-    transform: none;
+  40% {
+    transform: skewX(0.05deg) rotate(-0.05deg);
   }
-  // 17% {
-  // transform: skewX(-2deg) rotate(1deg);
-  // }
-  // 80% {
-  // transform: skewX(0.5deg) rotate(-0.7deg);
-  // }
-  // // 92% {
-  // transform: skewX(-0.2deg) rotate(0.3deg);
-  // }
 }
 
 .section5 {
   height: 200vh;
-  overflow: hidden;
+
+  &__second-plan {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+  &__first-plan {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 150;
+  }
 
   &__spikelet-1 {
-    left: 100px;
-    top: 100px;
+    width: 530px;
+    height: 723px;
+    left: calc(50% - 868px);
+    top: 26px;
   }
 
   &__img3 {
     transform-origin: center;
     will-change: transform;
     width: 570px;
-    top: 107px;
+    top: 14px;
     position: absolute;
     z-index: 50;
     left: calc(50% + 1360px - 951px);
+    transform-origin: 51% 114%;
+    animation: wind-2 #{$animation-speed} infinite;
   }
 
   &__img4 {
@@ -155,9 +193,11 @@ $animation-speed: 7s;
     will-change: transform;
     position: absolute;
     left: calc(50% + 1159px - 951px);
-    top: 274px;
+    top: 175px;
     width: 475px;
     z-index: 2;
+    transform-origin: 51% 114%;
+    animation: wind-2 #{$animation-speed} infinite;
   }
 
   &__img7 {
@@ -166,10 +206,30 @@ $animation-speed: 7s;
     position: absolute;
     left: calc(50% + 1223px - 951px);
     width: 673px;
-    top: 362px;
+    top: 273px;
     z-index: 100;
     transform-origin: 51% 114%;
-    // animation: wind-2 #{$animation-speed} infinite;
+    animation: wind-2 #{$animation-speed} infinite;
+  }
+
+  &__img8 {
+    transform-origin: center;
+    will-change: transform;
+    position: absolute;
+    left: -256px;
+    width: 2323px;
+    bottom: -1443px;
+    z-index: 10;
+  }
+
+  &__img9 {
+    transform-origin: center;
+    will-change: transform;
+    position: absolute;
+    right: -124px;
+    width: 1990px;
+    top: -261px;
+    z-index: 150;
   }
 
   &__text2 {
@@ -178,9 +238,7 @@ $animation-speed: 7s;
     position: absolute;
     left: calc(50% + 562px - 951px);
     top: 197px;
-    font-size: 42.5px;
     width: 786px;
-    line-height: 1.3;
   }
 }
 
@@ -194,7 +252,9 @@ $animation-speed: 7s;
     width: 389px;
     height: 707px;
     transform-origin: 45% bottom;
+    transform: skewX(0.5deg) rotate(-0.5deg);
     animation: wind-1 #{$animation-speed} infinite;
+    animation-timing-function: ease;
   }
 
   &__img1 {
@@ -207,7 +267,6 @@ $animation-speed: 7s;
     z-index: 3;
     transform-origin: 77% 92%;
     animation: wind-2 #{$animation-speed} infinite;
-    animation-delay: -0.15s;
   }
 
   &__img2 {
@@ -219,7 +278,7 @@ $animation-speed: 7s;
     position: absolute;
     z-index: 2;
     transform-origin: 36% 97%;
-    animation: wind-3 #{$animation-speed} ease-in-out 0s infinite;
+    // animation: wind-3 #{$animation-speed} ease-in-out 0s infinite;
     animation-delay: -0.24s;
   }
 

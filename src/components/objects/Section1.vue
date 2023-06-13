@@ -1,6 +1,33 @@
 <template>
   <div class="content-block-item section1">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
+      <div class="section1__pre-block pre-block">
+        <img
+          :style="{ transform: transforms.preimg1 }"
+          class="pre-block__img1"
+          src="@/assets/images/section1/IMG_1741.avif"
+        />
+        <img
+          :style="{ transform: transforms.preimg2 }"
+          class="pre-block__img2"
+          src="@/assets/images/section1/IMG_1742.avif"
+        />
+        <img
+          :style="{ transform: transforms.preimg3 }"
+          class="pre-block__img3"
+          src="@/assets/images/section1/IMG_1743.avif"
+        />
+        <img
+          :style="{ transform: transforms.preimg4 }"
+          class="pre-block__img4"
+          src="@/assets/images/section1/IMG_1744.avif"
+        />
+        <img
+          :style="{ transform: transforms.preimg5 }"
+          class="pre-block__img5"
+          src="@/assets/images/section1/IMG_1745.avif"
+        />
+      </div>
       <img
         :style="{ transform: transforms.img1 }"
         class="section1__img1"
@@ -26,8 +53,8 @@
         class="section1__img5"
         src="@/assets/images/IMG_1611.webp"
       />
-      <div :style="{ transform: transforms.text }" class="section1__text">
-        everything would be blocked, frozen:<br /><br />
+      <div :style="{ transform: transforms.text }" class="section1__text text">
+        everything would be blocked, frozen:<br />
         contact with pleasant sensations in his body was for him a source of fear
       </div>
     </div>
@@ -70,7 +97,7 @@ export default {
   methods: {
     makeTransformsForStage(progress) {
       this.transforms.text = `translate(${-progress * 150}px, ${progress * 0}px) scale(${
-        progress * 0.25 + 1
+        progress * 0.2 + 0.8
       })`;
       this.transforms.img1 = `translateX(${-progress * 50}px) scale(${
         progress * 0.3 + 1
@@ -89,8 +116,6 @@ export default {
       }px) scale(${progress * 0.6 + 1})`;
     },
 
-    makeEndingTransformsForStage(progress) {},
-
     onScroll() {
       const hideOn = 3;
 
@@ -99,15 +124,21 @@ export default {
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
-      console.log(progress);
 
       this.show = -1 < progress && progress <= hideOn;
 
       if (!this.show) return;
 
+      if (progress < 0) {
+        this.makeTransformsForStage(0);
+      }
+
       if (0 <= progress && progress <= 1) {
-        // progress *= 2;
-        progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
+        progress =
+          (progress < 0.8
+            ? (Math.sin((progress / 0.8) * Math.PI - Math.PI / 2) + 1) / 2
+            : 1) +
+          (Math.log(progress + 5) - Math.log(5));
 
         if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
 
@@ -125,13 +156,6 @@ export default {
         this.wrapperStyle.position = "absolute";
         this.wrapperStyle.transform = null;
       }
-
-      const closeCurtainsOn = 1.41;
-      if (closeCurtainsOn < progress && progress < hideOn) {
-        this.makeEndingTransformsForStage(
-          (progress - closeCurtainsOn) / (smoothScrollEnd - closeCurtainsOn)
-        );
-      }
     },
   },
 };
@@ -147,7 +171,13 @@ export default {
 }
 
 .section1 {
-  height: 2900px;
+  height: 4500px;
+
+  &__pre-block {
+    bottom: calc(100% - 52.1vw);
+    width: 100%;
+    z-index: 100;
+  }
 
   &__img1 {
     transform-origin: center;
@@ -209,9 +239,39 @@ export default {
     will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
-    left: calc(66% - 300px);
-    top: 317px;
-    font-size: 25px;
+    left: calc(66% - 320px);
+    top: 273px;
+  }
+}
+
+.pre-block {
+  position: absolute;
+  height: 100px;
+
+  &__img1 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  &__img2 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  &__img3 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  &__img4 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  &__img5 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
   }
 }
 </style>

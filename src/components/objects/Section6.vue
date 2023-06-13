@@ -4,11 +4,6 @@
       <video class="section6__img6" autoplay loop muted>
         <source src="@/assets/images/section6/animation.webm" type="video/webm" />
       </video>
-
-      <div :style="{ transform: transforms.text }" class="section6__text2">
-        the act of compressing himself<br />
-        kept on functioning as a physical symptom
-      </div>
     </div>
   </div>
 </template>
@@ -50,7 +45,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / rect.height;
 
-      this.show = -2 < progress;
+      this.show = -1 < progress && progress < 2;
 
       if (!this.show) return;
     },
@@ -68,26 +63,15 @@ export default {
 }
 
 .section6 {
-  height: 3420px;
+  height: 3414px;
   overflow: hidden;
 
   &__img6 {
     position: absolute;
-    top: -200px;
+    top: -895px;
     left: calc(50% + 530px);
     width: 3928px;
     transform: translateX(-50%);
-  }
-
-  &__text2 {
-    transform-origin: center;
-    will-change: transform;
-    position: absolute;
-    left: 50%;
-    top: 410px;
-    font-size: 32px;
-    width: 898px;
-    line-height: 1.36;
   }
 }
 </style>
