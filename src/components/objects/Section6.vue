@@ -1,6 +1,7 @@
 <template>
   <div class="content-block-item section6">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <audio loop src="/section6.m4a" ref="sound"></audio>
+    <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <video class="section6__img6" autoplay loop muted>
         <source src="@/assets/images/section6/animation.webm" type="video/webm" />
       </video>
@@ -38,6 +39,17 @@ export default {
   },
 
   methods: {
+    playSound() {
+      const sound = this.$refs.sound;
+      if (sound.paused) sound.play();
+    },
+
+    stopSound() {
+      if (this.$refs.sound.paused) return;
+      this.$refs.sound.currentTime = 0;
+      this.$refs.sound.pause();
+    },
+
     onScroll() {
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
@@ -48,6 +60,9 @@ export default {
       this.show = -1 < progress && progress < 2;
 
       if (!this.show) return;
+
+      if (-0.1 <= progress && progress < 0.5) this.playSound();
+      else this.stopSound();
     },
   },
 };

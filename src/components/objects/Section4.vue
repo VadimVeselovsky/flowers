@@ -1,6 +1,7 @@
 <template>
   <div class="content-block-item section4">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <audio loop src="/section4.m4a" ref="sound"></audio>
+    <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <div class="section4__container">
         <img
           :style="{ transform: transforms.img1 }"
@@ -66,6 +67,17 @@ export default {
   },
 
   methods: {
+    playSound() {
+      const sound = this.$refs.sound;
+      if (sound.paused) sound.play();
+    },
+
+    stopSound() {
+      if (this.$refs.sound.paused) return;
+      this.$refs.sound.currentTime = 0;
+      this.$refs.sound.pause();
+    },
+
     onScroll() {
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
@@ -76,6 +88,9 @@ export default {
       this.show = -1 < progress && progress <= 2;
 
       if (!this.show) return;
+
+      if (-0.32 <= progress && progress < 0.6) this.playSound();
+      else this.stopSound();
 
       if (-0.5 <= progress && progress < 0) {
         this.wrapperStyle.top = `calc(${-progress * 2}*50vh)`;

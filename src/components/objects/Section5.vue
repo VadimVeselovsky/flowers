@@ -1,6 +1,7 @@
 <template>
   <div class="content-block-item section5">
-    <div :style="wrapperStyle" class="wrapper" v-if="show">
+    <audio loop src="/section5.m4a" ref="sound"></audio>
+    <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <div class="section5__first-plan" :style="{ transform: transforms.first_plan }">
         <img
           :style="{ transform: transforms.first_plan_img8 }"
@@ -34,14 +35,14 @@
         <img class="section5__img3" src="@/assets/images/section5/IMG_3844.webp" />
         <img class="section5__img4" src="@/assets/images/section5/IMG_3845.webp" />
         <img class="section5__img7" src="@/assets/images/section5/IMG_3854.webp" />
-        <div class="section5__text2 text">
-          if he can feel accepted<br />and can finally allow himself to entrust,<br /><br />
-          he will then be able to unfold<br />
-          the blocked contact deliberateness<br /><br />
-          and to gradually overcome the blocks<br />
-          he has put<br /><br />
-          between himself and the environment
-        </div>
+      </div>
+      <div class="section5__text2 text" :style="{ transform: transforms.third_plan }">
+        if he can feel accepted<br />and can finally allow himself to entrust,<br /><br />
+        he will then be able to unfold<br />
+        the blocked contact deliberateness<br /><br />
+        and to gradually overcome the blocks<br />
+        he has put<br /><br />
+        between himself and the environment
       </div>
     </div>
   </div>
@@ -71,13 +72,25 @@ export default {
   },
 
   methods: {
+    playSound() {
+      const sound = this.$refs.sound;
+      if (sound.paused) sound.play();
+    },
+
+    stopSound() {
+      if (this.$refs.sound.paused) return;
+      this.$refs.sound.currentTime = 0;
+      this.$refs.sound.pause();
+    },
+
     makeTransformsForStage(progress) {
-      this.transforms.first_plan = `scale(${0.9 + progress * 1.2})`;
+      this.transforms.first_plan = `scale(${0.9 + progress * 1.7})`;
       this.transforms.second_plan = `scale(${0.6 + progress * 0.4})`;
+      this.transforms.third_plan = `scale(${0.8 + progress * 0.2})`;
       this.transforms.first_plan_img8 = `translate(${-progress * 100}px, ${
         -progress * 100
       }px)`;
-      this.transforms.first_plan_img9 = `translate(${progress * 100}px, ${
+      this.transforms.first_plan_img9 = `translate(calc(${50 * progress}vw), ${
         -progress * 100
       }px)`;
     },
@@ -92,6 +105,9 @@ export default {
       this.show = -2 < progress;
 
       if (!this.show) return;
+
+      if (-0.9 <= progress) this.playSound();
+      else this.stopSound();
 
       if (progress < 0) {
         this.makeTransformsForStage(0);
@@ -239,6 +255,7 @@ $animation-speed: 7s;
     left: calc(50% + 562px - 951px);
     top: 197px;
     width: 786px;
+    z-index: -1;
   }
 }
 

@@ -7,7 +7,7 @@
       </div>
       <div class="section7__text2 text">
         the person, fearing risk and humiliation,<br />
-        criticism, environment rejection,<br /><br />
+        criticism, environment rejection,<br />
         stops and reverses the energy
       </div>
       <div class="section7__text3 text">
@@ -15,8 +15,7 @@
         retroflection process,<br /><br />determine a distortion of the bodily life
       </div>
       <div class="section7__text4 text">
-        the process through which the movement<br />
-        is inhibited and blocked<br />
+        the process through which<br />the movement is inhibited and blocked<br />
         is called retroflection
       </div>
       <img
@@ -91,8 +90,6 @@ export default {
 
       this.show = -2 < progress;
 
-      console.log(progress);
-
       if (!this.show) return;
 
       this.makeTransformsForStage((progress - 0.23) / (0.3 - 0.2));
@@ -122,8 +119,8 @@ export default {
 
   &__text2 {
     position: absolute;
-    left: 53vw;
-    top: 20vw;
+    left: 56vw;
+    top: 14vw;
     transform: translateX(-50%);
   }
 
@@ -137,8 +134,8 @@ export default {
 
   &__text4 {
     position: absolute;
-    left: 70vw;
-    top: 120vw;
+    left: 79vw;
+    top: 127vw;
     transform: translateX(-50%);
     width: 800px;
     z-index: 100;

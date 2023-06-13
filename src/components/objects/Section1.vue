@@ -171,7 +171,7 @@ export default {
 }
 
 .section1 {
-  height: 4500px;
+  height: 3800px;
 
   &__pre-block {
     bottom: calc(100% - 52.1vw);
