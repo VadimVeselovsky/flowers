@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section6">
-    <audio loop src="/section6.m4a" ref="sound"></audio>
+    <audio loop src="/flowers/section6.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <video class="section6__img6" autoplay loop muted>
         <source src="@/assets/images/section6/animation.webm" type="video/webm" />

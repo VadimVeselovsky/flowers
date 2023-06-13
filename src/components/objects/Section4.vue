@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section4">
-    <audio loop src="/section4.m4a" ref="sound"></audio>
+    <audio loop src="/flowers/section4.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <div class="section4__container">
         <img

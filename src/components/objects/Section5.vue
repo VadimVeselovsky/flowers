@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section5">
-    <audio loop src="/section5.m4a" ref="sound"></audio>
+    <audio loop src="/flowers/section5.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <div class="section5__first-plan" :style="{ transform: transforms.first_plan }">
         <img
