@@ -186,20 +186,20 @@ $animation-speed: 7s;
   }
 
   &__spikelet-1 {
-    width: 530px;
-    height: 723px;
-    left: calc(50% - 868px);
-    top: 26px;
+    width: 27.8vw;
+    height: 38vw;
+    left: calc(50% - 45.6vw);
+    top: 1.4vw;
   }
 
   &__img3 {
     transform-origin: center;
     will-change: transform;
-    width: 570px;
-    top: 14px;
+    width: 30vw;
+    top: 0.7vw;
     position: absolute;
     z-index: 50;
-    left: calc(50% + 1360px - 951px);
+    left: calc(50% + 21.5vw);
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
   }
@@ -208,9 +208,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(50% + 1159px - 951px);
-    top: 175px;
-    width: 475px;
+    left: calc(50% + 10.9vw);
+    top: 9.2vw;
+    width: 25vw;
     z-index: 2;
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
@@ -220,9 +220,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(50% + 1223px - 951px);
-    width: 673px;
-    top: 273px;
+    left: calc(50% + 14.3vw);
+    width: 35.4vw;
+    top: 14.3vw;
     z-index: 100;
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
@@ -232,9 +232,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: -256px;
-    width: 2323px;
-    bottom: -1443px;
+    left: -13.5vw;
+    width: 122.1vw;
+    bottom: -75.8vw;
     z-index: 10;
   }
 
@@ -242,9 +242,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    right: -124px;
-    width: 1990px;
-    top: -261px;
+    right: -6.5vw;
+    width: 104.6vw;
+    top: -13.7vw;
     z-index: 150;
   }
 
@@ -252,9 +252,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(50% + 562px - 951px);
-    top: 197px;
-    width: 786px;
+    left: calc(50% - 20.4vw);
+    top: 10.4vw;
+    width: 41.3vw;
     z-index: -1;
   }
 }
@@ -263,11 +263,11 @@ $animation-speed: 7s;
   position: relative;
   &__bone-1 {
     position: absolute;
-    left: 52px;
-    top: -17px;
+    left: 2.7vw;
+    top: -0.9vw;
     z-index: 3;
-    width: 389px;
-    height: 707px;
+    width: 20.4vw;
+    height: 37.2vw;
     transform-origin: 45% bottom;
     transform: skewX(0.5deg) rotate(-0.5deg);
     animation: wind-1 #{$animation-speed} infinite;
@@ -278,9 +278,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(111px - 100px);
-    top: 331px;
-    width: 218px;
+    left: 0.6vw;
+    top: 17.4vw;
+    width: 11.5vw;
     z-index: 3;
     transform-origin: 77% 92%;
     animation: wind-2 #{$animation-speed} infinite;
@@ -289,9 +289,9 @@ $animation-speed: 7s;
   &__img2 {
     transform-origin: center;
     will-change: transform;
-    width: 349px;
-    left: calc(129px - 100px);
-    top: -8px;
+    width: 18.3vw;
+    left: -1.5vw;
+    top: -0.4vw;
     position: absolute;
     z-index: 2;
     transform-origin: 36% 97%;
@@ -303,9 +303,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(83px - 100px);
-    width: 408px;
-    top: 612px;
+    left: -0.9vw;
+    width: 21.4vw;
+    top: 32.2vw;
     z-index: 2;
   }
 
@@ -313,9 +313,9 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(210px - 100px);
-    width: 249px;
-    top: 454px;
+    left: 5.8vw;
+    width: 13.1vw;
+    top: 23.9vw;
     z-index: 2;
   }
 }
