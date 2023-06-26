@@ -18,43 +18,58 @@
         the process through which<br />the movement is inhibited and blocked<br />
         is called retroflection
       </div>
+      <img class="section7__img1" src="@/assets/images/section7/13.webp" />
       <img
-        :style="{ transform: transforms.img1 }"
-        class="section7__img1"
-        src="@/assets/images/section7/IMG_1760.avif"
+        @mouseenter="classes.img5 = 'section7__img5_animation'"
+        @animationend="classes.img5 = null"
+        :class="classes.img5"
+        class="section7__img5"
+        src="@/assets/images/section7/12.webp"
       />
       <img
-        :style="{ transform: transforms.img2 }"
-        class="section7__img2"
-        src="@/assets/images/section7/IMG_1761.avif"
+        :style="{ transform: transforms.img6 }"
+        class="section7__img6"
+        src="@/assets/images/section7/11.webp"
       />
       <img
-        :style="{ transform: transforms.img3 }"
-        class="section7__img3"
-        src="@/assets/images/section7/IMG_1762.avif"
+        class="section7__img7"
+        src="@/assets/images/section7/14.webp"
+        :style="{ transform: transforms.img7 }"
       />
       <img
-        :style="{ transform: transforms.img4 }"
-        class="section7__img4"
-        src="@/assets/images/section7/IMG_1763.avif"
+        :style="{ transform: transforms.img8 }"
+        class="section7__img8"
+        src="@/assets/images/section7/7.webp"
+      />
+      <img
+        :style="{ transform: transforms.img9 }"
+        class="section7__img9"
+        src="@/assets/images/section7/8.webp"
+      />
+      <img
+        class="section7__img10"
+        :style="{ transform: transforms.img10 }"
+        src="@/assets/images/section7/9.webp"
+      />
+
+      <img
+        :style="{ transform: transforms.img11 }"
+        class="section7__img11"
+        src="@/assets/images/section7/10.webp"
       />
     </div>
   </div>
 </template>
 
 <script>
+const stepFunction = (x, step, rate) => ((Math.sin((x - step) * rate) + 1) / 2);
+
 export default {
   data() {
     return {
       show: false,
-      transforms: {
-        img1: null,
-        img2: null,
-        img3: null,
-        img4: null,
-        img5: null,
-        text: null,
-      },
+      classes: {},
+      transforms: {},
       wrapperStyle: {
         top: null,
         bottom: null,
@@ -76,8 +91,8 @@ export default {
     makeTransformsForStage(progress) {
       progress = Math.max(Math.min(progress, 1), 0);
       progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
-      this.transforms.img2 = `translate(${10.9 * progress}vw, ${30 * progress}px)`;
-      this.transforms.img3 = `translateY(${-21.6 * progress}vw)`;
+      this.transforms.img10 = `translate(${17.3 * progress}vw, ${30 * progress}px)`;
+      this.transforms.img7 = `translateY(${-21.6 * progress}vw)`;
       this.transforms.img4 = `translateY(${-16.6 * progress}vw)`;
     },
 
@@ -92,7 +107,12 @@ export default {
 
       if (!this.show) return;
 
-      this.makeTransformsForStage((progress - 0.23) / (0.3 - 0.2));
+      this.transforms.img9 = `scale(${stepFunction(progress, 0.02, 50) * 0.1 + 1})`;
+      this.transforms.img8 = `scale(${stepFunction(progress, 0.3, 49) * 0.09 + 1})`;
+      this.transforms.img6 = `scale(${stepFunction(progress, 0.32, 26) * 0.07 + 1})`;
+      this.transforms.img11 = `scale(${stepFunction(progress, 0.35, 35) * 0.05 + 1})`;
+
+      this.makeTransformsForStage((progress - 0.16) / (0.4 - 0.16));
     },
   },
 };
@@ -107,8 +127,22 @@ export default {
   z-index: 100;
 }
 
+@mixin enlargeOnHover($size) {
+  transition: transform 0.4s;
+
+  &:hover {
+    transform: scale($size);
+  }
+}
+
+@keyframes feather {
+  40% {
+    transform: rotate(2deg);
+  }
+}
+
 .section7 {
-  height: 145vw;
+  height: 133vw;
 
   &__text1 {
     position: absolute;
@@ -130,12 +164,13 @@ export default {
     top: 53vw;
     transform: translateX(-50%);
     width: 800px;
+    font-size: 25px;
   }
 
   &__text4 {
     position: absolute;
     left: 79vw;
-    top: 127vw;
+    top: 117vw;
     transform: translateX(-50%);
     width: 800px;
     z-index: 100;
@@ -145,56 +180,70 @@ export default {
     position: absolute;
     width: 99vw;
     left: 0;
-    top: 2.5vw;
-    z-index: 4;
-  }
-
-  &__img2 {
-    position: absolute;
-    width: 100vw;
-    right: 0vw;
-    top: -2vw;
-  }
-
-  &__img3 {
-    position: absolute;
-    width: 105vw;
-    left: -3vw;
-    top: -1.8vw;
-
-    &_open {
-      transform: translate(-5%, -5%);
-    }
-  }
-
-  &__img4 {
-    position: absolute;
-    width: 99vw;
-    left: 0;
-    top: 25.5vw;
+    top: 26.2vw;
     z-index: 4;
   }
 
   &__img5 {
     position: absolute;
-    width: 96vw;
-    right: 0;
-    top: 32.5vw;
+    width: 26.5vw;
+    left: 10.5vw;
+    top: 16.5vw;
+    z-index: 40;
+    transform-origin: 20% 91%;
+    transform: rotate(-3deg);
 
-    &_open {
-      transform: translate(16%, 5%);
+    &_animation {
+      animation: feather 6s;
     }
   }
 
   &__img6 {
     position: absolute;
-    width: 35vw;
-    right: 17vw;
-    top: 39.5vw;
+    width: 20vw;
+    left: 7.3vw;
+    top: 47.6vw;
+    z-index: 50;
+  }
 
-    &_open {
-      transform: translate(-20%, -7%);
-    }
+  &__img7 {
+    position: absolute;
+    width: 49vw;
+    left: 28vw;
+    top: 33vw;
+    z-index: 2;
+  }
+
+  &__img8 {
+    position: absolute;
+    width: 10.6vw;
+    left: 60.7vw;
+    top: 65.6vw;
+    z-index: 50;
+  }
+
+  &__img9 {
+    position: absolute;
+    width: 10vw;
+    left: 86.4vw;
+    top: 19vw;
+    z-index: 50;
+  }
+
+  &__img10 {
+    position: absolute;
+    width: 93.5vw;
+    right: -0.5vw;
+    top: 32vw;
+    z-index: 5;
+  }
+
+  &__img11 {
+    position: absolute;
+    width: 19.5vw;
+    left: 23.5vw;
+    top: 66vw;
+    z-index: 50;
   }
 }
 </style>

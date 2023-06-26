@@ -188,7 +188,7 @@ $animation-speed: 7s;
   &__spikelet-1 {
     width: 27.8vw;
     height: 38vw;
-    left: calc(50% - 45.6vw);
+    left: calc(9vw + -24px);
     top: 1.4vw;
   }
 
@@ -199,7 +199,7 @@ $animation-speed: 7s;
     top: 0.7vw;
     position: absolute;
     z-index: 50;
-    left: calc(50% + 21.5vw);
+    left: calc(43vw + 592px);
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
   }
@@ -208,7 +208,7 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(50% + 10.9vw);
+    left: calc(30% + 526px);
     top: 9.2vw;
     width: 25vw;
     z-index: 2;
@@ -220,7 +220,7 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(50% + 14.3vw);
+    left: calc(33vw + 638px);
     width: 35.4vw;
     top: 14.3vw;
     z-index: 100;

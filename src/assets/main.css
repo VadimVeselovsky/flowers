@@ -1,5 +1,10 @@
 @import "./base.css";
 
+@font-face {
+  font-family: Eina;
+  src: url("@/assets/fonts/Eina01-Regular.ttf");
+}
+
 body {
   overflow-x: hidden;
 }
