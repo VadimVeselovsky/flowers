@@ -81,12 +81,12 @@ export default {
 }
 
 .section6 {
-  height: 3414px;
+  height: 3209px;
   overflow: hidden;
 
   &__img6 {
     position: absolute;
-    top: -895px;
+    top: -383px;
     left: calc(50% + 530px);
     width: 3928px;
     transform: translateX(-50%);

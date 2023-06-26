@@ -2,19 +2,25 @@
   <div class="content-block-item section5">
     <audio loop src="/flowers/section5.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
-      <div class="section5__first-plan" :style="{ transform: transforms.first_plan }">
+      <div
+        class="section5__first-plan"
+        :style="{ transform: transforms.first_plan }"
+      >
         <img
           :style="{ transform: transforms.first_plan_img8 }"
           class="section5__img8"
-          src="@/assets/images/section5/IMG_1734.png"
+          src="@/assets/images/section5/IMG_1734.webp"
         />
         <img
           :style="{ transform: transforms.first_plan_img9 }"
           class="section5__img9"
-          src="@/assets/images/section5/IMG_1735.png"
+          src="@/assets/images/section5/IMG_1735.webp"
         />
       </div>
-      <div class="section5__second-plan" :style="{ transform: transforms.second_plan }">
+      <div
+        class="section5__second-plan"
+        :style="{ transform: transforms.second_plan }"
+      >
         <div class="thin-spikelet section5__spikelet-1">
           <div class="thin-spikelet__bone-1">
             <img
@@ -30,14 +36,30 @@
               src="@/assets/images/section5/IMG_3849.webp"
             />
           </div>
-          <img class="thin-spikelet__img3" src="@/assets/images/section5/IMG_3848.webp" />
+          <img
+            class="thin-spikelet__img3"
+            src="@/assets/images/section5/IMG_3848.webp"
+          />
         </div>
-        <img class="section5__img3" src="@/assets/images/section5/IMG_3844.webp" />
-        <img class="section5__img4" src="@/assets/images/section5/IMG_3845.webp" />
-        <img class="section5__img7" src="@/assets/images/section5/IMG_3854.webp" />
+        <img
+          class="section5__img3"
+          src="@/assets/images/section5/IMG_3844.webp"
+        />
+        <img
+          class="section5__img4"
+          src="@/assets/images/section5/IMG_3845.webp"
+        />
+        <img
+          class="section5__img7"
+          src="@/assets/images/section5/IMG_3854.webp"
+        />
       </div>
-      <div class="section5__text2 text" :style="{ transform: transforms.third_plan }">
-        if he can feel accepted<br />and can finally allow himself to entrust,<br /><br />
+      <div
+        class="section5__text2 text"
+        :style="{ transform: transforms.third_plan }"
+      >
+        if he can feel accepted<br />and can finally allow himself to
+        entrust,<br /><br />
         he will then be able to unfold<br />
         the blocked contact deliberateness<br /><br />
         and to gradually overcome the blocks<br />

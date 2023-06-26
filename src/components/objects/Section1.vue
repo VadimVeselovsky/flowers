@@ -5,27 +5,12 @@
         <img
           :style="{ transform: transforms.preimg1 }"
           class="pre-block__img1"
-          src="@/assets/images/section1/IMG_1741.avif"
+          src="@/assets/images/section1/IMG_1748.webp"
         />
         <img
           :style="{ transform: transforms.preimg2 }"
           class="pre-block__img2"
-          src="@/assets/images/section1/IMG_1742.avif"
-        />
-        <img
-          :style="{ transform: transforms.preimg3 }"
-          class="pre-block__img3"
-          src="@/assets/images/section1/IMG_1743.avif"
-        />
-        <img
-          :style="{ transform: transforms.preimg4 }"
-          class="pre-block__img4"
-          src="@/assets/images/section1/IMG_1744.avif"
-        />
-        <img
-          :style="{ transform: transforms.preimg5 }"
-          class="pre-block__img5"
-          src="@/assets/images/section1/IMG_1745.avif"
+          src="@/assets/images/section1/IMG_1749.webp"
         />
       </div>
       <img
@@ -55,7 +40,8 @@
       />
       <div :style="{ transform: transforms.text }" class="section1__text text">
         everything would be blocked, frozen:<br />
-        contact with pleasant sensations in his body was for him a source of fear
+        contact with pleasant sensations in his body was for him a source of
+        fear
       </div>
     </div>
   </div>
@@ -69,14 +55,7 @@ export default {
     return {
       show: true,
       counter: 0,
-      transforms: {
-        img1: null,
-        img2: null,
-        img3: null,
-        img4: null,
-        img5: null,
-        text: null,
-      },
+      transforms: {},
       wrapperStyle: {
         top: null,
         bottom: null,
@@ -96,24 +75,26 @@ export default {
 
   methods: {
     makeTransformsForStage(progress) {
-      this.transforms.text = `translate(${-progress * 150}px, ${progress * 0}px) scale(${
-        progress * 0.2 + 0.8
-      })`;
+      this.transforms.text = `translate(${-progress * 150}px, ${
+        progress * 0
+      }px) scale(${progress * 0.2 + 0.8})`;
       this.transforms.img1 = `translateX(${-progress * 50}px) scale(${
         progress * 0.3 + 1
       })`;
-      this.transforms.img2 = `translate(${progress * 100}px, ${progress * 10}px) scale(${
-        progress * 0.25 + 1
-      })`;
-      this.transforms.img3 = `translate(${progress * 540}px, ${progress * 70}px) scale(${
-        progress * 0.6 + 1
-      })`;
-      this.transforms.img4 = `translate(${-progress * 250}px, ${progress * 10}px) scale(${
-        progress * 0.35 + 1
-      })`;
+      this.transforms.img2 = `translate(${progress * 100}px, ${
+        progress * 10
+      }px) scale(${progress * 0.25 + 1})`;
+      this.transforms.img3 = `translate(${progress * 540}px, ${
+        progress * 70
+      }px) scale(${progress * 0.6 + 1})`;
+      this.transforms.img4 = `translate(${-progress * 250}px, ${
+        progress * 10
+      }px) scale(${progress * 0.35 + 1})`;
       this.transforms.img5 = `translate(${-progress * 390}px, ${
         progress * 200
       }px) scale(${progress * 0.6 + 1})`;
+
+      this.transforms.preimg2 = `scaleY(${1 - progress})`;
     },
 
     onScroll() {
@@ -254,21 +235,6 @@ export default {
     bottom: 0;
   }
   &__img2 {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  }
-  &__img3 {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  }
-  &__img4 {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  }
-  &__img5 {
     width: 100%;
     position: absolute;
     bottom: 0;

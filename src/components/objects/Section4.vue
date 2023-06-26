@@ -29,8 +29,8 @@
           data-v-dfb9d4cf=""
         />in the compression of his abdominal and gastric musculature,<br
           data-v-dfb9d4cf=""
-        />and in the withdrawal of energy from his shoulders and arms <br /><br />the act
-        of compressing himself<br data-v-1df51d3b="" />
+        />and in the withdrawal of energy from his shoulders and arms
+        <br /><br />the act of compressing himself<br data-v-1df51d3b="" />
         kept on functioning as a physical symptom
       </div>
     </div>
@@ -198,7 +198,7 @@ export default {
     transform-origin: center;
     position: absolute;
     left: 919px;
-    top: 679px;
+    bottom: 50px;
   }
 }
 </style>
