@@ -19,7 +19,7 @@
       <img
         :style="{ transform: transforms.img4 }"
         class="section3__img4"
-        src="@/assets/images/section3/4.avif"
+        src="@/assets/images/section3/4.webp"
       />
       <img
         :style="{ transform: transforms.img5 }"
