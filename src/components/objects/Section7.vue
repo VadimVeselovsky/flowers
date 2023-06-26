@@ -1,18 +1,19 @@
 <template>
   <div class="content-block-item section7">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
-      <div class="section7__text1 text">
+      <div class="section7__text1 text" :style="styles.text1">
         we can learn a chronic and unaware way<br />
         of blocking our body expressions
       </div>
-      <div class="section7__text2 text">
+      <div class="section7__text2 text" :style="styles.text2">
         the person, fearing risk and humiliation,<br />
         criticism, environment rejection,<br />
         stops and reverses the energy
       </div>
       <div class="section7__text3 text">
-        the action and the movements<br />chronically blocked,<br />through the body
-        retroflection process,<br /><br />determine a distortion of the bodily life
+        the action and the movements<br />chronically blocked,<br />through the
+        body retroflection process,<br /><br />determine a distortion of the
+        bodily life
       </div>
       <div class="section7__text4 text">
         the process through which<br />the movement is inhibited and blocked<br />
@@ -62,7 +63,7 @@
 </template>
 
 <script>
-const stepFunction = (x, step, rate) => ((Math.sin((x - step) * rate) + 1) / 2);
+const stepFunction = (x, step, rate) => (Math.sin((x - step) * rate) + 1) / 2;
 
 export default {
   data() {
@@ -70,6 +71,7 @@ export default {
       show: false,
       classes: {},
       transforms: {},
+      styles: {},
       wrapperStyle: {
         top: null,
         bottom: null,
@@ -91,7 +93,9 @@ export default {
     makeTransformsForStage(progress) {
       progress = Math.max(Math.min(progress, 1), 0);
       progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
-      this.transforms.img10 = `translate(${17.3 * progress}vw, ${30 * progress}px)`;
+      this.transforms.img10 = `translate(${17.3 * progress}vw, ${
+        30 * progress
+      }px)`;
       this.transforms.img7 = `translateY(${-21.6 * progress}vw)`;
       this.transforms.img4 = `translateY(${-16.6 * progress}vw)`;
     },
@@ -107,10 +111,26 @@ export default {
 
       if (!this.show) return;
 
-      this.transforms.img9 = `scale(${stepFunction(progress, 0.02, 50) * 0.1 + 1})`;
-      this.transforms.img8 = `scale(${stepFunction(progress, 0.3, 49) * 0.09 + 1})`;
-      this.transforms.img6 = `scale(${stepFunction(progress, 0.32, 26) * 0.07 + 1})`;
-      this.transforms.img11 = `scale(${stepFunction(progress, 0.35, 35) * 0.05 + 1})`;
+      this.transforms.img9 = `scale(${
+        stepFunction(progress, 0.02, 50) * 0.1 + 1
+      })`;
+      this.transforms.img8 = `scale(${
+        stepFunction(progress, 0.3, 49) * 0.09 + 1
+      })`;
+      this.transforms.img6 = `scale(${
+        stepFunction(progress, 0.32, 26) * 0.07 + 1
+      })`;
+      this.transforms.img11 = `scale(${
+        stepFunction(progress, 0.35, 35) * 0.05 + 1
+      })`;
+
+      this.styles.text1 = {
+        opacity: Math.max(Math.min((progress + 0.017) * 20, 1), 0),
+      };
+
+      this.styles.text2 = {
+        opacity: Math.max(Math.min(progress * 20, 1), 0),
+      };
 
       this.makeTransformsForStage((progress - 0.16) / (0.4 - 0.16));
     },
@@ -146,7 +166,7 @@ export default {
 
   &__text1 {
     position: absolute;
-    left: 19vw;
+    left: 23vw;
     top: 6vw;
     transform: translateX(-50%);
   }

@@ -1,4 +1,5 @@
 <template>
+  <div style="height: 15vh"></div>
   <Section7 />
   <Section3 />
   <Section4 />
@@ -20,7 +21,15 @@ import Section6 from "@/components/objects/Section6.vue";
 import Section7 from "@/components/objects/Section7.vue";
 
 export default {
-  components: { Section1, Section2, Section3, Section4, Section5, Section6, Section7 },
+  components: {
+    Section1,
+    Section2,
+    Section3,
+    Section4,
+    Section5,
+    Section6,
+    Section7,
+  },
 
   mounted() {
     window.scroll({ left: 0 });

@@ -3,7 +3,10 @@
     <audio loop src="/flowers/section6.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <video class="section6__img6" autoplay loop muted>
-        <source src="@/assets/images/section6/animation.webm" type="video/webm" />
+        <source
+          src="@/assets/images/section6/animation1.webm"
+          type="video/webm"
+        />
       </video>
     </div>
   </div>
