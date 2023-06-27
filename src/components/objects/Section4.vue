@@ -92,8 +92,10 @@ export default {
       if (-0.32 <= progress && progress < 0.6) this.playSound();
       else this.stopSound();
 
-      if (-0.5 <= progress && progress < 0) {
+      if (progress < 0) {
         this.wrapperStyle.top = `calc(${-progress * 2}*50vh)`;
+      } else {
+        this.wrapperStyle.top = "0";
       }
     },
   },
