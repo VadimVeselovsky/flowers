@@ -28,11 +28,12 @@
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
       <div class="section2__text1 text">
-        The movement is not turned on oneself, but countered by equal muscular force in
-        the opposing muscle groups
+        The movement is not turned on oneself, but countered by equal muscular
+        force in the opposing muscle groups
       </div>
       <div class="section2__text2 text">
-        In these cases the blocked action manifests itself as tension and immobility<br />
+        In these cases the blocked action manifests itself as tension and
+        immobility<br />
         in the muscular groups involved.
       </div>
     </div>
@@ -101,10 +102,7 @@ export default {
           ((1 - Math.cos(((1-progress) * 6 + 1) * Math.PI)) / 2) *
             (rect.height - window.innerHeight) +
           "px)";
-      } else*/ if (
-        0 <= progress &&
-        progress <= 1
-      ) {
+      } else*/ if (0 <= progress && progress <= 1) {
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
         if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
@@ -129,7 +127,9 @@ export default {
 
       if (-0.5 <= progress && progress < 0) {
         this.wrapperStyle.top = `calc(${-progress * 2}*150vh)`;
-        this.wrapperStyle.transform = `scale(${0.7 + 0.3 * (progress + 0.5) * 2})`;
+        this.wrapperStyle.transform = `scale(${
+          0.7 + 0.3 * (progress + 0.5) * 2
+        })`;
       }
     },
   },
@@ -218,9 +218,10 @@ export default {
     will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
-    left: 200px;
+    left: 50%;
     top: 1266px;
     width: 1330px;
+    transform: translate(-57%);
   }
 }
 </style>

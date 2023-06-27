@@ -15,7 +15,10 @@
         body retroflection process,<br /><br />determine a distortion of the
         bodily life
       </div>
-      <div class="section7__text4 text">
+      <div
+        class="section7__text4 text"
+        :class="{ section7__text4_animate: progress > 0.5 }"
+      >
         the process through which<br />the movement is inhibited and blocked<br />
         is called retroflection
       </div>
@@ -28,8 +31,8 @@
         src="@/assets/images/section7/12.webp"
       />
       <img
-        :style="{ transform: transforms.img6 }"
         class="section7__img6"
+        :class="{ section7__img6_animated: progress > 0.35 }"
         src="@/assets/images/section7/11.webp"
       />
       <img
@@ -38,15 +41,11 @@
         :style="{ transform: transforms.img7 }"
       />
       <img
-        :style="{ transform: transforms.img8 }"
         class="section7__img8"
+        :class="{ section7__img8_animated: progress > 0.36 }"
         src="@/assets/images/section7/7.webp"
       />
-      <img
-        :style="{ transform: transforms.img9 }"
-        class="section7__img9"
-        src="@/assets/images/section7/8.webp"
-      />
+      <img class="section7__img9" src="@/assets/images/section7/8.webp" />
       <img
         class="section7__img10"
         :style="{ transform: transforms.img10 }"
@@ -54,8 +53,8 @@
       />
 
       <img
-        :style="{ transform: transforms.img11 }"
         class="section7__img11"
+        :class="{ section7__img11_animated: progress > 0.365 }"
         src="@/assets/images/section7/10.webp"
       />
     </div>
@@ -63,20 +62,15 @@
 </template>
 
 <script>
-const stepFunction = (x, step, rate) => (Math.sin((x - step) * rate) + 1) / 2;
-
 export default {
   data() {
     return {
+      progress: 0,
       show: false,
       classes: {},
       transforms: {},
       styles: {},
-      wrapperStyle: {
-        top: null,
-        bottom: null,
-        position: null,
-      },
+      wrapperStyle: {},
     };
   },
 
@@ -107,30 +101,15 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / rect.height;
 
-      this.show = -2 < progress;
+      this.show = -2 < progress && progress < 1.2;
 
       if (!this.show) return;
 
-      this.transforms.img9 = `scale(${
-        stepFunction(progress, 0.02, 50) * 0.1 + 1
-      })`;
-      this.transforms.img8 = `scale(${
-        stepFunction(progress, 0.3, 49) * 0.09 + 1
-      })`;
-      this.transforms.img6 = `scale(${
-        stepFunction(progress, 0.32, 26) * 0.07 + 1
-      })`;
-      this.transforms.img11 = `scale(${
-        stepFunction(progress, 0.35, 35) * 0.05 + 1
-      })`;
+      console.log(progress);
 
-      this.styles.text1 = {
-        opacity: Math.max(Math.min((progress + 0.017) * 20, 1), 0),
-      };
+      this.progress = progress;
 
-      this.styles.text2 = {
-        opacity: Math.max(Math.min(progress * 20, 1), 0),
-      };
+      this.wrapperStyle.transform = `translateY(${progress * 100}vw)`;
 
       this.makeTransformsForStage((progress - 0.16) / (0.4 - 0.16));
     },
@@ -161,21 +140,68 @@ export default {
   }
 }
 
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-out {
+  25%,
+  75% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes booping {
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes space_floating {
+  from,
+  to {
+    transform: translateX(20px) rotate(-35deg);
+  }
+
+  25% {
+    transform: translateX(-20px) rotate(-38deg);
+  }
+
+  50% {
+    transform: translateX(20px) rotate(-41deg);
+  }
+
+  75% {
+    transform: translateX(-20px) rotate(-38deg);
+  }
+}
+
 .section7 {
-  height: 133vw;
+  height: 233vw;
 
   &__text1 {
     position: absolute;
     left: 23vw;
-    top: 6vw;
+    top: 0vw;
     transform: translateX(-50%);
+    opacity: 0;
+    animation: 1s ease 1s fade-in;
+    animation-fill-mode: forwards;
   }
 
   &__text2 {
     position: absolute;
     left: 56vw;
-    top: 14vw;
+    top: 8vw;
     transform: translateX(-50%);
+    opacity: 0;
+    animation: 1s ease 2.8s fade-in;
+    animation-fill-mode: forwards;
   }
 
   &__text3 {
@@ -190,10 +216,17 @@ export default {
   &__text4 {
     position: absolute;
     left: 79vw;
-    top: 117vw;
+    top: 121vw;
     transform: translateX(-50%);
     width: 800px;
     z-index: 100;
+    opacity: 0;
+    transition: opacity 1s;
+
+    &_animate {
+      animation: 6s ease 1.5s fade-in-out;
+      animation-fill-mode: forwards;
+    }
   }
 
   &__img1 {
@@ -224,6 +257,11 @@ export default {
     left: 7.3vw;
     top: 47.6vw;
     z-index: 50;
+
+    &_animated {
+      animation: 1.4s ease 0 booping;
+      animation-iteration-count: infinite;
+    }
   }
 
   &__img7 {
@@ -240,6 +278,11 @@ export default {
     left: 60.7vw;
     top: 65.6vw;
     z-index: 50;
+
+    &_animated {
+      animation: 1.5s ease 0 booping;
+      animation-iteration-count: infinite;
+    }
   }
 
   &__img9 {
@@ -248,6 +291,8 @@ export default {
     left: 86.4vw;
     top: 19vw;
     z-index: 50;
+    animation: 13s ease-in-out 0 space_floating;
+    animation-iteration-count: infinite;
   }
 
   &__img10 {
@@ -264,6 +309,11 @@ export default {
     left: 23.5vw;
     top: 66vw;
     z-index: 50;
+
+    &_animated {
+      animation: 1.3s ease 0 booping;
+      animation-iteration-count: infinite;
+    }
   }
 }
 </style>

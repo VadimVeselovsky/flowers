@@ -157,18 +157,18 @@ export default {
   z-index: 100;
 }
 
-$animation-speed: 7s;
+$animation-speed: 10s;
 
 @keyframes wind-1 {
   20% {
-    transform: scale(1.015) skewX(-3deg) rotate(3deg);
+    transform: scale(1.015) rotate(3deg);
   }
   40% {
-    transform: scale(1.013) skewX(-3.2deg) rotate(3.2deg);
+    transform: scale(1.013) rotate(3.2deg);
     animation-timing-function: ease-in-out;
   }
   66% {
-    transform: scale(0.995) skewX(1deg) rotate(-1deg);
+    transform: scale(0.995) rotate(-1deg);
     animation-timing-function: ease-out;
   }
 }
@@ -179,16 +179,16 @@ $animation-speed: 7s;
     animation-timing-function: ease-out;
   }
   66% {
-    transform: scale(0.995) skewX(0.5deg) rotate(-1deg);
+    transform: scale(0.995) rotate(4deg);
   }
 }
 
 @keyframes wind-3 {
   21% {
-    transform: scale(1.01) skewX(-0.2deg) rotate(0.5deg);
+    transform: scale(1.01) rotate(0.5deg);
   }
   40% {
-    transform: skewX(0.05deg) rotate(-0.05deg);
+    transform: rotate(-0.05deg);
   }
 }
 
@@ -210,7 +210,7 @@ $animation-speed: 7s;
   &__spikelet-1 {
     width: 27.8vw;
     height: 38vw;
-    left: calc(9vw + -24px);
+    left: calc(7vw + -24px);
     top: 1.4vw;
   }
 
@@ -230,7 +230,7 @@ $animation-speed: 7s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(30% + 526px);
+    left: calc(27.3vw + 533px);
     top: 9.2vw;
     width: 25vw;
     z-index: 2;
@@ -291,7 +291,7 @@ $animation-speed: 7s;
     width: 20.4vw;
     height: 37.2vw;
     transform-origin: 45% bottom;
-    transform: skewX(0.5deg) rotate(-0.5deg);
+    transform: rotate(-0.5deg);
     animation: wind-1 #{$animation-speed} infinite;
     animation-timing-function: ease;
   }
