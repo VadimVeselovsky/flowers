@@ -1,19 +1,11 @@
 <template>
   <div class="content-block-item section7">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
-      <div
-        class="section7__text1 text"
-        :class="{ section7__text1_animated: showAnimations }"
-        :style="styles.text1"
-      >
+      <div class="section7__text1 text" :style="styles.text1">
         we can learn a chronic and unaware way<br />
         of blocking our body expressions
       </div>
-      <div
-        class="section7__text2 text"
-        :class="{ section7__text2_animated: showAnimations }"
-        :style="styles.text2"
-      >
+      <div class="section7__text2 text" :style="styles.text2">
         the person, fearing risk and humiliation,<br />
         criticism, environment rejection,<br />
         stops and reverses the energy
@@ -71,13 +63,6 @@
 
 <script>
 export default {
-  props: {
-    showAnimations: {
-      type: Boolean,
-      default: false,
-    },
-  },
-
   data() {
     return {
       progress: 0,
@@ -205,10 +190,8 @@ export default {
     top: 0vw;
     transform: translateX(-50%);
     opacity: 0;
-    &_animated {
-      animation: 1s ease 1s fade-in;
-      animation-fill-mode: forwards;
-    }
+    animation: 1s ease 1s fade-in;
+    animation-fill-mode: forwards;
   }
 
   &__text2 {
@@ -217,10 +200,8 @@ export default {
     top: 8vw;
     transform: translateX(-50%);
     opacity: 0;
-    &_animated {
-      animation: 1s ease 2.8s fade-in;
-      animation-fill-mode: forwards;
-    }
+    animation: 1s ease 2.8s fade-in;
+    animation-fill-mode: forwards;
   }
 
   &__text3 {

@@ -21,6 +21,26 @@
         class="section5__second-plan"
         :style="{ transform: transforms.second_plan }"
       >
+        <div class="thin-spikelet section5__spikelet-1">
+          <div class="thin-spikelet__bone-1">
+            <img
+              class="thin-spikelet__img1"
+              src="@/assets/images/section5/IMG_3842.webp"
+            />
+            <img
+              class="thin-spikelet__img2"
+              src="@/assets/images/section5/IMG_3843.png"
+            />
+            <img
+              class="thin-spikelet__img4"
+              src="@/assets/images/section5/IMG_3849.webp"
+            />
+          </div>
+          <img
+            class="thin-spikelet__img3"
+            src="@/assets/images/section5/IMG_3848.webp"
+          />
+        </div>
         <img
           class="section5__img3"
           src="@/assets/images/section5/IMG_3844.webp"
@@ -45,26 +65,6 @@
         and to gradually overcome the blocks<br />
         he has put<br /><br />
         between himself and the environment
-        <div class="thin-spikelet section5__spikelet-1">
-          <div class="thin-spikelet__bone-1">
-            <img
-              class="thin-spikelet__img1"
-              src="@/assets/images/section5/IMG_3842.webp"
-            />
-            <img
-              class="thin-spikelet__img2"
-              src="@/assets/images/section5/IMG_3843.png"
-            />
-            <img
-              class="thin-spikelet__img4"
-              src="@/assets/images/section5/IMG_3849.webp"
-            />
-          </div>
-          <img
-            class="thin-spikelet__img3"
-            src="@/assets/images/section5/IMG_3848.webp"
-          />
-        </div>
       </div>
     </div>
   </div>
@@ -164,7 +164,7 @@ $animation-speed: 10s;
     transform: scale(1.015) rotate(3deg);
   }
   40% {
-    transform: scale(1.013) rotate(4deg);
+    transform: scale(1.013) rotate(3.2deg);
     animation-timing-function: ease-in-out;
   }
   66% {
@@ -210,6 +210,8 @@ $animation-speed: 10s;
   &__spikelet-1 {
     width: 27.8vw;
     height: 38vw;
+    left: calc(7vw + -24px);
+    top: 1.4vw;
   }
 
   &__img3 {
@@ -280,10 +282,7 @@ $animation-speed: 10s;
 }
 
 .thin-spikelet {
-  position: absolute;
-  right: 93%;
-  top: -74px;
-
+  position: relative;
   &__bone-1 {
     position: absolute;
     left: 2.7vw;
@@ -313,7 +312,7 @@ $animation-speed: 10s;
     transform-origin: center;
     will-change: transform;
     width: 18.3vw;
-    left: 1.5vw;
+    left: -1.5vw;
     top: -0.4vw;
     position: absolute;
     z-index: 2;
