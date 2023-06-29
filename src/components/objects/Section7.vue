@@ -40,7 +40,7 @@
       />
       <img
         class="section7__img6"
-        :class="{ section7__img6_animated: progress > 0.35 }"
+        :class="{ section7__img6_animated: progress > 0.22 }"
         src="@/assets/images/section7/11.webp"
       />
       <img
@@ -50,7 +50,7 @@
       />
       <img
         class="section7__img8"
-        :class="{ section7__img8_animated: progress > 0.36 }"
+        :class="{ section7__img8_animated: progress > 0.22 }"
         src="@/assets/images/section7/7.webp"
       />
       <img class="section7__img9" src="@/assets/images/section7/8.webp" />
@@ -62,7 +62,7 @@
 
       <img
         class="section7__img11"
-        :class="{ section7__img11_animated: progress > 0.365 }"
+        :class="{ section7__img11_animated: progress > 0.22 }"
         src="@/assets/images/section7/10.webp"
       />
     </div>
@@ -175,22 +175,26 @@ export default {
   }
 }
 
+@keyframes booping_small {
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes booping_small1 {
+  50% {
+    transform: scale(1.055);
+  }
+}
+
 @keyframes space_floating {
   from,
   to {
-    transform: translateX(1vw) rotate(-35deg);
-  }
-
-  25% {
-    transform: translateX(-1vw) rotate(-38deg);
+    transform: rotate(-35deg);
   }
 
   50% {
-    transform: translateX(1vw) rotate(-41deg);
-  }
-
-  75% {
-    transform: translateX(-1vw) rotate(-38deg);
+    transform: rotate(-41deg);
   }
 }
 
@@ -276,7 +280,7 @@ export default {
     z-index: 50;
 
     &_animated {
-      animation: 1.4s ease 0 booping;
+      animation: 7s ease 0 booping_small;
       animation-iteration-count: infinite;
     }
   }
@@ -297,7 +301,7 @@ export default {
     z-index: 50;
 
     &_animated {
-      animation: 1.5s ease 0 booping;
+      animation: 7s ease 2s booping_small1;
       animation-iteration-count: infinite;
     }
   }
@@ -308,6 +312,7 @@ export default {
     left: 86.4vw;
     top: 19vw;
     z-index: 50;
+    transform-origin: 0% 100%;
     animation: 13s ease-in-out 0 space_floating;
     animation-iteration-count: infinite;
   }
@@ -328,7 +333,7 @@ export default {
     z-index: 50;
 
     &_animated {
-      animation: 1.3s ease 0 booping;
+      animation: 7s ease 4s booping;
       animation-iteration-count: infinite;
     }
   }
