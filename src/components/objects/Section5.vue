@@ -193,7 +193,7 @@ $animation-speed: 10s;
 }
 
 .section5 {
-  height: 200vh;
+  height: 100vw;
 
   &__second-plan {
     position: absolute;

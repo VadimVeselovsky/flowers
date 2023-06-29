@@ -119,7 +119,7 @@ export default {
       }
 
       if (-0.5 <= progress && progress < 0) {
-        this.wrapperStyle.top = `calc(${-progress * 2}*150vh)`;
+        this.wrapperStyle.top = `calc(${-progress * 2}*75vw)`;
         this.wrapperStyle.transform = `scale(${
           0.7 + 0.3 * (progress + 0.5) * 2
         })`;
