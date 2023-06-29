@@ -126,14 +126,14 @@ export default {
 }
 
 .section4 {
-  height: 1162px;
+  height: calc(1162vw / 19.2);
 
   &__container {
     position: absolute;
-    left: calc(50% + -762px);
-    top: 64px;
-    width: 500px;
-    height: 600px;
+    left: calc(198vw / 19.2);
+    top: calc(64vw / 19.2);
+    width: calc(500vw / 19.2);
+    height: calc(600vw / 19.2);
   }
 
   $animation-speed: 1.5s;
@@ -142,9 +142,9 @@ export default {
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    width: 651px;
-    top: calc(608px - 500px);
-    left: calc(949px - 1000px);
+    width: calc(651vw / 19.2);
+    top: calc(108vw / 19.2);
+    left: calc(-51vw / 19.2);
     animation: opacity-flickering #{$animation-speed} infinite;
     animation-timing-function: linear;
   }
@@ -152,9 +152,9 @@ export default {
   &__img2 {
     transform-origin: center;
     will-change: transform;
-    width: 990px;
-    left: calc(603px - 1000px);
-    top: calc(258px - 500px);
+    width: calc(990vw / 19.2);
+    left: calc(-397vw / 19.2);
+    top: calc(-242vw / 19.2);
     position: absolute;
     z-index: 2;
     animation: opacity-flickering #{$animation-speed} infinite;
@@ -165,11 +165,11 @@ export default {
   &__img3 {
     transform-origin: center;
     will-change: transform;
-    width: 997px;
-    top: calc(252px - 500px);
+    width: calc(997vw / 19.2);
+    top: calc(-248vw / 19.2);
     position: absolute;
     z-index: 50;
-    left: calc(598px - 1000px);
+    left: calc(-402vw / 19.2);
     animation: opacity-flickering #{$animation-speed} infinite;
     animation-delay: 0.1s;
     animation-timing-function: linear;
@@ -178,10 +178,10 @@ export default {
   &__img4 {
     transform-origin: center;
     will-change: transform;
-    width: 318px;
+    width: calc(318vw / 19.2);
     position: absolute;
-    top: calc(589px - 500px);
-    left: calc(1280px - 1000px);
+    top: calc(89vw / 19.2);
+    left: calc(280vw / 19.2);
     z-index: 2;
     animation: opacity-flickering #{$animation-speed} infinite;
     animation-delay: 0.71s;
@@ -191,16 +191,16 @@ export default {
   &__text2 {
     transform-origin: center;
     position: absolute;
-    left: 239px;
-    top: -209px;
-    width: 712px;
+    left: calc(239vw / 19.2);
+    top: calc(-209vw / 19.2);
+    width: calc(712vw / 19.2);
   }
 
   &__text3 {
     transform-origin: center;
     position: absolute;
-    left: 919px;
-    bottom: 50px;
+    left: calc(919vw / 19.2);
+    bottom: calc(50vw / 19.2);
   }
 }
 </style>

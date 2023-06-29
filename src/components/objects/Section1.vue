@@ -75,24 +75,24 @@ export default {
 
   methods: {
     makeTransformsForStage(progress) {
-      this.transforms.text = `translate(${-progress * 150}px, ${
-        progress * 0
-      }px) scale(${progress * 0.2 + 0.8})`;
-      this.transforms.img1 = `translateX(${-progress * 50}px) scale(${
+      this.transforms.text = `translateX(${(-progress * 150) / 19.2}vw) scale(${
+        progress * 0.2 + 0.8
+      })`;
+      this.transforms.img1 = `translateX(${(-progress * 50) / 19.2}vw) scale(${
         progress * 0.3 + 1
       })`;
-      this.transforms.img2 = `translate(${progress * 100}px, ${
-        progress * 10
-      }px) scale(${progress * 0.25 + 1})`;
-      this.transforms.img3 = `translate(${progress * 540}px, ${
-        progress * 70
-      }px) scale(${progress * 0.6 + 1})`;
-      this.transforms.img4 = `translate(${-progress * 250}px, ${
-        progress * 10
-      }px) scale(${progress * 0.35 + 1})`;
-      this.transforms.img5 = `translate(${-progress * 390}px, ${
-        progress * 200
-      }px) scale(${progress * 0.6 + 1})`;
+      this.transforms.img2 = `translate(${(progress * 100) / 19.2}vw, ${
+        (progress * 10) / 19.2
+      }vw) scale(${progress * 0.25 + 1})`;
+      this.transforms.img3 = `translate(${(progress * 540) / 19.2}vw, ${
+        (progress * 70) / 19.2
+      }vw) scale(${progress * 0.6 + 1})`;
+      this.transforms.img4 = `translate(${(-progress * 250) / 19.2}vw, ${
+        (progress * 10) / 19.2
+      }vw) scale(${progress * 0.35 + 1})`;
+      this.transforms.img5 = `translate(${(-progress * 390) / 19.2}vw, ${
+        (progress * 200) / 19.2
+      }vw) scale(${progress * 0.6 + 1})`;
 
       this.transforms.preimg2 = `scaleY(${1 - progress})`;
     },
@@ -129,9 +129,9 @@ export default {
         this.wrapperStyle.top = 0;
         this.wrapperStyle.transform =
           "translateY(" +
-          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
-            (rect.height - window.innerHeight) +
-          "px)";
+          ((-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
+            (rect.height - window.innerHeight)) / 19.2 +
+          "vw)";
         this.wrapperStyle.bottom = "unset";
       } else {
         this.wrapperStyle.position = "absolute";
@@ -152,7 +152,7 @@ export default {
 }
 
 .section1 {
-  height: 3800px;
+  height: calc(3800vw / 19.2);
 
   &__pre-block {
     bottom: calc(100% - 52.1vw);
@@ -164,10 +164,10 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 1081px;
-    top: -135px;
+    width: calc(1081vw / 19.2);
+    top: calc(-135vw / 19.2);
     position: absolute;
-    left: 361px;
+    left: calc(361vw / 19.2);
     z-index: 2;
   }
 
@@ -175,8 +175,8 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 1141px;
-    top: -120px;
+    width: calc(1141vw / 19.2);
+    top: calc(-120vw / 19.2);
     position: absolute;
     right: 0;
     z-index: 2;
@@ -186,8 +186,8 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 1141px;
-    top: -120px;
+    width: calc(1141vw / 19.2);
+    top: calc(-120vw / 19.2);
     position: absolute;
     right: 0;
     z-index: 50;
@@ -197,10 +197,10 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 1141px;
+    width: calc(1141vw / 19.2);
     position: absolute;
-    left: -219px;
-    top: -456px;
+    left: calc(-219vw / 19.2);
+    top: calc(-456vw / 19.2);
     z-index: 2;
   }
 
@@ -208,8 +208,8 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 500px;
-    top: 451px;
+    width: calc(500vw / 19.2);
+    top: calc(451vw / 19.2);
     left: 0;
     position: absolute;
     z-index: 2;
@@ -220,14 +220,14 @@ export default {
     will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
-    left: calc(66% - 320px);
-    top: 273px;
+    left: calc(947vw / 19.2);
+    top: calc(273vw / 19.2);
   }
 }
 
 .pre-block {
   position: absolute;
-  height: 100px;
+  height: calc(100vw / 19.2);
 
   &__img1 {
     width: 100%;

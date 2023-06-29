@@ -21,26 +21,6 @@
         class="section5__second-plan"
         :style="{ transform: transforms.second_plan }"
       >
-        <div class="thin-spikelet section5__spikelet-1">
-          <div class="thin-spikelet__bone-1">
-            <img
-              class="thin-spikelet__img1"
-              src="@/assets/images/section5/IMG_3842.webp"
-            />
-            <img
-              class="thin-spikelet__img2"
-              src="@/assets/images/section5/IMG_3843.png"
-            />
-            <img
-              class="thin-spikelet__img4"
-              src="@/assets/images/section5/IMG_3849.webp"
-            />
-          </div>
-          <img
-            class="thin-spikelet__img3"
-            src="@/assets/images/section5/IMG_3848.webp"
-          />
-        </div>
         <img
           class="section5__img3"
           src="@/assets/images/section5/IMG_3844.webp"
@@ -65,6 +45,26 @@
         and to gradually overcome the blocks<br />
         he has put<br /><br />
         between himself and the environment
+        <div class="thin-spikelet section5__spikelet-1">
+          <div class="thin-spikelet__bone-1">
+            <img
+              class="thin-spikelet__img1"
+              src="@/assets/images/section5/IMG_3842.webp"
+            />
+            <img
+              class="thin-spikelet__img2"
+              src="@/assets/images/section5/IMG_3843.png"
+            />
+            <img
+              class="thin-spikelet__img4"
+              src="@/assets/images/section5/IMG_3849.webp"
+            />
+          </div>
+          <img
+            class="thin-spikelet__img3"
+            src="@/assets/images/section5/IMG_3848.webp"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -109,12 +109,12 @@ export default {
       this.transforms.first_plan = `scale(${0.9 + progress * 1.7})`;
       this.transforms.second_plan = `scale(${0.6 + progress * 0.4})`;
       this.transforms.third_plan = `scale(${0.8 + progress * 0.2})`;
-      this.transforms.first_plan_img8 = `translate(${-progress * 100}px, ${
-        -progress * 100
-      }px)`;
+      this.transforms.first_plan_img8 = `translate(${
+        (-progress * 100) / 19.2
+      }vw, ${(-progress * 100) / 19.2}vw)`;
       this.transforms.first_plan_img9 = `translate(calc(${50 * progress}vw), ${
-        -progress * 100
-      }px)`;
+        (-progress * 100) / 19.2
+      }vw)`;
     },
 
     onScroll() {
@@ -164,7 +164,7 @@ $animation-speed: 10s;
     transform: scale(1.015) rotate(3deg);
   }
   40% {
-    transform: scale(1.013) rotate(3.2deg);
+    transform: scale(1.013) rotate(4deg);
     animation-timing-function: ease-in-out;
   }
   66% {
@@ -210,8 +210,6 @@ $animation-speed: 10s;
   &__spikelet-1 {
     width: 27.8vw;
     height: 38vw;
-    left: calc(7vw + -24px);
-    top: 1.4vw;
   }
 
   &__img3 {
@@ -221,7 +219,7 @@ $animation-speed: 10s;
     top: 0.7vw;
     position: absolute;
     z-index: 50;
-    left: calc(43vw + 592px);
+    left: calc(1417vw / 19.2);
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
   }
@@ -230,7 +228,7 @@ $animation-speed: 10s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(27.3vw + 533px);
+    left: calc(1057vw / 19.2);
     top: 9.2vw;
     width: 25vw;
     z-index: 2;
@@ -242,7 +240,7 @@ $animation-speed: 10s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(33vw + 638px);
+    left: calc(1271vw / 19.2);
     width: 35.4vw;
     top: 14.3vw;
     z-index: 100;
@@ -282,7 +280,10 @@ $animation-speed: 10s;
 }
 
 .thin-spikelet {
-  position: relative;
+  position: absolute;
+  right: 93%;
+  top: calc(-74vw / 19.2);
+
   &__bone-1 {
     position: absolute;
     left: 2.7vw;
@@ -312,7 +313,7 @@ $animation-speed: 10s;
     transform-origin: center;
     will-change: transform;
     width: 18.3vw;
-    left: -1.5vw;
+    left: 1.5vw;
     top: -0.4vw;
     position: absolute;
     z-index: 2;

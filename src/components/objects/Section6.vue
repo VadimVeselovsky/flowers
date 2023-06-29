@@ -81,14 +81,14 @@ export default {
 }
 
 .section6 {
-  height: 3209px;
+  height: calc(3209vw / 19.2);
   overflow: hidden;
 
   &__img6 {
     position: absolute;
-    top: -383px;
-    left: calc(50% + 530px);
-    width: 3928px;
+    top: calc(-383vw / 19.2);
+    left: calc(1490vw / 19.2);
+    width: calc(3928vw / 19.2);
     transform: translateX(-50%);
   }
 }

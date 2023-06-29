@@ -71,16 +71,14 @@ export default {
       const inverse = 1 - progress;
 
       this.transforms.img1 = `scale(${1 - 0.2 * inverse}) translate(-${
-        90 + inverse * 682
-      }px, -${80 + inverse * 946}px) rotate(${53 - 14 * inverse}deg)`;
+        (90 + inverse * 682) / 19.2
+      }vw, -${(80 + inverse * 946) / 19.2}vw) rotate(${53 - 14 * inverse}deg)`;
       this.transforms.img2 = `scale(${1.4 + 0.72 * inverse}) translate(-${
-        24 + 145 * inverse
-      }px, ${-155 + 238 * inverse}px) rotate(${5 * progress}deg)`;
+        (24 + 145 * inverse) / 19.2
+      }vw, ${(-155 + 238 * inverse) / 19.2}vw) rotate(${5 * progress}deg)`;
       this.transforms.img3 = `scale(${0.82 - 0.33 * inverse}) translate(${
-        -23 + inverse * 1139
-      }px, -${379 + inverse * 151}px) rotate(${47 - 2 * inverse}deg)`;
-      // scale(0.49) translate(1116px, -530px) rotate(45deg)
-      // scale(0.82) translate(-23px, -447px) rotate(47deg)
+        (-23 + inverse * 1139) / 19.2
+      }vw, -${(379 + inverse * 151) / 19.2}vw) rotate(${47 - 2 * inverse}deg)`;
     },
 
     onScroll() {
@@ -96,13 +94,7 @@ export default {
 
       if (progress < 0) this.makeTransformsForStage(0);
 
-      /*if (progress <= 0) {
-        this.wrapperStyle.transform =
-          "translateY(" +
-          ((1 - Math.cos(((1-progress) * 6 + 1) * Math.PI)) / 2) *
-            (rect.height - window.innerHeight) +
-          "px)";
-      } else*/ if (0 <= progress && progress <= 1) {
+      if (0 <= progress && progress <= 1) {
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
         if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
@@ -114,10 +106,11 @@ export default {
         this.wrapperStyle.top = 0;
         this.wrapperStyle.transform =
           "translateY(" +
-          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
+          ((-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
             (rect.height - window.innerHeight) *
-            1.1 +
-          "px)";
+            1.1) /
+            19.2 +
+          "vw)";
         this.wrapperStyle.bottom = "unset";
         this.makeTransformsForStage(1);
       } else {
@@ -144,15 +137,15 @@ export default {
   top: 0;
 }
 .section2 {
-  height: 3000px;
+  height: calc(3000vw / 19.2);
   &__img1 {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 2000px;
-    top: 2px;
+    width: calc(2000vw / 19.2);
+    top: calc(2vw / 19.2);
     position: absolute;
-    right: calc(50% - 1737px);
+    right: calc(-785vw / 19.2);
     z-index: 50;
     // transform: rotate(50deg);
   }
@@ -161,10 +154,10 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 569px;
-    top: 60px;
+    width: calc(569vw / 19.2);
+    top: calc(60vw / 19.2);
     position: absolute;
-    right: calc(50% + -978px);
+    right: calc(-26.5vw / 19.2);
     z-index: 4;
   }
 
@@ -172,10 +165,10 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 4150px;
-    top: -375px;
+    width: calc(4150vw / 19.2);
+    top: calc(-375vw / 19.2);
     position: absolute;
-    left: calc(50% - 2816px);
+    left: calc(-1864vw / 19.2);
     z-index: 5;
   }
 
@@ -183,10 +176,10 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 1291px;
-    top: 1011px;
+    width: calc(1291vw / 19.2);
+    top: calc(1011vw / 19.2);
     position: absolute;
-    right: 92px;
+    right: calc(92vw / 19.2);
     z-index: 50;
     transform: rotate(3deg);
   }
@@ -195,8 +188,8 @@ export default {
     transform-origin: center;
     will-change: transform;
     transition: transform 0.2s linear;
-    width: 500px;
-    bottom: -110px;
+    width: calc(500vw / 19.2);
+    bottom: calc(-110vw / 19.2);
     left: 0;
     position: absolute;
     z-index: 2;
@@ -207,9 +200,9 @@ export default {
     will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
-    left: calc(42% - 300px);
-    top: 401px;
-    width: 1221px;
+    left: calc(500vw / 19.2);
+    top: calc(401vw / 19.2);
+    width: calc(1221vw / 19.2);
     z-index: 4;
   }
 
@@ -219,8 +212,8 @@ export default {
     transition: transform 0.2s linear;
     position: absolute;
     left: 50%;
-    top: 1266px;
-    width: 1330px;
+    top: calc(1266vw / 19.2);
+    width: calc(1330vw / 19.2);
     transform: translate(-57%);
   }
 }
