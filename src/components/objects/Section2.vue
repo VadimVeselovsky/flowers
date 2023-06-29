@@ -88,7 +88,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      this.show = -1 < progress && progress <= 2.3;
+      this.show = (-1 < progress && progress <= 2.3) || true;
 
       if (!this.show) return;
 
@@ -119,7 +119,7 @@ export default {
       }
 
       if (-0.5 <= progress && progress < 0) {
-        this.wrapperStyle.top = `calc(${-progress * 2}*75vw)`;
+        this.wrapperStyle.top = `calc(${-progress * 1}*75vw)`;
         this.wrapperStyle.transform = `scale(${
           0.7 + 0.3 * (progress + 0.5) * 2
         })`;

@@ -8,7 +8,7 @@
 #app {
   font-weight: normal;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .text {

@@ -124,7 +124,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      this.show = -2 < progress;
+      this.show = -2 < progress || true;
 
       if (!this.show) return;
 
@@ -161,14 +161,14 @@ $animation-speed: 10s;
 
 @keyframes wind-1 {
   20% {
-    transform: scale(1.015) rotate(3deg);
+    transform: rotate(3deg);
   }
   40% {
-    transform: scale(1.013) rotate(4deg);
+    transform: rotate(4deg);
     animation-timing-function: ease-in-out;
   }
   66% {
-    transform: scale(0.995) rotate(-1deg);
+    transform: rotate(-1deg);
     animation-timing-function: ease-out;
   }
 }
@@ -184,11 +184,16 @@ $animation-speed: 10s;
 }
 
 @keyframes wind-3 {
-  21% {
-    transform: scale(1.01) rotate(0.5deg);
+  20% {
+    transform: translate(1px, -2px) rotate(1deg);
   }
   40% {
-    transform: rotate(-0.05deg);
+    transform: translate(1px, -2px) rotate(1.1deg);
+    animation-timing-function: ease-in-out;
+  }
+  66% {
+    transform: rotate(-0.3deg);
+    animation-timing-function: ease-out;
   }
 }
 
@@ -310,16 +315,14 @@ $animation-speed: 10s;
   }
 
   &__img2 {
-    transform-origin: center;
-    will-change: transform;
     width: 18.3vw;
-    left: 1.5vw;
-    top: -0.4vw;
+    left: 3.5vw;
+    top: -1.2vw;
     position: absolute;
     z-index: 2;
     transform-origin: 36% 97%;
-    // animation: wind-3 #{$animation-speed} ease-in-out 0s infinite;
-    animation-delay: -0.24s;
+    animation-delay: -0.1s;
+    animation: wind-3 #{$animation-speed} ease-in-out 0s infinite;
   }
 
   &__img3 {

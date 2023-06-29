@@ -1,12 +1,12 @@
 <template>
-  <OpeningScreen @opened="show = true" />
+  <OpeningScreen @opened="(show = true), scrollToTop()" />
   <div style="height: 10vw"></div>
   <Section7 :showAnimations="show" />
   <Section3 />
   <Section4 />
   <Section6 />
   <Section1 />
-  <div style="height: 29vw"></div>
+  <div style="height: 35vw"></div>
   <Section2 />
   <div style="height: 62.5vw"></div>
   <Section5 />
@@ -25,7 +25,11 @@ import { onMounted, ref } from "vue";
 
 const show = ref(false);
 
-onMounted(() => window.scroll({ left: 0 }));
+function scrollToTop() {
+  window.scroll({ left: 0, top: 0 });
+}
+
+onMounted(scrollToTop);
 </script>
 
 <style lang="scss">

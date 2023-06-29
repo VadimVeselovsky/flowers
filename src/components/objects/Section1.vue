@@ -110,6 +110,8 @@ export default {
 
       if (!this.show) return;
 
+      console.log(progress);
+
       if (progress < 0) {
         this.makeTransformsForStage(0);
       }
@@ -124,13 +126,15 @@ export default {
         if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
 
         this.wrapperStyle.position = "fixed";
+        this.wrapperStyle.transform = null;
       } else if (1 < progress && progress <= 2) {
         this.wrapperStyle.position = "fixed";
         this.wrapperStyle.top = 0;
         this.wrapperStyle.transform =
           "translateY(" +
           ((-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
-            (rect.height - window.innerHeight)) / 19.2 +
+            (rect.height - window.innerHeight)) /
+            19.2 +
           "vw)";
         this.wrapperStyle.bottom = "unset";
       } else {

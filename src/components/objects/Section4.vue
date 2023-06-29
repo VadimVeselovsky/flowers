@@ -89,7 +89,7 @@ export default {
 
       if (!this.show) return;
 
-      if (-0.32 <= progress && progress < 0.6) this.playSound();
+      if (-0.32 <= progress && progress < 0.5) this.playSound();
       else this.stopSound();
 
       if (progress < 0) {

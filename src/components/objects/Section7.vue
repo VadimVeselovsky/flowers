@@ -120,8 +120,6 @@ export default {
 
       if (!this.show) return;
 
-      console.log(progress);
-
       this.progress = progress;
 
       this.wrapperStyle.transform = `translateY(${progress * 100}vw)`;
