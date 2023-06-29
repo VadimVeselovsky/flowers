@@ -5,17 +5,14 @@
   src: url("@/assets/fonts/Eina01-Regular.ttf");
 }
 
-body {
-  overflow-x: hidden;
-}
-
 #app {
   font-weight: normal;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .text {
-  font-size: 32px;
+  font-size: 1.6vw;
   line-height: 1.6;
 }
 

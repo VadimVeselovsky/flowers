@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 15vh"></div>
+  <div style="height: 10vw"></div>
   <Section7 />
   <Section3 />
   <Section4 />

@@ -88,9 +88,9 @@ export default {
       progress = Math.max(Math.min(progress, 1), 0);
       progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
       this.transforms.img10 = `translate(${17.3 * progress}vw, ${
-        30 * progress
-      }px)`;
-      this.transforms.img7 = `translateY(${-21.6 * progress}vw)`;
+        1.6 * progress
+      }vw)`;
+      this.transforms.img7 = `translateY(${-22.6 * progress}vw)`;
       this.transforms.img4 = `translateY(${-16.6 * progress}vw)`;
     },
 
@@ -165,19 +165,19 @@ export default {
 @keyframes space_floating {
   from,
   to {
-    transform: translateX(20px) rotate(-35deg);
+    transform: translateX(1vw) rotate(-35deg);
   }
 
   25% {
-    transform: translateX(-20px) rotate(-38deg);
+    transform: translateX(-1vw) rotate(-38deg);
   }
 
   50% {
-    transform: translateX(20px) rotate(-41deg);
+    transform: translateX(1vw) rotate(-41deg);
   }
 
   75% {
-    transform: translateX(-20px) rotate(-38deg);
+    transform: translateX(-1vw) rotate(-38deg);
   }
 }
 
@@ -209,8 +209,8 @@ export default {
     left: 86vw;
     top: 53vw;
     transform: translateX(-50%);
-    width: 800px;
-    font-size: 25px;
+    width: 41.6vw;
+    font-size: 1.3vw;
   }
 
   &__text4 {
@@ -218,7 +218,7 @@ export default {
     left: 79vw;
     top: 121vw;
     transform: translateX(-50%);
-    width: 800px;
+    width: 41.6vw;
     z-index: 100;
     opacity: 0;
     transition: opacity 1s;

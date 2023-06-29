@@ -67,11 +67,11 @@ export default {
     makeTransformsForStage(progress) {
       const speed = 0.35;
 
-      this.transforms.img1 = `translateY(${-progress * speed * 2500}px)`;
-      this.transforms.img2 = `translateY(${-progress * speed * 3000}px)`;
-      this.transforms.img3 = `translateY(${-progress * speed * 1300}px)`;
-      this.transforms.img4 = `translateY(${-progress * speed * 1100}px)`;
-      this.transforms.img5 = `translateY(${-progress * speed * 400}px)`;
+      this.transforms.img1 = `translateY(${-progress * speed * 2500/ 19.2}vw)`;
+      this.transforms.img2 = `translateY(${-progress * speed * 3000/ 19.2}vw)`;
+      this.transforms.img3 = `translateY(${-progress * speed * 1300/ 19.2}vw)`;
+      this.transforms.img4 = `translateY(${-progress * speed * 1100/ 19.2}vw)`;
+      this.transforms.img5 = `translateY(${-progress * speed * 400/ 19.2}vw)`;
     },
 
     onScroll() {
@@ -101,24 +101,24 @@ export default {
 }
 
 .section3 {
-  height: 600px;
+  height: calc(600vw/ 19.2);
 
   &__img1 {
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    width: 888px;
-    right: 901px;
-    top: calc(392px + 100px);
+    width: calc(888vw/ 19.2) ;
+    right: calc(901vw/ 19.2);
+    top: calc(492vw/ 19.2);
     z-index: 1;
   }
 
   &__img2 {
     transform-origin: center;
     will-change: transform;
-    width: 331px;
-    right: 861px;
-    top: calc(851px + 100px);
+    width: calc(331vw/ 19.2);
+    right: calc(861vw/ 19.2);
+    top: calc(951vw/ 19.2);
     position: absolute;
     z-index: 2;
   }
@@ -126,29 +126,29 @@ export default {
   &__img3 {
     transform-origin: center;
     will-change: transform;
-    width: 394px;
-    top: calc(291px + 100px);
+    width: calc(394vw/ 19.2);
+    top: calc(391vw/ 19.2);
     position: absolute;
     z-index: 50;
-    right: 154px;
+    right: calc(154vw/ 19.2);
   }
 
   &__img4 {
     transform-origin: center;
     will-change: transform;
-    width: 1773px;
+    width: calc(1773vw/ 19.2);
     position: absolute;
-    top: calc(73px + 100px);
-    right: -8px;
+    top: calc(173vw/ 19.2);
+    right: calc(-8vw/ 19.2);
     z-index: 15;
   }
 
   &__img5 {
     transform-origin: center;
     will-change: transform;
-    top: calc(243px + 100px);
-    width: 959px;
-    right: 318px;
+    top: calc(343vw/ 19.2);
+    width: calc(959vw/ 19.2);
+    right: calc(318vw/ 19.2);
     position: absolute;
     z-index: 2;
   }
@@ -157,8 +157,8 @@ export default {
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: 100px;
-    top: 93px;
+    left: calc(100vw/ 19.2);
+    top: calc(93vw/ 19.2);
   }
 }
 </style>
