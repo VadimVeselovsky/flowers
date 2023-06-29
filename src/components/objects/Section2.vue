@@ -108,9 +108,9 @@ export default {
           "translateY(" +
           ((-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
             (rect.height - window.innerHeight) *
-            1.1) /
+            2.6) /
             19.2 +
-          "vw)";
+          "vh)";
         this.wrapperStyle.bottom = "unset";
         this.makeTransformsForStage(1);
       } else {

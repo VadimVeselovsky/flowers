@@ -87,10 +87,10 @@ export default {
 
       this.show = -1 < progress && progress <= 2;
 
-      if (!this.show) return;
-
       if (-0.32 <= progress && progress < 0.5) this.playSound();
       else this.stopSound();
+
+      if (!this.show) return;
 
       if (progress < 0) {
         this.wrapperStyle.top = `calc(${-progress * 2}*50vh)`;

@@ -34,13 +34,8 @@ onMounted(scrollToTop);
 
 <style lang="scss">
 .content-block {
-  margin: 0 auto;
-
   &-item {
     position: relative;
-    font-size: 45px;
-    line-height: 1.25;
-    letter-spacing: 0.5px;
   }
 }
 </style>

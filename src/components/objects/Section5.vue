@@ -126,10 +126,10 @@ export default {
 
       this.show = -2 < progress || true;
 
-      if (!this.show) return;
-
       if (-0.9 <= progress) this.playSound();
       else this.stopSound();
+
+      if (!this.show) return;
 
       if (progress < 0) {
         this.makeTransformsForStage(0);

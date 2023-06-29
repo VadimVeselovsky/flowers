@@ -62,10 +62,10 @@ export default {
 
       this.show = -1 < progress && progress < 2;
 
-      if (!this.show) return;
-
       if (-0.1 <= progress && progress < 0.5) this.playSound();
       else this.stopSound();
+
+      if (!this.show) return;
     },
   },
 };
