@@ -287,7 +287,7 @@ $animation-speed: 10s;
 .thin-spikelet {
   position: absolute;
   right: 93%;
-  top: calc(-74vw / 19.2);
+  top: -8.854167vw;
 
   &__bone-1 {
     position: absolute;

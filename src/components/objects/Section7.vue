@@ -280,7 +280,7 @@ export default {
     z-index: 50;
 
     &_animated {
-      animation: 7s ease 0 booping_small;
+      animation: 7s ease 2s booping_small;
       animation-iteration-count: infinite;
     }
   }
@@ -301,7 +301,7 @@ export default {
     z-index: 50;
 
     &_animated {
-      animation: 7s ease 2s booping_small1;
+      animation: 7s ease  booping_small1;
       animation-iteration-count: infinite;
     }
   }

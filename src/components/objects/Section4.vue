@@ -25,13 +25,12 @@
         />
       </div>
       <div :style="{ transform: transforms.text }" class="section4__text3 text">
-        the retroflection of his need to assert himself, and of his anger<br
-          data-v-dfb9d4cf=""
-        />in the compression of his abdominal and gastric musculature,<br
-          data-v-dfb9d4cf=""
-        />and in the withdrawal of energy from his shoulders and arms
-        <br /><br />the act of compressing himself<br data-v-1df51d3b="" />
-        kept on functioning as a physical symptom
+        his need to assert himself<br />
+        and his anger<br />
+        in the compression of his abdominal<br />and gastric musculature<br />
+        <br />
+        and in the withdrawal of energy<br />
+        from his shoulders and arms
       </div>
     </div>
   </div>
@@ -131,7 +130,7 @@ export default {
   &__container {
     position: absolute;
     left: calc(198vw / 19.2);
-    top: calc(64vw / 19.2);
+    top: 12.333333vw;
     width: calc(500vw / 19.2);
     height: calc(600vw / 19.2);
   }
@@ -199,8 +198,8 @@ export default {
   &__text3 {
     transform-origin: center;
     position: absolute;
-    left: calc(919vw / 19.2);
-    bottom: calc(50vw / 19.2);
+    left: 59.864583vw;
+    bottom: 3.604167vw;
   }
 }
 </style>
