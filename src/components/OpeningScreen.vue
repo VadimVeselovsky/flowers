@@ -74,21 +74,23 @@ onMounted(() => {
   width: 100vw;
   bottom: 0;
   z-index: 1000;
+  color: black;
 
   &__title {
     position: absolute;
     left: 50%;
     top: 30.5%;
-    font-size: 98px;
+    font-size: 92px;
     transform: translate(-50%, -50%);
     opacity: 0;
     animation: 1s ease 0.5s fade-in;
     animation-fill-mode: forwards;
+
+    letter-spacing: 4px;
   }
 
   &__text {
     position: absolute;
-    top: 48.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 23px;
@@ -97,20 +99,23 @@ onMounted(() => {
     opacity: 0;
     animation: 1s ease 2s fade-in;
     animation-fill-mode: forwards;
+    top: 47%;
+    letter-spacing: 0.5px;
   }
 
   &__button {
     position: absolute;
-    top: 73%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 51px;
     background: transparent;
     border: none;
     color: black;
     animation: 1s ease 5s fade-in;
     animation-fill-mode: both;
     cursor: default;
+    top: 61%;
+    font-style: italic;
+    font-size: 51px;
 
     &_hoverable {
       animation-fill-mode: none;

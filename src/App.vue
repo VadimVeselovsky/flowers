@@ -8,7 +8,7 @@
   <Section1 />
   <div style="height: 100vw"></div>
   <Section2 />
-  <div style="height: 100vw"></div>
+  <div style="height: 130vw"></div>
   <Section5 />
 </template>
 

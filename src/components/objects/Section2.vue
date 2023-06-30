@@ -30,7 +30,10 @@
       <video class="section2__img4" autoplay loop muted>
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
-      <div class="section2__text1 text">
+      <div
+        class="section2__text1 text"
+        :style="{ transform: transforms.text1 }"
+      >
         when the movement directed towards the environment<br />
         is physically inhibited as soon as it starts
       </div>
@@ -53,6 +56,7 @@ export default {
         img1: null,
         img2: null,
         img3: null,
+        text1: null,
       },
       wrapperStyle: {
         transform: null,
@@ -75,13 +79,16 @@ export default {
 
       this.transforms.img1 = `scale(${1 - 0.468 * inverse}) translate(-${
         (90 + inverse * 1148) / 19.2
-      }vw, -${(80 + inverse * 1419) / 19.2}vw) rotate(${53 - 14 * inverse}deg)`;
+      }vw, -${(80 + inverse * 1419) / 19.2}vw) rotate(${
+        53 - 14 * inverse ** 0.4
+      }deg)`;
       this.transforms.img2 = `scale(${1.4 + 0.01333 * inverse}) translate(-${
         (24 + 308.16 * inverse) / 19.2
       }vw, ${(-155 + 295.58 * inverse) / 19.2}vw) rotate(${5 * progress}deg)`;
       this.transforms.img3 = `scale(${0.82 - 0.493 * inverse}) translate(${
         (-23 + inverse * 1875.8) / 19.2
       }vw, -${(379 + inverse * 561) / 19.2}vw) rotate(${47 - 2 * inverse}deg)`;
+      this.transforms.text1 = `scale(${0.55 + progress * 0.45})`;
     },
 
     onScroll() {
@@ -111,7 +118,7 @@ export default {
         this.wrapperStyle.top = 0;
         this.wrapperStyle.transform =
           "translateY(" +
-          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) * rect.height * 2.6 +
+          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) * rect.height * 1 +
           "px)";
         this.makeTransformsForStage(1);
       } else {

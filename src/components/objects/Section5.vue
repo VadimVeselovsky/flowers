@@ -125,7 +125,7 @@ export default {
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / rect.height;
+        progress = scrollY / (rect.height - window.innerHeight);
 
       this.show = -12 < progress;
 

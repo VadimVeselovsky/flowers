@@ -6,7 +6,7 @@
       </Teleport>
       <div
         class="section7__text1 text"
-        :class="{ section7__text1_animated: showAnimations }"
+        :class="{ section7__text1_animated: showAnimations && scrolled }"
         :style="styles.text1"
       >
         we can learn a chronic and unaware way<br />
@@ -14,7 +14,7 @@
       </div>
       <div
         class="section7__text2 text"
-        :class="{ section7__text2_animated: showAnimations }"
+        :class="{ section7__text2_animated: showAnimations && scrolled }"
         :style="styles.text2"
       >
         the person, fearing risk and humiliation,<br />
@@ -82,6 +82,7 @@ export default {
 
   data() {
     return {
+      scrolled: false,
       progress: 0,
       show: false,
       classes: {},
@@ -111,7 +112,7 @@ export default {
       this.transforms.img4 = `translateY(${-16.6 * progress}vw)`;
     },
 
-    onScroll() {
+    onScroll(e) {
       let rect = this.$el.getBoundingClientRect(),
         scrollY =
           window.scrollY -
@@ -120,11 +121,13 @@ export default {
 
       this.show = -2 < progress && progress < 1.2;
 
+      if (!!e) this.scrolled = true;
+
       if (!this.show) return;
 
       this.progress = progress;
 
-      this.wrapperStyle.transform = `translateY(${progress * 100}vw)`;
+      this.wrapperStyle.top = `${progress * 100}vw`;
 
       this.makeTransformsForStage((progress - 0.16) / (0.4 - 0.16));
     },
