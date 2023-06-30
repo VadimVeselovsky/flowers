@@ -94,7 +94,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / rect.height;
 
-      this.show = -2 < progress && progress <= 2;
+      this.show = -3 < progress && progress <= 2;
 
       if (!this.show) return;
 

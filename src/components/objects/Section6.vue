@@ -30,7 +30,6 @@ export default {
       },
       wrapperStyle: {
         top: null,
-        bottom: null,
         position: null,
       },
     };

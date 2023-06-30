@@ -2,7 +2,7 @@
   <div class="content-block-item section1">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
       <Teleport to="#indicators">
-        <div style="left: 16rem">5</div>
+        <div style="left: 16rem">5: {{ (progress * 100).toFixed(0) }}</div>
       </Teleport>
       <div class="section1__pre-block pre-block">
         <img
@@ -56,6 +56,7 @@
 export default {
   data() {
     return {
+      progress: 0,
       show: true,
       counter: 0,
       transforms: {},
@@ -107,11 +108,13 @@ export default {
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / (rect.height - window.innerHeight);
+        progress = scrollY / rect.height;
 
       this.show = -1.5 < progress && progress <= hideOn;
 
       if (!this.show) return;
+
+      this.progress = progress;
 
       console.log(progress);
 
@@ -135,11 +138,8 @@ export default {
         this.wrapperStyle.top = 0;
         this.wrapperStyle.transform =
           "translateY(" +
-          ((-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
-            (rect.height - window.innerHeight)) /
-            19.2 +
-          "vw)";
-        this.wrapperStyle.bottom = "unset";
+          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) * rect.height +
+          "px)";
       } else {
         this.wrapperStyle.position = "absolute";
         this.wrapperStyle.transform = null;

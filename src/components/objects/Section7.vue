@@ -179,7 +179,7 @@ export default {
 
 @keyframes booping_small {
   50% {
-    transform: scale(1.04);
+    transform: scale(1.033);
   }
 }
 

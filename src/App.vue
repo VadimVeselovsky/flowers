@@ -6,9 +6,9 @@
   <Section4 />
   <Section6 />
   <Section1 />
-  <div style="height: 35vw"></div>
+  <div style="height: 100vw"></div>
   <Section2 />
-  <div style="height: 62.5vw"></div>
+  <div style="height: 100vw"></div>
   <Section5 />
 </template>
 

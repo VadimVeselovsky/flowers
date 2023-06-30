@@ -2,7 +2,7 @@
   <div class="content-block-item section2">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
       <Teleport to="#indicators">
-        <div style="left: 20rem">6</div>
+        <div style="left: 20rem">6: {{ (progress * 100).toFixed(0) }}</div>
       </Teleport>
       <img
         :style="{ transform: transforms.img1 }"
@@ -46,6 +46,7 @@
 export default {
   data() {
     return {
+      progress: 0,
       show: false,
       counter: 0,
       transforms: {
@@ -88,11 +89,13 @@ export default {
         scrollY =
           window.scrollY -
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
-        progress = scrollY / (rect.height - window.innerHeight);
+        progress = scrollY / rect.height;
 
       this.show = -4 < progress && progress <= 2.3;
 
       if (!this.show) return;
+
+      this.progress = progress;
 
       if (progress < 0) this.makeTransformsForStage(0);
 
@@ -108,12 +111,8 @@ export default {
         this.wrapperStyle.top = 0;
         this.wrapperStyle.transform =
           "translateY(" +
-          ((-(1 - Math.cos((progress - 1) * Math.PI)) / 2) *
-            (rect.height - window.innerHeight) *
-            2.6) /
-            19.2 +
-          "vh)";
-        this.wrapperStyle.bottom = "unset";
+          (-(1 - Math.cos((progress - 1) * Math.PI)) / 2) * rect.height * 2.6 +
+          "px)";
         this.makeTransformsForStage(1);
       } else {
         this.wrapperStyle.position = "absolute";
@@ -140,6 +139,8 @@ export default {
 }
 .section2 {
   height: calc(3000vw / 19.2);
+  z-index: 200;
+
   &__img1 {
     transform-origin: center;
     will-change: transform;

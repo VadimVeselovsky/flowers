@@ -46,13 +46,15 @@ a,
 }
 
 #indicators div {
-  width: 30px;
+  min-width: 30px;
   height: 30px;
   color: white;
-  border-radius: 50%;
+  border-radius: 15px;
+  padding: 0 5px;
   background: red;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
+  white-space: nowrap;
 }
