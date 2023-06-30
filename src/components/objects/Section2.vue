@@ -77,20 +77,15 @@ export default {
     makeTransformsForStage(progress) {
       const inverse = 1 - progress;
 
-      this.transforms.img1 = `scale(${1 - 0.468 * inverse}) translate(-${
-        (90 + inverse ** 1.3 * 1148) / 19.2
-      }vw, -${(80 + inverse * 1419) / 19.2}vw) rotate(${
-        53 - 14 * inverse ** 0.4
-      }deg)`;
-      this.transforms.img2 = `scale(${1.4 + 0.01333 * inverse}) translate(-${
-        (24 + 308.16 * inverse) / 19.2
-      }vw, ${(-155 + 295.58 * inverse) / 19.2}vw) rotate(${5 * progress}deg)`;
-      this.transforms.img3 = `scale(${0.82 - 0.493 * inverse}) translate(${
-        (-23 + inverse ** 2 * 1875.8) / 19.2
-      }vw, -${(379 + inverse ** 2 * 561) / 19.2}vw) rotate(${
-        47 - 2 * inverse
-      }deg)`;
-      this.transforms.text1 = `scale(${0.55 + progress * 0.45})`;
+      this.transforms.img1 = `scale(${1 - 0.2 * inverse}) translate(-${
+        (90 + inverse * 682) / 19.2
+      }vw, -${(80 + inverse * 946) / 19.2}vw) rotate(${53 - 14 * inverse}deg)`;
+      this.transforms.img2 = `scale(${1.4 + 0.72 * inverse}) translate(-${
+        (24 + 145 * inverse) / 19.2
+      }vw, ${(-155 + 238 * inverse) / 19.2}vw) rotate(${5 * progress}deg)`;
+      this.transforms.img3 = `scale(${0.82 - 0.33 * inverse}) translate(${
+        (-23 + inverse * 1139) / 19.2
+      }vw, -${(379 + inverse * 151) / 19.2}vw) rotate(${47 - 2 * inverse}deg)`;
     },
 
     onScroll() {
