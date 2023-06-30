@@ -35,3 +35,24 @@ a,
     place-items: center;
   }
 }
+
+#indicators {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 5000;
+  display: flex;
+  display: none;
+}
+
+#indicators div {
+  width: 30px;
+  height: 30px;
+  color: white;
+  border-radius: 50%;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}

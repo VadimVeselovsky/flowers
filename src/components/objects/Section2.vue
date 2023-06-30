@@ -1,6 +1,9 @@
 <template>
   <div class="content-block-item section2">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
+      <Teleport to="#indicators">
+        <div style="left: 20rem">6</div>
+      </Teleport>
       <img
         :style="{ transform: transforms.img1 }"
         class="section2__img1"
@@ -28,13 +31,12 @@
         <source src="@/assets/images/section2/4.webm" type="video/webm" />
       </video>
       <div class="section2__text1 text">
-        The movement is not turned on oneself, but countered by equal muscular
-        force in the opposing muscle groups
+        when the movement directed towards the environment<br />
+        is physically inhibited as soon as it starts
       </div>
       <div class="section2__text2 text">
-        In these cases the blocked action manifests itself as tension and
-        immobility<br />
-        in the muscular groups involved.
+        the blocked action manifests itself <br />
+        as tension and immobility in the muscular groups involved.
       </div>
     </div>
   </div>
@@ -70,15 +72,15 @@ export default {
     makeTransformsForStage(progress) {
       const inverse = 1 - progress;
 
-      this.transforms.img1 = `scale(${1 - 0.2 * inverse}) translate(-${
-        (90 + inverse * 682) / 19.2
-      }vw, -${(80 + inverse * 946) / 19.2}vw) rotate(${53 - 14 * inverse}deg)`;
-      this.transforms.img2 = `scale(${1.4 + 0.72 * inverse}) translate(-${
-        (24 + 145 * inverse) / 19.2
-      }vw, ${(-155 + 238 * inverse) / 19.2}vw) rotate(${5 * progress}deg)`;
-      this.transforms.img3 = `scale(${0.82 - 0.33 * inverse}) translate(${
-        (-23 + inverse * 1139) / 19.2
-      }vw, -${(379 + inverse * 151) / 19.2}vw) rotate(${47 - 2 * inverse}deg)`;
+      this.transforms.img1 = `scale(${1 - 0.468 * inverse}) translate(-${
+        (90 + inverse * 1148) / 19.2
+      }vw, -${(80 + inverse * 1419) / 19.2}vw) rotate(${53 - 14 * inverse}deg)`;
+      this.transforms.img2 = `scale(${1.4 + 0.01333 * inverse}) translate(-${
+        (24 + 308.16 * inverse) / 19.2
+      }vw, ${(-155 + 295.58 * inverse) / 19.2}vw) rotate(${5 * progress}deg)`;
+      this.transforms.img3 = `scale(${0.82 - 0.493 * inverse}) translate(${
+        (-23 + inverse * 1875.8) / 19.2
+      }vw, -${(379 + inverse * 561) / 19.2}vw) rotate(${47 - 2 * inverse}deg)`;
     },
 
     onScroll() {
@@ -88,7 +90,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      this.show = (-1 < progress && progress <= 2.3) || true;
+      this.show = -4 < progress && progress <= 2.3;
 
       if (!this.show) return;
 
@@ -119,10 +121,10 @@ export default {
       }
 
       if (-0.5 <= progress && progress < 0) {
-        this.wrapperStyle.top = `calc(${-progress * 1}*75vw)`;
-        this.wrapperStyle.transform = `scale(${
-          0.7 + 0.3 * (progress + 0.5) * 2
-        })`;
+        this.wrapperStyle.top = `calc(${-progress * 1}*20vw)`;
+        // this.wrapperStyle.transform = `scale(${
+        // 0.7 + 0.3 * (progress + 0.5) * 2
+        // })`;
       }
     },
   },
@@ -200,9 +202,9 @@ export default {
     will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
-    left: calc(500vw / 19.2);
-    top: calc(401vw / 19.2);
-    width: calc(1221vw / 19.2);
+    left: 38.04vw;
+    top: 22.88vw;
+    width: 63.59vw;
     z-index: 4;
   }
 
@@ -212,9 +214,9 @@ export default {
     transition: transform 0.2s linear;
     position: absolute;
     left: 50%;
-    top: calc(1266vw / 19.2);
-    width: calc(1330vw / 19.2);
-    transform: translate(-57%);
+    top: 65.93vw;
+    width: 69.27vw;
+    transform: translateX(-45%);
   }
 }
 </style>

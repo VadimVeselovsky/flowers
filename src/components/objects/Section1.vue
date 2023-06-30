@@ -1,6 +1,9 @@
 <template>
   <div class="content-block-item section1">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
+      <Teleport to="#indicators">
+        <div style="left: 16rem">5</div>
+      </Teleport>
       <div class="section1__pre-block pre-block">
         <img
           :style="{ transform: transforms.preimg1 }"
@@ -106,7 +109,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      this.show = -1 < progress && progress <= hideOn;
+      this.show = -1.5 < progress && progress <= hideOn;
 
       if (!this.show) return;
 

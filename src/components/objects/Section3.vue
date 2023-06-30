@@ -1,6 +1,9 @@
 <template>
   <div class="content-block-item section3">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
+      <Teleport to="#indicators">
+        <div style="left: 4rem">2</div>
+      </Teleport>
       <img
         :style="{ transform: transforms.img1 }"
         class="section3__img1"

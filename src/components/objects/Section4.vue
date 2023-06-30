@@ -2,6 +2,9 @@
   <div class="content-block-item section4">
     <audio loop src="/flowers/section4.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
+      <Teleport to="#indicators">
+        <div style="left: 8rem">3</div>
+      </Teleport>
       <div class="section4__container">
         <img
           :style="{ transform: transforms.img1 }"

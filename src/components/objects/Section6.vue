@@ -2,6 +2,9 @@
   <div class="content-block-item section6">
     <audio loop src="/flowers/section6.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
+      <Teleport to="#indicators">
+        <div style="left: 12rem">4</div>
+      </Teleport>
       <video class="section6__img6" autoplay loop muted>
         <source
           src="@/assets/images/section6/animation1.webm"

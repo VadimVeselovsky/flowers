@@ -2,6 +2,9 @@
   <div class="content-block-item section5">
     <audio loop src="/flowers/section5.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
+      <Teleport to="#indicators">
+        <div style="left: 24rem">7</div>
+      </Teleport>
       <div
         class="section5__first-plan"
         :style="{ transform: transforms.first_plan }"
@@ -124,7 +127,7 @@ export default {
           (rect.y - document.getElementById("app").getBoundingClientRect().y),
         progress = scrollY / (rect.height - window.innerHeight);
 
-      this.show = -2 < progress || true;
+      this.show = -12 < progress;
 
       if (-0.9 <= progress) this.playSound();
       else this.stopSound();

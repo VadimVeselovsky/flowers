@@ -1,6 +1,9 @@
 <template>
   <div class="content-block-item section7">
     <div :style="wrapperStyle" class="wrapper" v-if="show">
+      <Teleport to="#indicators">
+        <div>1</div>
+      </Teleport>
       <div
         class="section7__text1 text"
         :class="{ section7__text1_animated: showAnimations }"
@@ -19,9 +22,8 @@
         stops and reverses the energy
       </div>
       <div class="section7__text3 text">
-        the action and the movements<br />chronically blocked,<br />through the
-        body retroflection process,<br /><br />determine a distortion of the
-        bodily life
+        the action and the movements<br />chronically blocked<br /><br />determine
+        a distortion of the bodily life
       </div>
       <div
         class="section7__text4 text"
@@ -160,8 +162,8 @@ export default {
 }
 
 @keyframes fade-in-out {
-  25%,
-  75% {
+  15%,
+  95% {
     opacity: 1;
   }
   to {
@@ -204,7 +206,7 @@ export default {
   &__text1 {
     position: absolute;
     left: 23vw;
-    top: 0vw;
+    top: 4vw;
     transform: translateX(-50%);
     opacity: 0;
     &_animated {
@@ -216,7 +218,7 @@ export default {
   &__text2 {
     position: absolute;
     left: 56vw;
-    top: 8vw;
+    top: 12vw;
     transform: translateX(-50%);
     opacity: 0;
     &_animated {
@@ -245,7 +247,7 @@ export default {
     transition: opacity 1s;
 
     &_animate {
-      animation: 6s ease 1.5s fade-in-out;
+      animation: 10s ease 0.5s fade-in-out;
       animation-fill-mode: forwards;
     }
   }
@@ -301,7 +303,7 @@ export default {
     z-index: 50;
 
     &_animated {
-      animation: 7s ease  booping_small1;
+      animation: 7s ease booping_small1;
       animation-iteration-count: infinite;
     }
   }
