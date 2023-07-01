@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section7">
-    <audio loop src="/flowers/section7.m4a" ref="sound"></audio>
+    <audio volume="0.5" loop src="/flowers/section7.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show">
       <Teleport to="#indicators">
         <div>1: {{ (progress * 100).toFixed(0) }}</div>

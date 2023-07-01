@@ -77,6 +77,7 @@ onMounted(() => {
   bottom: 0;
   z-index: 1000;
   color: black;
+  user-select: none;
 
   &__title {
     position: absolute;
@@ -85,9 +86,8 @@ onMounted(() => {
     font-size: 92px;
     transform: translate(-50%, -50%);
     opacity: 0;
-    animation: 1s ease 0.5s fade-in;
+    animation: 1.5s ease 1s fade-in;
     animation-fill-mode: forwards;
-
     letter-spacing: 4px;
   }
 
@@ -99,7 +99,7 @@ onMounted(() => {
     font-style: italic;
     line-height: 1.2;
     opacity: 0;
-    animation: 1s ease 2s fade-in;
+    animation: 1.5s ease 3.4s fade-in;
     animation-fill-mode: forwards;
     top: 47%;
     letter-spacing: 0.5px;
@@ -113,7 +113,7 @@ onMounted(() => {
     background: transparent;
     border: none;
     color: black;
-    animation: 1s ease 5s fade-in;
+    animation: 1s ease 8s fade-in;
     animation-fill-mode: both;
     cursor: default;
     top: 63%;
@@ -127,6 +127,7 @@ onMounted(() => {
     background-size: 100% 100%;
     height: 200px;
     width: 285px;
+    background-image: url(@/assets/images/opening/2.jpg);
 
     &_hoverable {
       animation-fill-mode: none;
