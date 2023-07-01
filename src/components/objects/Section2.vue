@@ -119,12 +119,14 @@ export default {
           this.wrapperStyle.top = `calc(${-progress * 1}*20vw)`;
         }
       } else if (0 <= progress && progress <= 1) {
-        progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
-        this.wrapperStyle.transform = `scale(${
-          progress * 0.25 + 0.75
-        }) translateY(${(1 - progress) * 25}vh)`;
+        const easedProgress =
+          (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
 
-        this.makeTransformsForStage(progress);
+        this.wrapperStyle.transform = `scale(${
+          easedProgress * 0.25 + 0.75
+        }) translateY(${(1 - easedProgress) * 25}vh)`;
+
+        this.makeTransformsForStage(easedProgress);
 
         this.wrapperStyle.position = "fixed";
       } else if (1 < progress && progress <= 2) {
@@ -138,10 +140,14 @@ export default {
         this.wrapperStyle.position = "absolute";
       }
 
-      if (1.5 < progress && progress < 2) {
-        this.styles.img1.right = `${-40.88 - (progress - 1.5) * 2 * 150}vw`;
-        this.styles.img3.left = `${-97.08 - (progress - 1.5) * 2 * 150}vw`;
-        this.styles.img4.right = `${4.79 - (progress - 1.5) * 2 * 250}vw`;
+      if (1.45 < progress && progress < 2) {
+        const easedProgress =
+          (Math.sin(((progress - 1.45) / (2 - 1.45)) * Math.PI - Math.PI / 2) +
+            1) /
+          2;
+        this.styles.img1.right = `${-40.88 - easedProgress * 150}vw`;
+        this.styles.img3.left = `${-97.08 - easedProgress * 150}vw`;
+        this.styles.img4.right = `${4.79 - easedProgress * 250}vw`;
       } else {
         this.styles.img1.left = null;
         this.styles.img3.left = null;
