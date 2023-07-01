@@ -39,13 +39,15 @@
       </div>
       <div class="section2__text2 text">
         the blocked action manifests itself <br />
-        as tension and immobility in the muscular groups involved.
+        as tension and immobility in the muscular groups involved
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { throttle } from "lodash-es";
+
 export default {
   data() {
     return {
@@ -74,7 +76,7 @@ export default {
   },
 
   methods: {
-    makeTransformsForStage(progress) {
+    makeTransformsForStage: throttle(function (progress) {
       const inverse = 1 - progress;
 
       this.transforms.img1 = `scale(${1 - 0.2 * inverse}) translate(-${
@@ -86,7 +88,7 @@ export default {
       this.transforms.img3 = `scale(${0.82 - 0.33 * inverse}) translate(${
         (-23 + inverse * 1139) / 19.2
       }vw, -${(379 + inverse * 151) / 19.2}vw) rotate(${47 - 2 * inverse}deg)`;
-    },
+    }, 100),
 
     onScroll() {
       let rect = this.$el.getBoundingClientRect(),
@@ -114,7 +116,7 @@ export default {
           progress * 0.25 + 0.75
         }) translateY(${(1 - progress) * 25}vh)`;
 
-        if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
+        this.makeTransformsForStage(progress);
 
         this.wrapperStyle.position = "fixed";
       } else if (1 < progress && progress <= 2) {
@@ -211,10 +213,11 @@ export default {
     will-change: transform;
     transition: transform 0.2s linear;
     position: absolute;
-    left: 38.04vw;
-    top: 22.88vw;
+    left: 34.04vw;
+    top: 21.88vw;
     width: 63.59vw;
     z-index: 4;
+    font-size: 1.9vw;
   }
 
   &__text2 {

@@ -1,7 +1,7 @@
 <template>
   <OpeningScreen @opened="(show = true), scrollToTop()" />
   <div style="height: 10vw"></div>
-  <Section7 :showAnimations="show" />
+  <Section7 :isActive="show" />
   <Section3 />
   <Section4 />
   <Section6 />

@@ -228,7 +228,7 @@ export default {
     transition: transform 0.2s linear;
     position: absolute;
     left: calc(947vw / 19.2);
-    top: calc(273vw / 19.2);
+    top: 16vw;
   }
 }
 

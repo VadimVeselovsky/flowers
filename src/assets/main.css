@@ -42,7 +42,7 @@ a,
   left: 15px;
   z-index: 5000;
   display: flex;
-  display: none;
+  /* display: none; */
 }
 
 #indicators div {

@@ -58,11 +58,13 @@ onMounted(() => {
 }
 
 @keyframes flickering {
-  from {
-    opacity: 0.5;
+  from,
+  49% {
+    background-image: url(@/assets/images/opening/1.jpg);
   }
+  50%,
   to {
-    opacity: 1;
+    background-image: url(@/assets/images/opening/2.jpg);
   }
 }
 
@@ -101,6 +103,7 @@ onMounted(() => {
     animation-fill-mode: forwards;
     top: 47%;
     letter-spacing: 0.5px;
+    z-index: 5;
   }
 
   &__button {
@@ -113,15 +116,23 @@ onMounted(() => {
     animation: 1s ease 5s fade-in;
     animation-fill-mode: both;
     cursor: default;
-    top: 61%;
+    top: 63%;
     font-style: italic;
-    font-size: 51px;
+    font-size: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: 30% 1%;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 200px;
+    width: 285px;
 
     &_hoverable {
       animation-fill-mode: none;
       cursor: pointer;
       &:hover {
-        animation: 0.3s ease 0 flickering;
+        animation: 1.3s ease 0 flickering;
         animation-iteration-count: infinite;
       }
     }

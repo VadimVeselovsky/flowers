@@ -1,12 +1,13 @@
 <template>
   <div class="content-block-item section7">
+    <audio loop src="/flowers/section7.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show">
       <Teleport to="#indicators">
-        <div>1</div>
+        <div>1: {{ (progress * 100).toFixed(0) }}</div>
       </Teleport>
       <div
         class="section7__text1 text"
-        :class="{ section7__text1_animated: showAnimations && scrolled }"
+        :class="{ section7__text1_animated: isActive && scrolled }"
         :style="styles.text1"
       >
         we can learn a chronic and unaware way<br />
@@ -14,7 +15,7 @@
       </div>
       <div
         class="section7__text2 text"
-        :class="{ section7__text2_animated: showAnimations && scrolled }"
+        :class="{ section7__text2_animated: isActive && scrolled }"
         :style="styles.text2"
       >
         the person, fearing risk and humiliation,<br />
@@ -74,7 +75,7 @@
 <script>
 export default {
   props: {
-    showAnimations: {
+    isActive: {
       type: Boolean,
       default: false,
     },
@@ -102,6 +103,17 @@ export default {
   },
 
   methods: {
+    playSound() {
+      const sound = this.$refs.sound;
+      if (sound.paused) sound.play();
+    },
+
+    stopSound() {
+      if (this.$refs.sound.paused) return;
+      this.$refs.sound.currentTime = 0;
+      this.$refs.sound.pause();
+    },
+
     makeTransformsForStage(progress) {
       progress = Math.max(Math.min(progress, 1), 0);
       progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
@@ -122,6 +134,9 @@ export default {
       this.show = -2 < progress && progress < 1.2;
 
       if (!!e) this.scrolled = true;
+
+      if (progress < 0.68) this.playSound();
+      else this.stopSound();
 
       if (!this.show) return;
 
@@ -225,7 +240,7 @@ export default {
     transform: translateX(-50%);
     opacity: 0;
     &_animated {
-      animation: 1s ease 2.8s fade-in;
+      animation: 1s ease 4.5s fade-in;
       animation-fill-mode: forwards;
     }
   }

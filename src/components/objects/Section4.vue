@@ -128,7 +128,7 @@ export default {
 }
 
 .section4 {
-  height: calc(1162vw / 19.2);
+  height: 63.520833vw;
 
   &__container {
     position: absolute;
@@ -202,7 +202,7 @@ export default {
     transform-origin: center;
     position: absolute;
     left: 59.864583vw;
-    bottom: 3.604167vw;
+    bottom: 6.604167vw;
   }
 }
 </style>

@@ -177,11 +177,11 @@ $animation-speed: 10s;
 }
 
 @keyframes wind-2 {
-  40% {
+  0% {
     transform: none;
     animation-timing-function: ease-out;
   }
-  66% {
+  26% {
     transform: scale(0.995) rotate(4deg);
   }
 }
@@ -227,7 +227,7 @@ $animation-speed: 10s;
     top: 0.7vw;
     position: absolute;
     z-index: 50;
-    left: calc(1417vw / 19.2);
+    left: 71.802083vw;
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
   }
@@ -236,7 +236,7 @@ $animation-speed: 10s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(1057vw / 19.2);
+    left: 53.052083vw;
     top: 9.2vw;
     width: 25vw;
     z-index: 2;
@@ -248,7 +248,7 @@ $animation-speed: 10s;
     transform-origin: center;
     will-change: transform;
     position: absolute;
-    left: calc(1271vw / 19.2);
+    left: 64.197917vw;
     width: 35.4vw;
     top: 14.3vw;
     z-index: 100;
