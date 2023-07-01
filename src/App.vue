@@ -30,6 +30,11 @@ function scrollToTop() {
 }
 
 onMounted(scrollToTop);
+
+onMounted(() => {
+  if (location.host.startsWith("localhost"))
+    document.getElementById("indicators").style.display = "flex";
+});
 </script>
 
 <style lang="scss">
