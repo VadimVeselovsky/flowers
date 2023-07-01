@@ -1,15 +1,17 @@
 <template>
-  <OpeningScreen @opened="(show = true), scrollToTop()" />
-  <div style="height: 10vw"></div>
-  <Section7 :isActive="show" />
-  <Section3 />
-  <Section4 />
-  <Section6 />
-  <Section1 />
-  <div style="height: 100vw"></div>
-  <Section2 />
-  <div style="height: 130vw"></div>
-  <Section5 />
+  <div :class="{ 'zero-height': !show }">
+    <OpeningScreen @opened="(show = true), scrollToTop()" />
+    <div style="height: 10vw"></div>
+    <Section7 :isActive="show" />
+    <Section3 />
+    <Section4 />
+    <Section6 />
+    <Section1 />
+    <div style="height: 100vw"></div>
+    <Section2 />
+    <div style="height: 130vw"></div>
+    <Section5 />
+  </div>
 </template>
 
 <script setup>
@@ -42,5 +44,8 @@ onMounted(() => {
   &-item {
     position: relative;
   }
+}
+.zero-height {
+  height: 0;
 }
 </style>

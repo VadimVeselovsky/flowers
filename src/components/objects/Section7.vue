@@ -135,7 +135,7 @@ export default {
 
       if (!!e) this.scrolled = true;
 
-      if (progress < 0.68) this.playSound();
+      if (0.22 < progress && progress < 0.68) this.playSound();
       else this.stopSound();
 
       if (!this.show) return;

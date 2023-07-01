@@ -11,7 +11,7 @@
         class="opening-screen__button"
         :class="{ 'opening-screen__button_hoverable': isButtonSeen }"
         @animationstart.once="isButtonSeen = true"
-        @click="isButtonSeen ? close() : null"
+        @mouseup="isButtonSeen ? close() : null"
       >
         please enter
       </button>
@@ -26,11 +26,12 @@ const emit = defineEmits(["opened"]);
 
 const isOpened = ref(true),
   isButtonSeen = ref(false),
-  close = () => {
-    isOpened.value = false;
-    document.body.style.overflow = "";
-    emit("opened");
-  };
+  close = () =>
+    setTimeout(() => {
+      isOpened.value = false;
+      document.body.style.overflow = "";
+      emit("opened");
+    }, 1300);
 
 onMounted(() => {
   document.body.style.overflow = "hidden";
@@ -40,7 +41,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 2s ease;
 }
 
 .v-enter-from,
@@ -128,14 +129,18 @@ onMounted(() => {
     height: 200px;
     width: 285px;
     background-image: url(@/assets/images/opening/2.jpg);
+    outline: none !important;
+    border: none !important;
+    transition: 0.2s background-image;
+    &:hover {
+      background-image: url(@/assets/images/opening/1.jpg);
+    }
+    &:active {
+      opacity: 0.5 !important;
+    }
 
     &_hoverable {
-      animation-fill-mode: none;
       cursor: pointer;
-      &:hover {
-        animation: 1.3s ease 0 flickering;
-        animation-iteration-count: infinite;
-      }
     }
   }
 }

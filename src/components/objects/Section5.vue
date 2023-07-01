@@ -1,9 +1,12 @@
 <template>
-  <div class="content-block-item section5">
+  <div
+    class="content-block-item section5"
+    :class="{ section5_animated: progress > 0.4 }"
+  >
     <audio loop src="/flowers/section5.m4a" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <Teleport to="#indicators">
-        <div style="left: 24rem">7</div>
+        <div style="left: 24rem">7: {{ (progress * 100).toFixed(0) }}</div>
       </Teleport>
       <div
         class="section5__first-plan"
@@ -48,7 +51,10 @@
         and to gradually overcome the blocks<br />
         he has put<br /><br />
         between himself and the environment
-        <div class="thin-spikelet section5__spikelet-1">
+        <div
+          class="thin-spikelet section5__spikelet-1"
+          :class="{ 'thin-spikelet_animated': progress > 0.4 }"
+        >
           <div class="thin-spikelet__bone-1">
             <img
               class="thin-spikelet__img1"
@@ -77,6 +83,7 @@
 export default {
   data() {
     return {
+      progress: 0,
       show: false,
       transforms: {},
       wrapperStyle: {
@@ -128,6 +135,8 @@ export default {
         progress = scrollY / (rect.height - window.innerHeight);
 
       this.show = -12 < progress;
+
+      this.progress = progress;
 
       if (-0.9 <= progress) this.playSound();
       else this.stopSound();
@@ -203,6 +212,14 @@ $animation-speed: 10s;
 .section5 {
   height: 100vw;
 
+  &_animated {
+    .section5__img3,
+    .section5__img4,
+    .section5__img7 {
+      animation-play-state: running;
+    }
+  }
+
   &__second-plan {
     position: absolute;
     width: 100%;
@@ -230,6 +247,7 @@ $animation-speed: 10s;
     left: 71.802083vw;
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
+    animation-play-state: paused;
   }
 
   &__img4 {
@@ -242,6 +260,7 @@ $animation-speed: 10s;
     z-index: 2;
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
+    animation-play-state: paused;
   }
 
   &__img7 {
@@ -254,6 +273,7 @@ $animation-speed: 10s;
     z-index: 100;
     transform-origin: 51% 114%;
     animation: wind-2 #{$animation-speed} infinite;
+    animation-play-state: paused;
   }
 
   &__img8 {
@@ -292,6 +312,14 @@ $animation-speed: 10s;
   right: 93%;
   top: -8.854167vw;
 
+  &_animated {
+    .thin-spikelet__bone-1,
+    .thin-spikelet__img1,
+    .thin-spikelet__img2 {
+      animation-play-state: running;
+    }
+  }
+
   &__bone-1 {
     position: absolute;
     left: 2.7vw;
@@ -302,6 +330,7 @@ $animation-speed: 10s;
     transform-origin: 45% bottom;
     transform: rotate(-0.5deg);
     animation: wind-1 #{$animation-speed} infinite;
+    animation-play-state: paused;
     animation-timing-function: ease;
   }
 
@@ -315,6 +344,7 @@ $animation-speed: 10s;
     z-index: 3;
     transform-origin: 77% 92%;
     animation: wind-2 #{$animation-speed} infinite;
+    animation-play-state: paused;
   }
 
   &__img2 {
@@ -326,6 +356,7 @@ $animation-speed: 10s;
     transform-origin: 36% 97%;
     animation-delay: -0.1s;
     animation: wind-3 #{$animation-speed} ease-in-out 0s infinite;
+    animation-play-state: paused;
   }
 
   &__img3 {
