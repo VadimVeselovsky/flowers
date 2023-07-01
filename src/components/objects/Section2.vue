@@ -101,14 +101,21 @@ export default {
 
       this.progress = progress;
 
-      if (progress < 0) this.makeTransformsForStage(0);
+      this.wrapperStyle.transform = null;
+
+      if (progress < 0) {
+        this.makeTransformsForStage(0);
+        this.wrapperStyle.transform = "scale(0.75) translateY(25vh)";
+      }
 
       if (0 <= progress && progress <= 1) {
         progress = (Math.sin(progress * Math.PI - Math.PI / 2) + 1) / 2;
+        this.wrapperStyle.transform = `scale(${
+          progress * 0.25 + 0.75
+        }) translateY(${(1 - progress) * 25}vh)`;
 
         if (this.counter++ % 4 === 0) this.makeTransformsForStage(progress);
 
-        this.wrapperStyle.transform = null;
         this.wrapperStyle.position = "fixed";
       } else if (1 < progress && progress <= 2) {
         this.wrapperStyle.position = "fixed";
@@ -120,7 +127,6 @@ export default {
         this.makeTransformsForStage(1);
       } else {
         this.wrapperStyle.position = "absolute";
-        this.wrapperStyle.transform = null;
       }
 
       if (-0.5 <= progress && progress < 0) {
@@ -137,6 +143,7 @@ export default {
   height: 100%;
   width: 100%;
   top: 0;
+  transform-origin: 50% 0;
 }
 .section2 {
   height: calc(3000vw / 19.2);
