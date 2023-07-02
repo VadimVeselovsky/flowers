@@ -1,6 +1,6 @@
 <template>
   <div class="content-block-item section6">
-    <audio loop src="/flowers/section6.m4a" ref="sound"></audio>
+    <audio loop src="/flowers/section6.m4a?t=2" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <Teleport to="#indicators">
         <div style="left: 12rem">4</div>

@@ -3,7 +3,7 @@
     <audio
       volume="0.5"
       loop
-      src="/flowers/section7.m4a?t=1"
+      src="/flowers/section7.m4a?t=2"
       ref="sound"
     ></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show">
@@ -140,7 +140,7 @@ export default {
 
       if (!!e) this.scrolled = true;
 
-      if (0.1 < progress && progress < 0.68) this.playSound();
+      if (0.22 < progress && progress < 0.68) this.playSound();
       else this.stopSound();
 
       if (!this.show) return;

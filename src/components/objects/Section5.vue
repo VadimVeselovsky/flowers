@@ -1,9 +1,12 @@
 <template>
   <div
     class="content-block-item section5"
-    :class="{ section5_animated: progress > 0.4 }"
+    :class="{
+      section5_animated: progress > 0.4,
+      section5_hidden: progress < -0.5,
+    }"
   >
-    <audio loop src="/flowers/section5.m4a" ref="sound"></audio>
+    <audio loop src="/flowers/section5.m4a?t=2" ref="sound"></audio>
     <div :style="wrapperStyle" class="wrapper" v-if="show" @click="playSound">
       <Teleport to="#indicators">
         <div style="left: 24rem">7: {{ (progress * 100).toFixed(0) }}</div>
@@ -140,7 +143,7 @@ export default {
 
       this.progress = progress;
 
-      if (-0.9 <= progress) this.playSound();
+      if (0 <= progress) this.playSound();
       else this.stopSound();
 
       if (!this.show) return;
@@ -213,6 +216,7 @@ $animation-speed: 10s;
 
 .section5 {
   height: 100vw;
+  transition: 1.5s opacity;
 
   &_animated {
     .section5__img3,
@@ -220,6 +224,10 @@ $animation-speed: 10s;
     .section5__img7 {
       animation-play-state: running;
     }
+  }
+
+  &_hidden {
+    opacity: 0;
   }
 
   &__second-plan {
