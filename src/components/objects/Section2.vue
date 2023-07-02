@@ -140,20 +140,18 @@ export default {
         this.wrapperStyle.position = "absolute";
       }
 
-      if (1.45 < progress && progress < 2.5) {
+      if (1.57 <= progress && progress <= 2) {
         const easedProgress =
-          (Math.sin(
-            ((progress - 1.45) / (2.5 - 1.45)) * Math.PI - Math.PI / 2
-          ) +
+          (Math.sin(((progress - 1.57) / (2 - 1.57)) * Math.PI - Math.PI / 2) +
             1) /
           2;
         this.styles.img1.right = `${-40.88 - easedProgress * 150}vw`;
         this.styles.img3.left = `${-97.08 - easedProgress * 150}vw`;
         this.styles.img4.right = `${4.79 - easedProgress * 250}vw`;
       } else {
-        this.styles.img1.left = null;
+        this.styles.img1.right = null;
         this.styles.img3.left = null;
-        this.styles.img4.left = null;
+        this.styles.img4.right = null;
       }
     },
   },
