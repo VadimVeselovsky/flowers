@@ -196,7 +196,7 @@ $animation-speed: 10s;
     animation-timing-function: ease-out;
   }
   26% {
-    transform: scale(0.995) rotate(4deg);
+    transform: scale(0.995) rotate(7deg);
   }
 }
 
@@ -217,6 +217,7 @@ $animation-speed: 10s;
 .section5 {
   height: 100vw;
   transition: 1.5s opacity;
+  transition-delay: 0.5s;
 
   &_animated {
     .section5__img3,
