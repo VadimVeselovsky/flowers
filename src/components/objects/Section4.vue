@@ -28,12 +28,14 @@
         />
       </div>
       <div :style="{ transform: transforms.text }" class="section4__text3 text">
-        his need to assert himself<br />
-        and his anger<br />
-        in the compression of his abdominal<br />and gastric musculature<br />
-        <br />
-        and in the withdrawal of energy<br />
-        from his shoulders and arms
+        <i>
+          his need to assert himself<br />
+          and his anger<br />
+          in the compression of his abdominal<br />and gastric musculature<br />
+          <br />
+          and in the withdrawal of energy<br />
+          from his shoulders and arms
+        </i>
       </div>
     </div>
   </div>

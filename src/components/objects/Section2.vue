@@ -140,9 +140,11 @@ export default {
         this.wrapperStyle.position = "absolute";
       }
 
-      if (1.45 < progress && progress < 2) {
+      if (1.45 < progress && progress < 2.5) {
         const easedProgress =
-          (Math.sin(((progress - 1.45) / (2 - 1.45)) * Math.PI - Math.PI / 2) +
+          (Math.sin(
+            ((progress - 1.45) / (2.5 - 1.45)) * Math.PI - Math.PI / 2
+          ) +
             1) /
           2;
         this.styles.img1.right = `${-40.88 - easedProgress * 150}vw`;

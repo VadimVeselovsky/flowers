@@ -43,8 +43,10 @@
       />
       <div :style="{ transform: transforms.text }" class="section1__text text">
         everything would be blocked, frozen:<br />
-        contact with pleasant sensations in his body was for him a source of
-        fear
+        <i>
+          contact with pleasant sensations in his body was for him a source of
+          fear
+        </i>
       </div>
     </div>
   </div>

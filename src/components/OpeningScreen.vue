@@ -1,6 +1,10 @@
 <template>
   <Transition>
-    <div v-if="isOpened" class="opening-screen">
+    <div
+      v-if="isOpened"
+      class="opening-screen"
+      :class="{ 'opening-screen_no-text': !isTextSeen }"
+    >
       <h1 class="opening-screen__title">reversal</h1>
       <div class="opening-screen__text">
         this is a visual poem based on<br />
@@ -11,7 +15,7 @@
         class="opening-screen__button"
         :class="{ 'opening-screen__button_hoverable': isButtonSeen }"
         @animationstart.once="isButtonSeen = true"
-        @mouseup="isButtonSeen ? close() : null"
+        @mouseup="isButtonSeen ? hideText() : null"
       >
         please enter
       </button>
@@ -26,12 +30,17 @@ const emit = defineEmits(["opened"]);
 
 const isOpened = ref(true),
   isButtonSeen = ref(false),
-  close = () =>
-    setTimeout(() => {
-      isOpened.value = false;
-      document.body.style.overflow = "";
-      emit("opened");
-    }, 1300);
+  close = () => {
+    isOpened.value = false;
+    document.body.style.overflow = "";
+    emit("opened");
+  };
+
+const isTextSeen = ref(true),
+  hideText = () => {
+    setTimeout(() => (isTextSeen.value = false), 1000);
+    setTimeout(close, 2500);
+  };
 
 onMounted(() => {
   document.body.style.overflow = "hidden";
@@ -39,11 +48,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 2s ease;
-}
-
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
@@ -79,6 +83,22 @@ onMounted(() => {
   z-index: 1000;
   color: black;
   user-select: none;
+  transition: opacity 2s ease, color 1s ease;
+
+  &::after {
+    content: "";
+    transition: background-color 1s;
+  }
+
+  &_no-text::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 500;
+  }
 
   &__title {
     position: absolute;

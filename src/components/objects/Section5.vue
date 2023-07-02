@@ -44,13 +44,15 @@
         class="section5__text2 text"
         :style="{ transform: transforms.third_plan }"
       >
-        if he can feel accepted<br />and can finally allow himself to
-        entrust,<br /><br />
-        he will then be able to unfold<br />
-        the blocked contact deliberateness<br /><br />
-        and to gradually overcome the blocks<br />
-        he has put<br /><br />
-        between himself and the environment
+        <i>
+          if he can feel accepted<br />and can finally allow himself to
+          entrust,<br /><br />
+          he will then be able to unfold<br />
+          the blocked contact deliberateness<br /><br />
+          and to gradually overcome the blocks<br />
+          he has put<br /><br />
+          between himself and the environment
+        </i>
         <div
           class="thin-spikelet section5__spikelet-1"
           :class="{ 'thin-spikelet_animated': progress > 0.4 }"

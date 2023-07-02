@@ -31,7 +31,7 @@
         :class="{ section7__text4_animate: progress > 0.5 }"
       >
         the process through which<br />the movement is inhibited and blocked<br />
-        is called retroflection
+        is called <i>retroflection</i>
       </div>
       <img class="section7__img1" src="@/assets/images/section7/13.webp" />
       <img
@@ -135,7 +135,7 @@ export default {
 
       if (!!e) this.scrolled = true;
 
-      if (0.22 < progress && progress < 0.68) this.playSound();
+      if (0.1 < progress && progress < 0.68) this.playSound();
       else this.stopSound();
 
       if (!this.show) return;
