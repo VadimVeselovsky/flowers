@@ -3,7 +3,7 @@
     class="content-block-item section5"
     :class="{
       section5_animated: progress > 0.4,
-      section5_hidden: progress < -0.5,
+      section5_hidden: progress < 0,
     }"
   >
     <audio loop src="/flowers/section5.m4a?t=2" ref="sound"></audio>
